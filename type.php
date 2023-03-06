@@ -28,7 +28,7 @@ if (isset($_SESSION['type'])) {
 } else {
     echo "<div class='nav-item'>
                     <div class='dropdown'  style='width:150px'>
-                    <button class='btn dropdown-toggle' data-bs-toggle='dropdown'><i class='fa fa-user fa-2x'></i></button>
+                    <button class='btn dropdown-toggl' data-bs-toggle='dropdown'><i class='fa fa-user fa-2x'></i></button>
                     <div class='dropdown-menu'>
                         <a href='./validation/user_login.php' type='button' class='btn dropdown-header'><b>SIGN IN</b></a>
                         

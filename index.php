@@ -15,7 +15,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="shortcut icon" href="img/bowl.png" type="image/x-icon">
-    <link rel='stylesheet' href='assets/css/style.css'>
+    <!-- <link rel='stylesheet' href='assets/css/style.css'> -->
     <title>Shopping vendor</title>
 </head>
 
@@ -34,7 +34,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
                 </ul>
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <?php include_once('type.php')?>
+                        <?php include_once('type.php') ?>
                     </li>
                 </ul>
             </nav>
@@ -53,12 +53,14 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
                                 category</button>
                             <div class='dropdown-menu'>
                                 <div class='dropdown-item'>
-                                    <a href='./category/fast.php' class='dropdown-link text-black' style='text-decoration: none;'>
+                                    <a href='./category/fast.php' class='dropdown-link text-black'
+                                        style='text-decoration: none;'>
                                         <div class='dropdown-item-text'>Fast Food</div>
                                     </a>
                                 </div>
                                 <div class='dropdown-item'>
-                                    <a href='./category/local.php' class='dropdown-link text-black' style='text-decoration: none;'>
+                                    <a href='./category/local.php' class='dropdown-link text-black'
+                                        style='text-decoration: none;'>
                                         <div class='dropdown-item-text'>Local Delicacies</div>
                                     </a>
                                 </div>
@@ -201,37 +203,37 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
     </div></br>
     <!------------Footer Starts Here-------------->
     <div class="container-fluid bg-light">
-    <hr>
-    <div class="container-fluid bg-light">
-        <div class="row">
-            <div class="col-sm-4">
-                <h6>Newsletter</h6>
-                <p>Subscribe to get information about our food</p>
-            </div>
-            <div class="col-sm-8">
-                <form action="" method="post" class="form">
-                    <input type="text" name="email" id="" class="form-control">
-                    <span><input type="submit" class="input-group-text"><i class="fa fa-envelope"></i></span>
-                </form>
+        <hr>
+        <div class="container-fluid bg-light">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h6>Newsletter</h6>
+                    <p>Subscribe to get information about our food</p>
+                </div>
+                <div class="col-sm-8">
+                    <form action="" method="post" class="form">
+                        <input type="text" name="email" id="" class="form-control">
+                        <span><input type="submit" class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    </form>
 
+                </div>
             </div>
         </div>
+        <hr>
+        <p>Follow us on</p>
+        <a href='https://twitter.com/offixial_hanif' style='color:black'><i class='fa-brands fa-twitter fa-2x'></i></a>
+        <a href='https://www.instagram.com/offixial_hanif/' style='color:black'><i
+                class='fa-brands fa-instagram fa-2x'></i></a>
+        <a href='https://wa.me/23409061887329' style='color:black'><i class='fa-brands fa-whatsapp fa-2x'></i></a>
+        <hr>
     </div>
-    <hr>
-    <p>Follow us on</p>
-    <a href='https://twitter.com/offixial_hanif' style='color:black'><i class='fa-brands fa-twitter fa-2x'></i></a>
-    <a href='https://www.instagram.com/offixial_hanif/' style='color:black'><i
-            class='fa-brands fa-instagram fa-2x'></i></a>
-    <a href='https://wa.me/23409061887329' style='color:black'><i class='fa-brands fa-whatsapp fa-2x'></i></a>
-    <hr>
-</div>
 
 
 
 
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js'></script>
 </body>
 
 </html>

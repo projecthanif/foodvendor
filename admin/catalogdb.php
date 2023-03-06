@@ -1,6 +1,5 @@
-<?PHP
-// require_once('/connect.php');
-$conn = mysqli_connect('localhost', 'root', '', 'admin');
+<?php
+require_once('../connection/connect.php');
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   $item_name = $_POST['name'] ?? '';
   $item_details = $_POST['details'] ?? '';
@@ -13,11 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       $extension = array('png', 'jpg', 'jpeg');
       $ext = explode('.', $pic);
       $end = end($ext);
-      if(!in_array($end, $extension)){
-          echo 'png,jpg,jpeg only';
+      if (!in_array($end, $extension)) {
+        echo 'png,jpg,jpeg only';
       }
-      $pic_name ="IMG-". rand(1000, 2000) . '.' . $end;
-      move_uploaded_file($pic_tmp, "imgupload/" . $pic_name);
+      $pic_name = "IMG-" . rand(1000, 2000) . '.' . $end;
+      move_uploaded_file($pic_tmp, "../imgupload/" . $pic_name);
 
 
       if (empty($item_name && $item_price)) {
@@ -38,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
   }
-}else{
+} else {
   header("Location: catalog.php");
 }
-  
+
 ?>
