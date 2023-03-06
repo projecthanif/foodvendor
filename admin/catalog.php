@@ -1,5 +1,6 @@
 <?php
-// if ($_SESSION['type'] == 'admin') {
+session_start();
+if ($_SESSION['type'] == 'admin') {
 include_once('./html/head.html');
 
 
@@ -15,7 +16,7 @@ echo "
             </div>
         </div>";
 include_once('./html/foot.html');
-// } else {
-// header("Location: index.php");
-// }
+} else {
+header("Location: index.php");
+}
 ?>

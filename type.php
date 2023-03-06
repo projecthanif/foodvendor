@@ -6,9 +6,8 @@ if (isset($_SESSION['type'])) {
                             <div class='dropdown'>
                             <button class='btn dropdown-toggle' data-bs-toggle='dropdown'><i class='fa fa-user fa-2X'><a href='#'  style='text-decoration:none; color: black;'></i><b>" . $_SESSION['name'] . "</b></a></button>
                             <div class='dropdown-menu'>
-                                <a href='dashboard.php' class='dropdown-item' style=''><div class='dropdown-item-text'><i class='fa fa-user'>Dashboard</i></div></a>
-                                <a href='' class='dropdown-item' style='color: black;'><div class='dropdown-item-text'><i class='fa fa-message'>Inbox</i></div></a>
-                                <a href='./validation/logout.php' type='button' class='btn dropdown-footer' style='color:black;'><div class='dropdown-item-text'>LOGOUT</div></a>
+                                <a href='./admin/dashboard.php' class='dropdown-item' style=''><div class='dropdown-item-text'><i class='fa fa-user'></i>Dashboard</div></a>
+                                <a href='./validation/logout.php' type='button' class='btn dropdown-footer' style='color:black;'><div class='dropdown-item-text'>Logout</div></a>
                             </div>
                             </div>
                         </div>";

@@ -1,7 +1,7 @@
 <?php
 // session_start();
 require_once('connection/connect.php');
-if (!$_SESSION) {
+if ($_SESSION) {
   include_once('header.html');
   echo "           <div class='container-fluid'>
                 <div class='container-fluid m-3'>
