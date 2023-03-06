@@ -17,8 +17,9 @@ if ($_SESSION['type'] == 'admin') {
         echo "
                     <style>
                        th,td{
-                        padding:10px;
+                        padding:20px;
                        }
+                       tr:hover{background-color:grey;}
                     </style>
                     
                     ";
