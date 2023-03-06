@@ -1,22 +1,22 @@
 <?php
 session_start();
 if ($_SESSION['type'] == 'admin') {
-include_once('./html/head.html');
+    include_once('./html/head.html');
 
 
-echo "        
+    echo "        
 <div class='side'>
     <div class='containerfluid'>";
-         include_once('get.php'); 
-         echo"
+    include_once('get.php');
+    echo "
     </div>
 </div>
                     </div>
                 </div>
             </div>
         </div>";
-include_once('./html/foot.html');
+    include_once('./html/foot.html');
 } else {
-header("Location: index.php");
+    header("Location:../index.php");
 }
 ?>

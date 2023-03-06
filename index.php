@@ -34,7 +34,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
                 </ul>
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <?php include_once('type.php') ?>
+                        <?php $address1='./admin/dashboard.php'; $address2='./validation/logout.php'; include_once('type.php') ?>
                     </li>
                 </ul>
             </nav>

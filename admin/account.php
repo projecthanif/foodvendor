@@ -23,10 +23,10 @@ if ($_SESSION['type'] == 'admin') {
                     </style>
                     
                     ";
-        echo "<table class='table-bordered' style='text-align:center;'><thead ><tr><th>FirstName</th><th>LastName</th><th>Email</th><th>Type of Account</th></tr></thead><tbody>";
+        echo "<table class='table-bordered' style='text-align:center;'><thead ><tr><th>Number</th><th>FirstName</th><th>LastName</th><th>Email</th><th>Type of Account</th></tr></thead><tbody>";
         while ($row = $result->fetch_assoc()) {
 
-            echo "<tr>" . "<td  class='p-2'>" . $row["user_fname"] . "</td>" . "<td>" . $row["user_lname"] . "</td>" . "<td>" . $row["user_email"] . "</td>" . "<td>" . $row["type"] . "</td>" . "</tr>";
+            echo "<tr>" . "<td>" . $row["userid"] ."<td>" . $row["user_fname"] . "</td>" . "<td>" . $row["user_lname"] . "</td>" . "<td>" . $row["user_email"] . "</td>" . "<td>" . $row["type"] . "</td>" . "</tr>";
         }
         echo "</tbody></table>";
     } else {
