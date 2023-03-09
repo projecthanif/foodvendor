@@ -180,7 +180,7 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="form-input">
-                        <form action="../email.php" method="post" class="form">
+                        <form action="" method="post" class="form">
                             <input type="text" name="email" id="" class="form-control">
                             <button type="submit" class="input-group-text"><i class="fa fa-envelope"></i></button>
                         </form>
