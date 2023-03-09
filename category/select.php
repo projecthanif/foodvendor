@@ -42,21 +42,24 @@ if (mysqli_num_rows($result)) {
         }
         $heredoc = <<<TEXT
                       
-          <div class='col-sm-3'>
-          <div class='container'>
-          <div class='card m-2' style='width:250px;heigh:%;'>
-          <div class='card-img'>
-          <img src='../imgupload/$img' width='250px' height='200px' style='thumbnail'>
-          </div>
-          <div class='card-body'>
-          <div class='card-text'><b>$name</b></div>
-          <div class='card-text'>$details</div><br>
-          <div class='card-text'>$ $price</div>
-          <form action='' method='post'>
-          <input type='hidden' name='id' value='$id'>
-          <input value='ORDER' type='submit' class='btn btn-outline-primary'>
-          </form>
-          </div></div></div></div>
+        <div class='col-sm-3 col-md-5 col-lg-3'>
+        <div class='container'>
+        <div class='card m-2' style='width:250px;heigh:%;'>
+        <div class='card-header' style='text-align:center'>
+        <div class='card-text'>$name</div></div>
+        <div class='card-img'>
+        <img src='../imgupload/$img' width='250px' height='200px' style='thumbnail'>
+        </div>
+        <div class='card-body' style='text-align:center'>
+        <div class='card-text'>Price: <del>N</del> $price</div><br>
+        </div>
+        <div class='card-footer'>
+        <form action='' method='post'>
+        <input type='hidden' name='id' value='$id'>
+        <button  class='btn btn-success' style='border-radius:3px;color:white;'>Add to cart <i class='fa fa-shopping-cart'></i></button>
+        </form>
+        </div>
+        </div></div></div>
        TEXT;
         if (empty($img && $details && $name)) {
 
