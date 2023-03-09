@@ -26,7 +26,7 @@ if ($_SESSION['type'] == 'admin') {
         echo "<table class='table-bordered' style='text-align:center;'><thead ><tr><th>Number</th><th>Product</th><th>TIme</th></tr></thead><tbody>";
         while ($row = $result->fetch_assoc()) {
 
-            echo "<tr>" . "<td>" . $row["userid"] ."<td>" . $row["productid"] . "</td>" . "<td>" . $row["timeofpurchase"]. "</td>" . "</tr>";
+            echo "<tr>" . "<td>" . $row["userid"] . "<td>" . $row["productid"] . "</td>" . "<td>" . $row["timeofpurchase"] . "</td>" . "</tr>";
         }
         echo "</tbody></table>";
     } else {

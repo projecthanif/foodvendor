@@ -29,7 +29,7 @@
                 </ul>
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <?php include_once('./type.php')?>
+                        <?php require_once('link.php') ?>
                     </li>
                 </ul>
             </nav>
@@ -48,12 +48,14 @@
                                 category</button>
                             <div class='dropdown-menu'>
                                 <div class='dropdown-item'>
-                                    <a href='./category/fast.php' class='dropdown-link text-black' style='text-decoration: none;'>
+                                    <a href='./category/fast.php' class='dropdown-link text-black'
+                                        style='text-decoration: none;'>
                                         <div class='dropdown-item-text'>Fast Food</div>
                                     </a>
                                 </div>
                                 <div class='dropdown-item'>
-                                    <a href='./category/local.php' class='dropdown-link text-black' style='text-decoration: none;'>
+                                    <a href='./category/local.php' class='dropdown-link text-black'
+                                        style='text-decoration: none;'>
                                         <div class='dropdown-item-text'>Local Delicacies</div>
                                     </a>
                                 </div>
@@ -80,34 +82,34 @@
                     <li class='nav-item'>
                         <a href='shop.php' class='nav-link text-white'>Shop</a>
                     </li>
-                    <li class='nav-item'>
+                    <!-- <li class='nav-item'>
                         <a href='#' class='nav-link text-white'>Contact</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>
     </div>
-<!-- # From database -->
-<div class="container">
-    <div class="row">
-        <?php
-        require_once('connection/connect.php');
+    <!-- # From database -->
+    <div class="container">
+        <div class="row">
+            <?php
+            require_once('connection/connect.php');
 
 
 
 
-        #GET From Datbase
-        $get = "SELECT * FROM item_order";
-        $result = $conn->query($get);
-        if (mysqli_num_rows($result)) {
-            while ($out = $result->fetch_assoc()) {
-                $name = $out['item_Name'];
-                $price = $out['item_Price'];
-                $img = $out['item_Img'];
-                $details = $out['item_Details'];
-                $id = $out['productid'];
+            #GET From Datbase
+            $get = "SELECT * FROM item_order";
+            $result = $conn->query($get);
+            if (mysqli_num_rows($result)) {
+                while ($out = $result->fetch_assoc()) {
+                    $name = $out['item_Name'];
+                    $price = $out['item_Price'];
+                    $img = $out['item_Img'];
+                    $details = $out['item_Details'];
+                    $id = $out['productid'];
 
-                $heredoc = <<<TEXT
+                    $heredoc = <<<TEXT
         
           <div class='col-sm-3'>
           <div class='container'>
@@ -125,79 +127,79 @@
           </form>
           </div></div></div></div>
        TEXT;
-                if (empty($img && $details && $name)) {
+                    if (empty($img && $details && $name)) {
 
-                } else {
-                    echo $heredoc;
-                }
-
-            }
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $session_Name = $_SESSION['name'];
-                $SQL = "SELECT userid FROM users
-        WHERE user_fname='$session_Name';";
-                $session_query = $conn->query($SQL);
-                $session_out = $session_query->fetch_assoc();
-                $sid = $session_out['userid'];
-
-                if (isset($_POST['id'])) {
-                    $itemId = $_POST['id'];
-                    $sql = "INSERT INTO user_order(userid,productid)
-          VALUE($sid,$itemId)";
-                    $result = $conn->query($sql);
-                    if ($result) {
-                        echo "<div class='alert alert-success alert-dismissible'><strong>Added to cart</strong><button type='button' class='btn-close' data-bs-dismiss='alert'></button></div>";
-
+                    } else {
+                        echo $heredoc;
                     }
 
                 }
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $session_Name = $_SESSION['name'];
+                    $SQL = "SELECT userid FROM users
+        WHERE user_fname='$session_Name';";
+                    $session_query = $conn->query($SQL);
+                    $session_out = $session_query->fetch_assoc();
+                    $sid = $session_out['userid'];
+
+                    if (isset($_POST['id'])) {
+                        $itemId = $_POST['id'];
+                        $sql = "INSERT INTO user_order(userid,productid)
+          VALUE($sid,$itemId)";
+                        $result = $conn->query($sql);
+                        if ($result) {
+                            echo "<div class='alert alert-success alert-dismissible'><strong>Added to cart</strong><button type='button' class='btn-close' data-bs-dismiss='alert'></button></div>";
+
+                        }
+
+                    }
+                }
+
             }
 
-        }
 
 
 
-
-        ?>
+            ?>
+        </div>
     </div>
-</div>
-<div class="link">
-    <div href="index.php"></div>
-</div>
+    <div class="link">
+        <div href="index.php"></div>
+    </div>
 
     <!------------Footer Starts Here-------------->
     <div class="container-fluid bg-light">
-    <hr>
-    <div class="container-fluid bg-light">
-        <div class="row">
-            <div class="col-sm-4">
-                <h6>Newsletter</h6>
-                <p>Subscribe to get information about our food</p>
-            </div>
-            <div class="col-sm-8">
-                <form action="" method="post" class="form">
-                    <input type="text" name="email" id="" class="form-control">
-                    <span><input type="submit" class="input-group-text"><i class="fa fa-envelope"></i></span>
-                </form>
+        <hr>
+        <div class="container-fluid bg-light">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h6>Newsletter</h6>
+                    <p>Subscribe to get information about our food</p>
+                </div>
+                <div class="col-sm-8">
+                    <form action="" method="post" class="form">
+                        <input type="text" name="email" id="" class="form-control">
+                        <span><input type="submit" class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    </form>
 
+                </div>
             </div>
         </div>
+        <hr>
+        <p>Follow us on</p>
+        <a href='https://twitter.com/offixial_hanif' style='color:black'><i class='fa-brands fa-twitter fa-2x'></i></a>
+        <a href='https://www.instagram.com/offixial_hanif/' style='color:black'><i
+                class='fa-brands fa-instagram fa-2x'></i></a>
+        <a href='https://wa.me/23409061887329' style='color:black'><i class='fa-brands fa-whatsapp fa-2x'></i></a>
+        <hr>
     </div>
-    <hr>
-    <p>Follow us on</p>
-    <a href='https://twitter.com/offixial_hanif' style='color:black'><i class='fa-brands fa-twitter fa-2x'></i></a>
-    <a href='https://www.instagram.com/offixial_hanif/' style='color:black'><i
-            class='fa-brands fa-instagram fa-2x'></i></a>
-    <a href='https://wa.me/23409061887329' style='color:black'><i class='fa-brands fa-whatsapp fa-2x'></i></a>
-    <hr>
-</div>
 
 
 
 
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js'></script>
 </body>
 
 </html>

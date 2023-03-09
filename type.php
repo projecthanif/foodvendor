@@ -1,4 +1,6 @@
 <?php
+// session_destroy();
+
 session_start();
 if (isset($_SESSION['type'])) {
     if ($_SESSION['type'] == 'admin') {
@@ -14,26 +16,21 @@ if (isset($_SESSION['type'])) {
     } elseif ($_SESSION['type'] == 'customer') {
         echo " <div class='nav-item'>
                             <div class='dropdown' style='width:150px'>
-                            <button class='btn dropdown-toggle' data-bs-toggle='dropdown'><i class='fa fa-user'></i>" . $_SESSION['name'] . "</button>
+                            <button class='btn dropdown-toggle' data-bs-toggle='dropdown'><i class='fa fa-user fa-2X'></i>" . $_SESSION['name'] . "</button>
                             <div class='dropdown-menu'>
-                                <a href='account.php' class='dropdown-item'><div class='dropdown-item-text'><i class='fa fa-user'></i> My Account</div></a>
-                                <a href='order.php' class='dropdown-item' style='color: black;'><div class='dropdown-item-text'><i class='fa fa-box'></i> Orders</div></a>
+                                <!--<a href='account.php' class='dropdown-item'><div class='dropdown-item-text'><i class='fa fa-user'></i> My Account</div></a>-->
+                                <a href='$orderLink' class='dropdown-item' style='color: black;'><div class='dropdown-item-text'><i class='fa fa-box'></i> Orders</div></a>
                                 <a href='https://wa.me/23409061887329' class='dropdown-item' style='color: black;'><div class='dropdown-item-text'><i class='fa fa-message'></i> Message</div></a>
-                                <a href='./validation/logout.php' type='button' class='btn dropdown-item' style='color:black;'><div class='dropdown-item-text'><i class=''></i> Logout</div></a>
+                                <a href='$logout' type='button' class='btn dropdown-item' style='color:black;'><div class='dropdown-item-text'><i class=''></i> Logout</div></a>
                             </div>
                             </div>
                         </div>";
     }
 } else {
-    echo "<div class='nav-item'>
-                    <div class='dropdown'  style='width:150px'>
-                    <button class='btn dropdown-toggl' data-bs-toggle='dropdown'><i class='fa fa-user fa-2x'></i></button>
-                    <div class='dropdown-menu'>
-                        <a href='./validation/user_login.php' type='button' class='btn dropdown-header'><b>SIGN IN</b></a>
-                        
-                    </div>
-                    </div>
-                </div>";
+    echo "
+    <div class='nav-item'>
+        <a href='$loginLink' type='button' class='btn dropdown-header' style='color:black'><i class='fa fa-user fa-2x'></i></a>
+    </div>";
 }
 
 ?>

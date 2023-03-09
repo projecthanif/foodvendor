@@ -11,6 +11,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <meta name='Description' content='Enter your description here' />
+    <link rel="import" href="bootstrap/css/bootstrap.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/litera/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -34,7 +35,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
                 </ul>
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <?php $address1='./admin/dashboard.php'; $address2='./validation/logout.php'; include_once('type.php') ?>
+                        <?php require_once('link.php') ?>
                     </li>
                 </ul>
             </nav>
@@ -87,9 +88,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
                     <li class='nav-item'>
                         <a href='shop.php' class='nav-link text-white'>Shop</a>
                     </li>
-                    <li class='nav-item'>
-                        <a href='#' class='nav-link text-white'>Contact</a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -106,7 +104,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
                 </div>
             </div>
             <div>
-                <img src='img/pic1-removebg-preview.png' style="width:260px;;">
+                <img src='img/dash1.png' style="width:260px;;">
             </div>
         </div>
     </div>
