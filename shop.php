@@ -114,7 +114,7 @@
                     $id = $out['productid'];
                     $heredoc = <<<TEXT
         
-          <div class='col-sm-3 col-md-5 col-lg-3'>
+          <div class='col-sm-10 col-md-6 col-lg-4'>
           <div class='container'>
           <div class='card m-2' style='width:250px;heigh:%;'>
           <div class='card-header' style='text-align:center'>

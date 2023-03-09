@@ -98,16 +98,22 @@ VALUE(?,?,?,?,?);";
 </head>
 
 <body>
-
+    <style>
+        .card {
+            background-color: white;
+            box-shadow: 0px 2px 10px 1px rgba(24, 87, 142, 0.5);
+        }
+        input.form-control{
+            border-radius:5px;
+        }
+    </style>
 
     <div class="container">
-        <div class="d-flex justify-content-center">
-            <form action="" method="post" class="form-inline">
-                <div class="card p-5">
-                    <div class="card-head">
-                        <h5>Register</h5>
-                    </div>
-                    <div class="card-body">
+        <div class="d-flex justify-content-center mt-4">
+            <div class="card p-5">
+                <div class="card-body">
+                    <form action="" method="post" class="form-inline">
+                        <h5>Adventure starts here 🚀</h5><br>
                         <?php
                         if (isset($Error)) {
                             echo "<div class='alert alert-secondary alert-dismisible'>
@@ -115,22 +121,20 @@ VALUE(?,?,?,?,?);";
                         </div>
                        </div>";
                         } ?>
-                        <div class="form form-inline">
+                        <div class="card-inline">
                             <label for="name">Name</label>
                             <input type="text" name="name" id="" class="form-control" placeholder="First Name" required>
-
                         </div>
-                        <div class="form form-inline">
+                        <div class="card-inline">
                             <label for="name">Last Name</label>
                             <input type="text" name="lname" id="" class="form-control" placeholder="Last Name" required>
-
                         </div>
-                        <div class="form-inline">
+                        <div class="card-inline">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="" class="form-control" placeholder="Your Email"
                                 required>
                         </div>
-                        <div class="form-inline">
+                        <div class="card-inline">
                             <label for="number">Number</label>
                             <input type="" name="number" id="" class="form-control" placeholder="Your Number" required>
                         </div>
@@ -138,19 +142,17 @@ VALUE(?,?,?,?,?);";
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control" id=""
                                 placeholder="Your Password" required>
+                        </div><br>
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Register" name="submit" class="form-control bg-danger" style="width:70%">
+                        </div><br>
+                        <div class="d-flex justify-content-end">
+                            <h6>Already have an account?<a href="./user_login.php" class="card-link"> Sign in instead</a></h6>
                         </div>
 
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="card-foot">
-                            <input type="submit" value="Register" name="submit" class="form-control bg-danger">
-                        </div>
-                    </div><br>
-                    <div class="d-flex justify-content-end">
-                        <h6><a href="./user_login.php" class="card-link">Login</a></h6>
-                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 
