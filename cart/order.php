@@ -67,17 +67,19 @@ if ($_SESSION) {
         echo "                            
                     <div class='col-sm-4 col-md-4 col-lg-3'>
                     <div class='card' style='width:250px;height:%;'>
+                    <div class='card-header' style='text-align:center'>
+                    <div class='card-text'>$name</div></div>
                     <div class='card-img'>
-                    <img src='imgupload/$pic' width='250px' height='200px' style='thumbnail'>
+                    <img src='../imgupload/$pic' width='250px' height='200px' style='thumbnail'>
                     </div>
-                    <div class='card-body'>
-                    <div class='card-text'><b>$name</b></div>
-                    <div class='card-text'>$details</div><br>
-                    <div class='card-text'>$ $price</div>
+                    <div class='card-body' style='text-align:center'>
+                    <div class='card-text'>Price: <del>N</del> $price</div><br>
+                    </div>
+                    <div class='card-footer'>
                     <form action='' method='post'>
                     <input type='hidden' name='del' value='$time'>
-                    <input value='Cancel' type='submit' class='btn btn-outline-danger'>
-                    </form>
+                    <input value='Cancel' type='submit' class='btn btn-outline-danger' style='border-radius:3px'>
+                    </form></div>
                     </div>        
                     </div>
                     </div> 

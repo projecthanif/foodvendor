@@ -15,9 +15,9 @@
 </head>
 
 <body>
-<style>
-        img{
-            image-rendering:pixelated;
+    <style>
+        img {
+            image-rendering: pixelated;
         }
     </style>
 
@@ -102,7 +102,7 @@
 
 
 
-            #GET From Datbase
+            #GET From Database
             $get = "SELECT * FROM item_order";
             $result = $conn->query($get);
             if (mysqli_num_rows($result)) {
@@ -169,12 +169,8 @@
             ?>
         </div>
     </div>
-    <div class="link">
-        <div href="index.php"></div>
-    </div>
-
     <!------------Footer Starts Here-------------->
-    <div class="container-fluid bg-light" style='bottom:0;position:fixed'>
+    <div class="container-fluid bg-light">
         <hr>
         <div class="container-fluid bg-light">
             <div class="row">
@@ -183,11 +179,12 @@
                     <p>Subscribe to get information about our food</p>
                 </div>
                 <div class="col-sm-8">
-                    <form action="" method="post" class="form">
-                        <input type="text" name="email" id="" class="form-control">
-                        <span><input type="submit" class="input-group-text"><i class="fa fa-envelope"></i></span>
-                    </form>
-
+                    <div class="form-input">
+                        <form action="../email.php" method="post" class="form">
+                            <input type="text" name="email" id="" class="form-control">
+                            <button type="submit" class="input-group-text"><i class="fa fa-envelope"></i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

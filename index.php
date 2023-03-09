@@ -1,8 +1,8 @@
 <?php
 // session_start();
-$conn = mysqli_connect('localhost', 'root', '', 'admin');
-// include_once('./html/header.html');
-?>
+include_once('connection/connect.php')
+    // include_once('./html/header.html');
+    ?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -198,7 +198,8 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
             </div>
         </div>
     </div>
-    </div></br>
+    </div>
+    </br>
     <!------------Footer Starts Here-------------->
     <div class="container-fluid bg-light">
         <hr>
@@ -209,11 +210,12 @@ $conn = mysqli_connect('localhost', 'root', '', 'admin');
                     <p>Subscribe to get information about our food</p>
                 </div>
                 <div class="col-sm-8">
-                    <form action="" method="post" class="form">
-                        <input type="text" name="email" id="" class="form-control">
-                        <span><input type="submit" class="input-group-text"><i class="fa fa-envelope"></i></span>
-                    </form>
-
+                    <div class="form-input">
+                        <form action="../email.php" method="post" class="form">
+                            <input type="text" name="email" id="" class="form-control">
+                            <button type="submit" class="input-group-text"><i class="fa fa-envelope"></i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
