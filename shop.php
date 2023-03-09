@@ -15,7 +15,11 @@
 </head>
 
 <body>
-
+<style>
+        img{
+            image-rendering:pixelated;
+        }
+    </style>
 
     <div class="container-fluid bg-light ">
         <div class="container-fluid ">
@@ -170,7 +174,7 @@
     </div>
 
     <!------------Footer Starts Here-------------->
-    <div class="container-fluid bg-light">
+    <div class="container-fluid bg-light" style='bottom:0;position:fixed'>
         <hr>
         <div class="container-fluid bg-light">
             <div class="row">

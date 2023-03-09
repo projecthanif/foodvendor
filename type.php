@@ -16,7 +16,7 @@ if (isset($_SESSION['type'])) {
     } elseif ($_SESSION['type'] == 'customer') {
         echo " <div class='nav-item'>
                             <div class='dropdown' style='width:150px'>
-                            <button class='btn dropdown-toggle' data-bs-toggle='dropdown'><i class='fa fa-user fa-2X'></i>" . $_SESSION['name'] . "</button>
+                            <button class='btn dropdown-toggle' data-bs-toggle='dropdown'><i class='fa fa-user fa-2X'></i>".$_SESSION['name'] . "</button>
                             <div class='dropdown-menu'>
                                 <!--<a href='account.php' class='dropdown-item'><div class='dropdown-item-text'><i class='fa fa-user'></i> My Account</div></a>-->
                                 <a href='$orderLink' class='dropdown-item' style='color: black;'><div class='dropdown-item-text'><i class='fa fa-box'></i> Orders</div></a>
