@@ -2,7 +2,7 @@
 // session_start();
 include_once('connection/connect.php')
     // include_once('./html/header.html');
-    ?>
+?>
 <!DOCTYPE html>
 <html lang='en'>
 
