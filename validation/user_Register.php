@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
 
-    $conn = mysqli_connect('localhost', 'root', '', 'admin');
+    require_once('../connection/connect.php');
 
     if (mysqli_connect_error()) {
         die('Connection Error');
@@ -116,7 +116,7 @@ VALUE(?,?,?,?,?);";
                         <h5>Adventure starts here 🚀</h5><br>
                         <?php
                         if (isset($Error)) {
-                            echo "<div class='alert alert-secondary alert-dismisible'>
+                            echo "<div class='alert alert-secondary alert-dismissible'>
                         <div class='d-flex justify-content-between'>" . $Error . "<button type='button' data-bs-dismiss='alert' class='btn-close'></button>
                         </div>
                        </div>";
@@ -147,7 +147,7 @@ VALUE(?,?,?,?,?);";
                             <input type="submit" value="Register" name="submit" class="form-control bg-danger" style="width:70%">
                         </div><br>
                         <div class="d-flex justify-content-end">
-                            <h6>Already have an account?<a href="./user_login.php" class="card-link"> Sign in instead</a></h6>
+                            <h6>Already have an account?<a href="./user_login.php" class="card-link" style="text-decoration:none;"> Sign in instead</a></h6>
                         </div>
 
                     </form>

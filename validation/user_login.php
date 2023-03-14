@@ -58,7 +58,7 @@
                             <input type="submit" value="Sign in" class="btn bg-info form-control"
                                 style="border-radius:5px; width:90%; color:white">
                         </div><br>
-                        <p style="text-align:center">New on our store<a href="./user_Register.php" class="link"> Create
+                        <p style="text-align:center">New on our store<a href="./user_Register.php" class="link" style="text-decoration:none;"> Create
                                 new
                                 Account</a></p>
                     </form>
