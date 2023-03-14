@@ -2,7 +2,7 @@
 // session_start();
 include_once('connection/connect.php')
     // include_once('./html/header.html');
-?>
+    ?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -210,12 +210,12 @@ include_once('connection/connect.php')
                     <p>Subscribe to get information about our food</p>
                 </div>
                 <div class="col-sm-8">
-                    <div class="form-input">
-                        <form action="../email.php" method="post" class="form">
+                    <form action="../email.php" method="post" class="form">
+                        <div class="form-group">
                             <input type="text" name="email" id="" class="form-control">
                             <button type="submit" class="input-group-text"><i class="fa fa-envelope"></i></button>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

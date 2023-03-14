@@ -2,9 +2,8 @@
 include_once('../html/header.html');
 require_once('../connection/connect.php');
 if ($_SESSION) {
-  echo "           <div class='container-fluid'>
-                <div class='container-fluid m-3'>
-                <div class='row mb-2 g-2'>";
+  echo "          <div class='container mt-2'>
+  <div class='row mb-2 g-2'> ";
 
   $order_name = $_SESSION['name']; // accessing username currently log in using session                    
 
@@ -64,30 +63,33 @@ if ($_SESSION) {
                       WHERE timeofpurchase='$not';";
           $conn->query($del);
         }
-        echo "                            
-                    <div class='col-sm-4 col-md-4 col-lg-3'>
-                    <div class='card' style='width:250px;height:%;'>
-                    <div class='card-header' style='text-align:center'>
-                    <div class='card-text'>$name</div></div>
-                    <div class='card-img'>
-                    <img src='../imgupload/$pic' width='250px' height='200px' style='thumbnail'>
-                    </div>
-                    <div class='card-body' style='text-align:center'>
-                    <div class='card-text'>Price: <del>N</del> $price</div><br>
-                    </div>
-                    <div class='card-footer'>
-                    <form action='' method='post'>
-                    <input type='hidden' name='del' value='$time'>
-                    <input value='Cancel' type='submit' class='btn btn-outline-danger' style='border-radius:3px'>
-                    </form></div>
-                    </div>        
-                    </div>
-                    </div> 
+        echo "                      
+                      <div class='col-sm-12 col-md-4 col-lg-3'>
+                        <div class='card' style='width:250px;height:%;'>
+                            <div class='card-header' style='text-align:center'>
+                                <div class='card-text'>$name</div>
+                            </div>
+                            <div class='card-img'>
+                                  <img src='../imgupload/$pic' width='250px' height='200px' style='thumbnail' class='card-img'>
+                            </div>
+                          <div class='card-body' style='text-align:center'>
+                            <div class='card-text'>Price: <del>N</del> $price</div><br>
+                          </div>
+                          <div class='card-footer'>
+                            <form action='' method='post'>
+                              <input type='hidden' name='del' value='$time'>
+                              <input value='Cancel' type='submit' class='btn btn-outline-danger' style='border-radius:3px'>
+                            </form>
+                          </div>
+                        </div>        
+                      </div> 
+                     
                     ";
 
       }
     }
   }
+  echo"</div></div>";
 
 } else {
   header("Location: index.php");
