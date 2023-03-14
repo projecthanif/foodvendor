@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="bootstrap-5.2.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-5.2.3-dist/css/bootstrap.rtl.css">
     <link rel="stylesheet" href="bootstrap-5.2.3-dist/css/bootstrap.rtl.min.css">
-    <link rel='shortcut icon' href='img/bowl.png' type='image/x-icon'>
+    <link rel='shortcut icon' href='../img/bowl.png' type='image/x-icon'>
     <title>Login</title>
 </head>
 
@@ -32,8 +32,8 @@
                     <form action="user_verify.php" method="post" class="form">
 
                         <div class="card-head" style="text-align:start">
-                            <h1 style="text-align:center">Code Chef</h1><br>
-                            <div class="card-text">Welcome to CodeChef</div>
+                            <h1 style="text-align:center">Code Chef 👨‍🍳</h1><br>
+                            <div class="card-text">Welcome to CodeChef 👨‍💻</div>
                             <p class="text-justify">Please sign-in to your account and start the adventure</p>
                         </div>
                         <?php
@@ -49,7 +49,7 @@
                             <input type="email" name="name" id="" class="form-control" required
                                 style="border-radius:5px;" placeholder="Enter your Email">
                         </div><br>
-                        <div class="card-inline">
+                        <div class="card-inline mb-3">
                             <label for="password">Password</label>
                             <input type="password" name="password" id="" class="form-control" required
                                 style="border-radius:5px" placeholder="**********">
