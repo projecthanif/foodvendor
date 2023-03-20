@@ -38,7 +38,7 @@
                         </div>
                         <?php
                         if (isset($Error)) {
-                            echo "<div class='alert alert-secondary alert-dismisible'>
+                            echo "<div class='alert alert-secondary alert-dismissible'>
                                 <div class='d-flex justify-content-between'>" . $Error . "<button type='button' data-bs-dismiss='alert' class='btn-close'></button>
                                 </div>
                                 </div>";
