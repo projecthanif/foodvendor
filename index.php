@@ -53,11 +53,11 @@
             <div class="container p-2">
                 <nav class="navbar navbar-expand-sm bg-secondary navbar-light p-2 justify-content-between">
                     <ul class="navbar-nav">
-                        <a href="index.php" class="nav-link"><img src="img/bowl.png" alt=""
-                                class="img-fluid img-logo"></a>
+                        <a href="index.php" class="nav-link">
+                            <img src="img/bowl.png" alt=""class="img-fluid img-logo"></a>
                     </ul>
                     <ul class="navbar-nav">
-                    <li class="nav-item">
+                        <li class="nav-item">
                             <a href="validation/user_login.php" class="nav-link">
                                 <span class="fs-3 text-dark"><i class="fa fa-user"></i>
                                     <?php ?>
@@ -94,7 +94,7 @@
             <div class="container p-5 text-center">
                 <div class="container p-1 text-center">
                     <h3 class="display-6">
-                        NEW <strong>ARRIVALS</strong>
+                        OUR <strong>PRODUCTS</strong>
                     </h3>
                     <p class="text-warning">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
