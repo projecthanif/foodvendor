@@ -1,3 +1,9 @@
+nav.navbar{
+    position:sticky;
+    top:0;
+    border-radius:20px;
+
+}
 .nav{
     margin: 0;
     padding: 0;
@@ -6,6 +12,12 @@
     background-color:cadetblue;
     display: block;
     height: 100%;
+}
+.container-fluid.index-head{
+    background-image:url('../img/d10b0cc5-d993-435f-9fc8-c159140477ca_450.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
 }
 li img{
     padding: 20px;
@@ -28,4 +40,16 @@ li a:hover{
 }
 .side{
     margin-left: 3%;
+}
+.img-logo{
+    /* position:relative; */
+    /* top:-100px; */
+    /* left:45%; */
+    /* width: 100px; */
+    /* z-index: 1; */
+    filter: drop-shadow(0 0 20px #123123);
+
+}
+.fa{
+    color: black;
 }

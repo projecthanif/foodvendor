@@ -7,8 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   $item_type = $_POST['type'] ?? '';
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['submit'])) {
+
       $pic = $_FILES['file']['name'];
+
       $pic_tmp = $_FILES['file']['tmp_name'];
+      
       $extension = array('png', 'jpg', 'jpeg');
       $ext = explode('.', $pic);
       $end = end($ext);
