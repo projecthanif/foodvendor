@@ -10,8 +10,17 @@
 
 ul.navbar-nav.mid-nav{
     /* margin-left: 50px; */
-    width: 50%;
+    width: 35%;
     font-weight: bold;
+    /* background-color: beige; */
+}
+ul#icon{
+    width: 10%;
+    /* background-color: aqua; */
+}
+.fa{
+    color: gray;
+    font-size: 20px;
 }
 
 /* Jumbotron */
