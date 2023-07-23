@@ -6,15 +6,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <meta name='Description' content='Enter your description here' />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/litera/bootstrap.min.css'>
+    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/litera/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"> -->
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="dist/icon/css/fontawesome.css">
-    <link rel="stylesheet" href="dist/icon/css/solid.css">
-    <link rel="stylesheet" href="dist/icon/css/regular.css">
+    <link rel="stylesheet" href="style/icon/css/fontawesome.css">
+    <link rel="stylesheet" href="style/icon/css/solid.css">
+    <link rel="stylesheet" href="style/icon/css/regular.css">
     <link rel="shortcut icon" href="img/bowl.png" type="image/x-icon">
-    <link rel='stylesheet' href='dist/css/style.css'>
+    <link rel='stylesheet' href='style/css/style.css'>
     <title>Shopping vendor</title>
 </head>
 
@@ -38,7 +38,7 @@
                 <a href="#" class="nav-link">Fresh Food</a>
             </li>
             <li class="nav-items">
-                <a href="#" class="nav-link">Shop</a>
+                <a href="shop.php" class="nav-link">Shop</a>
             </li>
             <li class="nav-items">
                 <a href="#" class="nav-link">About</a>
@@ -273,7 +273,7 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <img src="/img/fast2.jpeg" alt="" class="blog-img">
+                                <img src="img/fast2.jpeg" alt="" class="blog-img">
                                 <h6 class="fs-5 fw-bold mt-2">FRESH FOOD FOR YOUR LIFE</h6>
                                 <h6 class="fs6">Mustapha Ibrahim / 17 comments</h6>
                                 <a href="#" class="nav-link mt-3">READ MORE</a>
@@ -283,7 +283,7 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <img src="/img/fast2.jpeg" alt="" class="blog-img">
+                                <img src="img/fast2.jpeg" alt="" class="blog-img">
                                 <h6 class="fs-5 fw-bold mt-2">FRESH FOOD FOR YOUR LIFE</h6>
                                 <h6 class="fs6">Mustapha Ibrahim / 17 comments</h6>
                                 <a href="#" class="nav-link mt-3">READ MORE</a>
