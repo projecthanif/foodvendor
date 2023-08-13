@@ -6,57 +6,46 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <meta name='Description' content='Enter your description here' />
-    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/litera/bootstrap.min.css'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"> -->
-    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="style/icon/css/fontawesome.css">
-    <link rel="stylesheet" href="style/icon/css/solid.css">
-    <link rel="stylesheet" href="style/icon/css/regular.css">
-    <link rel="shortcut icon" href="img/bowl.png" type="image/x-icon">
-    <link rel='stylesheet' href='style/css/style.css'>
+    <link rel="stylesheet" href="assets/style/icon/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/icon/css/solid.css">
+    <link rel="stylesheet" href="assets/icon/css/regular.css">
+    <link rel="shortcut icon" href="assets/img/bowl.png" type="image/x-icon">
+    <link rel='stylesheet' href='assets/css/style.css'>
     <title>Shopping vendor</title>
 </head>
 
 <body>
-    <style>
-        body {
-            font-family: monospace;
-        }
-    </style>
-    <nav class="navbar navbar-expand-sm d-flex justify-content-between">
+    <nav class="nav">
         <!--Nav Brand-->
-        <a href="#" class="navbar-brand mx-5">
-            <img src="img/bowl.png" alt="logo" class="img-fluid">
+        <a href="#" class="nav-brand">
+            <img src="assets/img/bowl.png" alt="logo" class="nav-brand-icon">
         </a>
         <!--Nav items mid-nav-->
-        <ul class="navbar-nav mid-nav d-flex justify-content-between" id="mid-nav">
-            <li class="nav-items">
+        <ul class="navbar" id="mid-nav">
+            <li class="navitems">
                 <a href="#" class="nav-link">Home</a>
             </li>
-            <li class="nav-items">
+            <li class="navitems">
                 <a href="#" class="nav-link">Fresh Food</a>
             </li>
-            <li class="nav-items">
+            <li class="navitems">
                 <a href="shop.php" class="nav-link">Shop</a>
             </li>
-            <li class="nav-items">
+            <li class="navitems">
                 <a href="#" class="nav-link">About</a>
             </li>
-            <li class="nav-items">
+            <li class="navitems">
                 <a href="#" class="nav-link">Blog</a>
             </li>
         </ul>
-        <ul class="navbar-nav d-flex justify-content-around" id="icon">
-            <li class="nav-items">
+        <ul class="navbar" id="icon">
+            <li class="navitems">
                 <i class="fa fa-search"></i>
             </li>
-            <li class="nav-items">
+            <li class="navitems">
                 <i class="fa fa-user"></i>
             </li>
-            <li class="nav-items">
-
-            </li>
+            <!-- <li class="navitems"></li> -->
         </ul>
     </nav>
     <main>
@@ -70,7 +59,7 @@
                         </h2>
                     </div>
                     <div class="jumbo-img">
-                        <img src="img/dash1.png" alt="" class="img-fluid">
+                        <img src="assets/img/dash1.png" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -108,7 +97,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/kimchi.jpg" alt="" class="menu-img">
+                                <img src="assets/img/kimchi.jpg" alt="" class="menu-img">
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
@@ -126,7 +115,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/kimchi.jpg" alt="" class="menu-img">
+                                <img src="assets/img/kimchi.jpg" alt="" class="menu-img">
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
@@ -144,7 +133,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/kimchi.jpg" alt="" class="menu-img">
+                                <img src="assets/img/kimchi.jpg" alt="" class="menu-img">
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
@@ -162,7 +151,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/kimchi.jpg" alt="" class="menu-img">
+                                <img src="assets/img/kimchi.jpg" alt="" class="menu-img">
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
@@ -180,7 +169,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/kimchi.jpg" alt="" class="menu-img">
+                                <img src="assets/img/kimchi.jpg" alt="" class="menu-img">
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
@@ -198,7 +187,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/kimchi.jpg" alt="" class="menu-img">
+                                <img src="assets/img/kimchi.jpg" alt="" class="menu-img">
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
@@ -216,7 +205,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/kimchi.jpg" alt="" class="menu-img">
+                                <img src="assets/img/kimchi.jpg" alt="" class="menu-img">
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
@@ -234,7 +223,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/kimchi.jpg" alt="" class="menu-img">
+                                <img src="assets/img/kimchi.jpg" alt="" class="menu-img">
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-between">
@@ -273,7 +262,7 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/fast2.jpeg" alt="" class="blog-img">
+                                <img src="assets/img/fast2.jpeg" alt="" class="blog-img">
                                 <h6 class="fs-5 fw-bold mt-2">FRESH FOOD FOR YOUR LIFE</h6>
                                 <h6 class="fs6">Mustapha Ibrahim / 17 comments</h6>
                                 <a href="#" class="nav-link mt-3">READ MORE</a>
@@ -283,7 +272,7 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <img src="img/fast2.jpeg" alt="" class="blog-img">
+                                <img src="assets/img/fast2.jpeg" alt="" class="blog-img">
                                 <h6 class="fs-5 fw-bold mt-2">FRESH FOOD FOR YOUR LIFE</h6>
                                 <h6 class="fs6">Mustapha Ibrahim / 17 comments</h6>
                                 <a href="#" class="nav-link mt-3">READ MORE</a>
@@ -300,9 +289,7 @@
         </div>
     </footer>
 
-    <script src="bootstrap-5.3.0-alpha1/dist/js/bootstrap.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js'></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
