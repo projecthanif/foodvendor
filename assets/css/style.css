@@ -98,8 +98,6 @@ li {
 .ft-1 {
   display: flex;
   flex-direction: column;
-  /* padding: 40px; */
-  /* margin-top: 50px; */
   font-size: 55px;
   font-weight: 200;
 }
@@ -199,8 +197,15 @@ li {
   border-radius: 90%;
 }
 
+.catalog-item {
+    margin-top: 40px;
+}
+
 @media screen and (max-width: 600px) {
   .catalog-section {
     padding: 20px;
+  }
+  .select {
+    flex-wrap: wrap;
   }
 }
