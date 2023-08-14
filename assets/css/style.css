@@ -23,7 +23,7 @@ nav {
   display: none;
   width: 56px;
   height: 40px;
-  background-color: rgb(5, 61, 130);
+  background-color: hsl(39, 100%, 50%);
   border-radius: 6px;
   border: 1px solid grey;
   margin-top: 10px;
@@ -288,4 +288,29 @@ li {
 
 .catalog-title.stock {
   margin-top: 50px;
+}
+
+.blog {
+  padding: 15px;
+}
+
+.blog-body {
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.blog-img {
+  width: 50%;
+  border-radius: 0 10px 0 10px;
+}
+
+.blog-content {
+  margin-left: 200px;
+}
+
+.ft-5.blog-title {
+  text-align: center;
 }
