@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/icon/css/solid.css" />
+    <link rel="shortcut icon" href="assets/img/bowl.png" type="image/x-icon" />
+    <title>Food Vendor</title>
+  </head>
+  <body>
+    <nav id="nav">
+      <img src="assets/img/bowl.png" alt="" class="nav-brand" />
+      <button class="btn-nav" id="navToggle" onclick="showNav()">
+        <i class="fa fa-bar"></i>
+      </button>
+      <ul class="navbar" id="navbar">
+        <li class="nav-item">
+          <a href="#" class="nav-link"> Home </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"> Fresh food </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"> Shop </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"> About </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"> Blog </a>
+        </li>
+        <button class="btn-nav" id="close" onclick="closeNav()">close</button>
+      </ul>
+      <ul class="navbar">
+        <li class="nav-item">
+          <a href="#" class="nav-link"> search </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"> user </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"> mail </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <article>
+        <div class="jumbotron">
+          <div class="jumbo-text">
+            <h1 class="ft-1">Delicious <i class="yellow"> Delicacies </i></h1>
+            <h5 class="ft-5">Your Taste Buds will love it</h5>
+            <div class="button">
+              <button class="btn product">See all product</button> <br />
+              <button class="btn order">Order Now</button>
+            </div>
+          </div>
+          <img src="assets/img/dash1.png" alt="food" class="img-fluid jumbo-img" />
+        </div>
+      </article>
+      <article>
+        <section class="catalog-section">
+          <div class="catalog-title">
+            <h5 class="ft-5 b">Catalog Section</h5>
+            <h5 class="ft-5 b">
+              <i class="yellow">Delicacies</i>
+            </h5>
+          </div>
+          <div class="select">
+            <button class="btn select">
+              <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
+              Rice Bowl
+            </button>
+            <button class="btn select">
+              <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
+              Beef Stack
+            </button>
+            <button class="btn select">
+              <img src="assets/img/cream.jpeg" alt="" class="btn-img" />
+              Fresh Drink
+            </button>
+            <button class="btn select">
+              <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
+              Spaghetti
+            </button>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
