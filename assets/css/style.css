@@ -39,6 +39,7 @@ li a {
 a.nav-link {
   display: block;
   text-decoration: none;
+  color: black;
 }
 
 li a:hover {
@@ -52,12 +53,14 @@ li {
 .fa {
   color: black;
 }
-
+.nav-item {
+  font-weight: bold;
+}
 
 .btn.order.nav {
   width: 70px;
   color: black;
-  margin-top: -0.5px;
+  margin-top: -0.1px;
 }
 
 @media screen and (max-width: 600px) {
@@ -218,12 +221,7 @@ li {
     grid-auto-flow: column;
     overflow-x: auto;
     gap: 20px;
-    /* width: 100%; */
-    /* height: fit-content; */
     padding: 20px;
-  }
-  .btn.select.first {
-    margin-left: 250px;
   }
   .select::-webkit-scrollbar {
     display: none;
