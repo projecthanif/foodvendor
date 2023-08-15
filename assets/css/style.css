@@ -53,6 +53,13 @@ li {
   color: black;
 }
 
+
+.btn.order.nav {
+  width: 70px;
+  color: black;
+  margin-top: -0.5px;
+}
+
 @media screen and (max-width: 600px) {
   .navbar {
     display: none;
@@ -248,11 +255,6 @@ li {
 .flex-container::-webkit-scrollbar {
   display: none;
 }
-
-.flex-item {
-  /* margin-bottom: 10px; */
-}
-
 @media screen and (max-width: 600px) {
  
   .card-section {
