@@ -204,17 +204,22 @@ li {
 
 @media screen and (max-width: 600px) {
   .catalog-section {
-    padding: 20px;
+    padding: 0px;
   }
   .select {
     display: grid;
     grid-auto-flow: column;
     overflow-x: auto;
     gap: 20px;
-    /* padding: 20px; */
+    /* width: 100%; */
+    /* height: fit-content; */
+    padding: 20px;
   }
   .btn.select.first {
     margin-left: 250px;
+  }
+  .select::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -249,12 +254,9 @@ li {
 }
 
 @media screen and (max-width: 600px) {
-  .flex-container {
-    align-items: center;
-    justify-content: center;
-  }
-  .flex-item.first {
-    margin-left: 250px;
+ 
+  .card-section {
+    margin-left: 0%;
   }
 }
 
