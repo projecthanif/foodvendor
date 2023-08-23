@@ -94,11 +94,9 @@ li {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  /* width: 0%; */
   height: 450px;
   padding: 20px;
   background-color: aliceblue;
-  /* background: linear-gradient(to right, rgb(241, 235, 235) 50%, hsl(39, 100%, 50%) 40%); */
   padding: 30px;
 }
 
@@ -349,10 +347,12 @@ li {
 }
 
 @media screen and (max-width: 600px) {
+
   .s-body {
-    padding: 0%;
-    display: inline-block;
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    /* margin-top: 50px; */
+    /* padding: 0%; */
   }
 
   .body-s {
