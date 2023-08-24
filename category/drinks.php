@@ -12,7 +12,6 @@ include_once('../html/header.html') ?>
         $type = 'DRINKS';
         include_once('select.php');
 
-
         ?>
     </div>
 </div>

@@ -1,5 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
     $name = $_POST['name'] ?? '';
     $lname = $_POST['lname'] ?? '';
     $email = $_POST['email'] ?? '';
@@ -7,25 +8,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $password = $_POST['password'] ?? '';
     $submit = $_POST['submit'] ?? '';
     $Error = '';
+
     if (isset($submit)) {
         if (empty($name)) {
             $Error = "Name Required";
         } else {
             $name = $_POST['name'];
+
             if (!preg_match("/^['a-zA-Z']*$/", $name)) {
                 $Error = "Only Letters and Whitespace allowed";
             } else {
-
             }
         }
         if (empty($lname)) {
             $Error = "Name Required";
         } else {
             $lname = $_POST['lname'];
+
             if (!preg_match("/^['a-zA-Z']*$/", $name)) {
                 $Error = "Only Letters and Whitespace allowed";
             } else {
-
             }
         }
         if (empty($email)) {
@@ -35,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $Error = "Valid Email required";
             } else {
-
             }
         }
         if (empty($number)) {
@@ -45,14 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (filter_var($number, FILTER_VALIDATE_INT)) {
                 $Error = "Number required only";
             } else {
-
             }
         }
         if (empty($password)) {
             $Error = "Password Required";
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
-
         }
     }
 
@@ -71,10 +70,7 @@ VALUE(?,?,?,?,?);";
 
         if ($result->execute()) {
             header("Location:user_login.php");
-
         } else {
-
-
         }
     }
 }
@@ -103,8 +99,9 @@ VALUE(?,?,?,?,?);";
             background-color: white;
             box-shadow: 0px 2px 10px 1px rgba(24, 87, 142, 0.5);
         }
-        input.form-control{
-            border-radius:5px;
+
+        input.form-control {
+            border-radius: 5px;
         }
     </style>
 
@@ -114,13 +111,14 @@ VALUE(?,?,?,?,?);";
                 <div class="card-body">
                     <form action="" method="post" class="form-inline">
                         <h5>Adventure starts here 🚀</h5><br>
-                        <?php
-                        if (isset($Error)) {
-                            echo "<div class='alert alert-secondary alert-dismissible'>
-                        <div class='d-flex justify-content-between'>" . $Error . "<button type='button' data-bs-dismiss='alert' class='btn-close'></button>
-                        </div>
-                       </div>";
-                        } ?>
+                        <?php if (isset($Error)) : ?>
+                            <div class='alert alert-secondary alert-dismissible'>
+                                <div class='d-flex justify-content-between'>
+                                    <p> <?= $Error ?> </p>
+                                    <button type='button' data-bs-dismiss='alert' class='btn-close'></button>
+                                </div>
+                            </div>";
+                        <?php endif ?>
                         <div class="card-inline">
                             <label for="name">Name</label>
                             <input type="text" name="name" id="" class="form-control" placeholder="First Name" required>
@@ -131,8 +129,7 @@ VALUE(?,?,?,?,?);";
                         </div>
                         <div class="card-inline">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="" class="form-control" placeholder="Your Email"
-                                required>
+                            <input type="email" name="email" id="" class="form-control" placeholder="Your Email" required>
                         </div>
                         <div class="card-inline">
                             <label for="number">Number</label>
@@ -140,8 +137,7 @@ VALUE(?,?,?,?,?);";
                         </div>
                         <div class="card-inline">
                             <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" id=""
-                                placeholder="Your Password" required>
+                            <input type="password" name="password" class="form-control" id="" placeholder="Your Password" required>
                         </div><br>
                         <div class="d-flex justify-content-center">
                             <input type="submit" value="Register" name="submit" class="form-control bg-danger" style="width:70%">
@@ -155,11 +151,6 @@ VALUE(?,?,?,?,?);";
             </div>
         </div>
     </div>
-
-
-
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>

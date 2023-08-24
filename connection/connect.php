@@ -3,7 +3,7 @@
 define('HOST', 'localhost');
 define('HOSTNAME', 'root');
 define('PASSWORD', '');
-define('DataBaseName', 'admin');
+define('DataBaseName', 'foodvendor');
 
 
 $conn = mysqli_connect(HOST, HOSTNAME, PASSWORD, DataBaseName);

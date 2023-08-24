@@ -36,37 +36,35 @@
                             <div class="card-text">Welcome to CodeChef 👨‍💻</div>
                             <p class="text-justify">Please sign-in to your account and start the adventure</p>
                         </div>
-                        <?php
-                        if (isset($Error)) {
-                            echo "<div class='alert alert-secondary alert-dismissible'>
-                                <div class='d-flex justify-content-between'>" . $Error . "<button type='button' data-bs-dismiss='alert' class='btn-close'></button>
+                        <?php if (isset($Error)) : ?>
+                            <div class='alert alert-secondary alert-dismissible'>
+                                <div class='d-flex justify-content-between'>
+                                    <p> <?= $Error ?> </p>
+                                    <button type='button' data-bs-dismiss='alert' class='btn-close'></button>
                                 </div>
-                                </div>";
-                        }
-                        ?>
+                            </div>
+                        <?php endif ?>
                         <div class="card-inline">
                             <label for="name">Email</label>
-                            <input type="email" name="name" id="" class="form-control" required
-                                style="border-radius:5px;" placeholder="Enter your Email">
+                            <input type="email" name="name" id="" class="form-control" required style="border-radius:5px;" placeholder="Enter your Email">
                         </div><br>
                         <div class="card-inline mb-3">
                             <label for="password">Password</label>
-                            <input type="password" name="password" id="" class="form-control" required
-                                style="border-radius:5px" placeholder="**********">
+                            <input type="password" name="password" id="" class="form-control" required style="border-radius:5px" placeholder="**********">
                         </div>
                         <div class="d-flex justify-content-center">
-                            <input type="submit" value="Sign in" class="btn bg-info form-control"
-                                style="border-radius:5px; width:90%; color:white">
+                            <input type="submit" value="Sign in" class="btn bg-info form-control" style="border-radius:5px; width:90%; color:white">
                         </div><br>
-                        <p style="text-align:center">New on our store<a href="./user_Register.php" class="link" style="text-decoration:none;"> Create
-                                new
-                                Account</a></p>
+                        <p style="text-align:center">New on our store
+                            <a href="./user_Register.php" class="link" style="text-decoration:none;">
+                                Create new account
+                            </a>
+                        </p>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 
     <script src="bootstrap-5.2.3-dist/js/bootstrap.js"></script>
     <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
