@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +19,7 @@
     <title>Food Vendor</title>
   </head>
   <body>
-    <nav id="nav">
+    <nav id="nav" class="navbar-large">
       <a href="index.html">
         <img src="assets/img/bowl.png" alt="" class="nav-brand" />
       </a>
@@ -24,19 +28,14 @@
       </button>
       <ul class="navbar" id="navbar">
         <li class="nav-item">
-          <a href="index.html" class="nav-link"> Home </a>
-        </li>
-        <li class="nav-item">
-          <a href="shop.php" class="nav-link"> Food </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link"> Services </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link"> About Us </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link"> Contact Us </a>
+          <form action="#" class="form">
+            <label for="search">
+              <input type="text" class="form-input" placeholder="Search" />
+              <button class="btn-form">
+                <i class="fa fa-search"></i>
+              </button>
+            </label>
+          </form>
         </li>
         <button class="btn-nav" id="close" onclick="closeNav()">
           <i class="fa-solid fa-xmark"></i>
@@ -60,25 +59,7 @@
         </li>
       </ul>
     </nav>
-
     <main>
-      <article>
-        <div class="jumbotron">
-          <div class="jumbo-text">
-            <h1 class="ft-1">Delicious <i class="yellow"> Delicacies </i></h1>
-            <h5 class="ft-5">Your Taste Buds will love it</h5>
-            <div class="button">
-              <button class="btn product">See all product</button> <br />
-              <button class="btn order">Order Now</button>
-            </div>
-          </div>
-          <img
-            src="assets/img/dash1.png"
-            alt="food"
-            class="img-fluid jumbo-img"
-          />
-        </div>
-      </article>
       <section class="catalog-section">
         <div class="catalog-title">
           <h5 class="ft-5 b">Catalog Section</h5>
@@ -397,29 +378,6 @@
           </div>
         </div>
       </section>
-      <section class="special">
-        <div class="s-body">
-          <div class="body-s">
-            <h5 class="special-title">Today's Special</h5>
-            <h5 class="yellow s">Surprise for you</h5>
-            <div class="special-body">
-              <p class="p-2">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Voluptatem laboriosam quibusdam odio. Iste deserunt impedit est
-                eligendi labore, nihil ducimus sed tenetur quam eum magni
-                sapiente pariatur quos dicta adipisci?
-              </p>
-            </div>
-            <div class="special-price">
-              <h4 class="yellow price"><sup>$</sup> 45</h4>
-              <button class="btn order s">Order Now</button>
-            </div>
-          </div>
-          <div class="special-pic">
-            <img src="assets/img/Burger.png" alt="" class="special-img" />
-          </div>
-        </div>
-      </section>
       <section class="menu">
         <h5 class="menu-title">Our <i class="yellow">Menu</i></h5>
         <!-- <div class="menu-para">
@@ -603,9 +561,7 @@
 
               </div> -->
             </div>
-            <div class="ser-item">
-              
-            </div>
+            <div class="ser-item"></div>
           </div>
         </div>
       </section>
@@ -666,7 +622,10 @@
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/mustapha-ibrahim-945204262/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/mustapha-ibrahim-945204262/"
+                target="_blank"
+              >
                 <i class="fa-brands fa-linkedin"></i>
               </a>
             </li>
@@ -674,13 +633,16 @@
         </div>
         <div class="footer-item">
           <h5 class="ft-5 yellow ft">Store Information</h5>
-          <h5 class="ft-5 yellow"> CALL US NOW: 09976443235</h5>
+          <h5 class="ft-5 yellow">CALL US NOW: 09976443235</h5>
         </div>
       </div>
     </footer>
     <section class="foot">
-      <h6> &copy; 
-        <a href="https://github.com/projecthanif/" target="_blank">projecthanif</a> 
+      <h6>
+        &copy;
+        <a href="https://github.com/projecthanif/" target="_blank"
+          >projecthanif</a
+        >
       </h6>
     </section>
     <script src="assets/js/app.js"></script>

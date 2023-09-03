@@ -1,4 +1,7 @@
 <?php
+
+require('../connection/connect.php');
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $name = $_POST['name'] ?? '';
@@ -78,82 +81,51 @@ VALUE(?,?,?,?,?);";
 
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel='shortcut icon' href='../img/bowl.png' type='image/x-icon'>
+    <link rel="stylesheet" href="../assets/css/form_styles.css">
     <title>Register</title>
 </head>
-
 <body>
-    <style>
-        .card {
-            background-color: white;
-            box-shadow: 0px 2px 10px 1px rgba(24, 87, 142, 0.5);
-        }
 
-        input.form-control {
-            border-radius: 5px;
-        }
-    </style>
-
-    <div class="container">
-        <div class="d-flex justify-content-center mt-4">
-            <div class="card p-5">
-                <div class="card-body">
-                    <form action="" method="post" class="form-inline">
-                        <h5>Adventure starts here 🚀</h5><br>
-                        <?php if (isset($Error)) : ?>
-                            <div class='alert alert-secondary alert-dismissible'>
-                                <div class='d-flex justify-content-between'>
-                                    <p> <?= $Error ?> </p>
-                                    <button type='button' data-bs-dismiss='alert' class='btn-close'></button>
-                                </div>
-                            </div>";
-                        <?php endif ?>
-                        <div class="card-inline">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="" class="form-control" placeholder="First Name" required>
-                        </div>
-                        <div class="card-inline">
-                            <label for="name">Last Name</label>
-                            <input type="text" name="lname" id="" class="form-control" placeholder="Last Name" required>
-                        </div>
-                        <div class="card-inline">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="card-inline">
-                            <label for="number">Number</label>
-                            <input type="" name="number" id="" class="form-control" placeholder="Your Number" required>
-                        </div>
-                        <div class="card-inline">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" id="" placeholder="Your Password" required>
-                        </div><br>
-                        <div class="d-flex justify-content-center">
-                            <input type="submit" value="Register" name="submit" class="form-control bg-danger" style="width:70%">
-                        </div><br>
-                        <div class="d-flex justify-content-end">
-                            <h6>Already have an account?<a href="./user_login.php" class="card-link" style="text-decoration:none;"> Sign in instead</a></h6>
-                        </div>
-
-                    </form>
+    <main>
+        <div class="container-form">
+            <form action="#" method="post" name="myForm">
+                <div class="card">
+                    <div class="card-head">
+                        <h2 class="card-text" id="title">
+                            Register
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <legend>
+                            <label for="name">
+                                Name :
+                                <input type="text" name="name" id="text" placeholder="Enter your Name">
+                                <p id="response" style="display: none;"> </p>
+                            </label>
+                            <label for="number">Number : 
+                                <input type="number" name="number" id="number" placeholder="Enter your Number">
+                            </label>
+                            <label for="email">
+                                Email : 
+                                <input type="email" name="email" id="email" placeholder="Input Email">
+                            </label>
+                            <label for="password">Password :
+                                <input type="password" name="password" id="password" placeholder="Password" autocomplete="none">
+                            </label>
+                            <input type="submit" value="Register" id="submit" class="btn" onsubmit="validate()">
+                        </legend> 
+                        <p class="register">
+                            You have an account no worries you can login <a href="user_login.php">here</a>
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    </main>
 </body>
-
 </html>
