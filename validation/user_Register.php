@@ -1,11 +1,13 @@
 <?php
 
 require('../connection/connect.php');
+require('../function.php');
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $name = $_POST['name'] ?? '';
-    $lname = $_POST['lname'] ?? '';
     $email = $_POST['email'] ?? '';
     $number = $_POST['number'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -17,16 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $Error = "Name Required";
         } else {
             $name = $_POST['name'];
-
-            if (!preg_match("/^['a-zA-Z']*$/", $name)) {
-                $Error = "Only Letters and Whitespace allowed";
-            } else {
-            }
-        }
-        if (empty($lname)) {
-            $Error = "Name Required";
-        } else {
-            $lname = $_POST['lname'];
 
             if (!preg_match("/^['a-zA-Z']*$/", $name)) {
                 $Error = "Only Letters and Whitespace allowed";
@@ -63,13 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (mysqli_connect_error()) {
         die('Connection Error');
     }
-    $sql = "INSERT INTO users(user_fname,user_lname,user_email,user_password,user_number)
-VALUE(?,?,?,?,?);";
 
-    if (!empty($name && $lname && $email && $password && $number)) {
+    if (!empty($name && $email && $password && $number)) {
 
-        $result = $conn->prepare($sql);
-        $result->bind_param('sssss', $name, $lname, $email, $hash, $number);
+        $nameid = explode(' ', $name);
+        $lower = strtolower(end($nameid));
+        $userid = rand(10000, 20000) . $lower;
+
+        $result = $conn->prepare("INSERT INTO users(userid,user_fname,user_email,user_password,user_number)
+        VALUE(?,?,?,?,?);");
+        $result->bind_param('sssss', $userid, $name, $email, $hash, $number);
 
         if ($result->execute()) {
             header("Location:user_login.php");
@@ -82,6 +77,7 @@ VALUE(?,?,?,?,?);";
 ?>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,6 +85,7 @@ VALUE(?,?,?,?,?);";
     <link rel="stylesheet" href="../assets/css/form_styles.css">
     <title>Register</title>
 </head>
+
 <body>
 
     <main>
@@ -107,18 +104,18 @@ VALUE(?,?,?,?,?);";
                                 <input type="text" name="name" id="text" placeholder="Enter your Name">
                                 <p id="response" style="display: none;"> </p>
                             </label>
-                            <label for="number">Number : 
+                            <label for="number">Number :
                                 <input type="number" name="number" id="number" placeholder="Enter your Number">
                             </label>
                             <label for="email">
-                                Email : 
+                                Email :
                                 <input type="email" name="email" id="email" placeholder="Input Email">
                             </label>
                             <label for="password">Password :
                                 <input type="password" name="password" id="password" placeholder="Password" autocomplete="none">
                             </label>
                             <input type="submit" value="Register" id="submit" class="btn" onsubmit="validate()">
-                        </legend> 
+                        </legend>
                         <p class="register">
                             You have an account no worries you can login <a href="user_login.php">here</a>
                         </p>
@@ -128,4 +125,5 @@ VALUE(?,?,?,?,?);";
         </div>
     </main>
 </body>
+
 </html>

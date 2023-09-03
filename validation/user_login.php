@@ -26,8 +26,7 @@
                                 <input type="email" name="email" id="email" placeholder="Email">
                             </label>
                             <label for="password">Password :
-                                <input type="password" name="password" id="password" placeholder="Password"
-                                    autocomplete="none">
+                                <input type="password" name="password" id="password" placeholder="Password" autocomplete="none">
                             </label>
                             <input type="submit" value="Login" id="submit" class="btn" onsubmit="validate()">
                         </legend>
@@ -42,4 +41,3 @@
 </body>
 
 </html>
-

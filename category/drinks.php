@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
     <ul class="navbar list">
       <li class="nav-item">
-        <a href="validation/user_login.php" class="nav-link">
+        <a href="../client/users.php" class="nav-link">
           <i class="fa-regular fa-user fa-2x"></i>
         </a>
       </li>
