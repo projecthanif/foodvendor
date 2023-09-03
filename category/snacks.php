@@ -90,13 +90,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Local Delicacies
           </button>
         </a>
-        <a href="#">
+        <a href="drinks.php">
           <button class="btn select">
             <img src="../assets/img/cream.jpeg" alt="" class="btn-img" />
             Fresh Drink
           </button>
         </a>
-        <a href="snacks.php">
+        <a href="#">
           <button class="btn select">
             <img src="../assets/img/kimchi.jpg" alt="" class="btn-img" />
             Fast Food
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </section>
     <section class="menu">
-      <h5 class="menu-title">Drinks</h5>
+    <h5 class="menu-title">Fast <i class="yellow"> Food </i></h5>
       <div class="menu-section">
         <!-- PHP -->
         <?php

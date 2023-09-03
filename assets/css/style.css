@@ -196,7 +196,14 @@ li {
 }
 
 .catalog-title {
+  display: flex;
+  justify-content: space-between;
   margin-left: 20px;
+}
+
+.btn.order.more {
+  width: 100px;
+  color: white;
 }
 
 .ft-5.b {

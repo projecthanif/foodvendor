@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </ul>
     <ul class="navbar list">
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="validation/user_login.php" class="nav-link">
           <i class="fa-regular fa-user fa-2x"></i>
         </a>
       </li>
@@ -78,26 +78,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h5 class="ft-5 b">Catalog Section</h5>
       </div>
       <div class="select">
-        <button class="btn select">
-          <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
-          Foreign Delicacies
-        </button>
-        <button class="btn select">
-          <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
-          Local Delicacies
-        </button>
-        <button class="btn select">
-          <img src="assets/img/cream.jpeg" alt="" class="btn-img" />
-          Fresh Drink
-        </button>
-        <button class="btn select">
-          <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
-          Fast Food
-        </button>
+        <a href="#foreign">
+          <button class="btn select">
+            <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
+            Foreign Delicacies
+          </button>
+        </a>
+        <a href="#local">
+          <button class="btn select">
+            <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
+            Local Delicacies
+          </button>
+        </a>
+        <a href="#drink">
+          <button class="btn select">
+            <img src="assets/img/cream.jpeg" alt="" class="btn-img" />
+            Fresh Drink
+          </button>
+        </a>
+        <a href="#snacks">
+          <button class="btn select">
+            <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
+            Fast Food
+          </button>
+        </a>
       </div>
       <div class="catalog-item" id="food">
-        <div class="catalog-title">
+        <div class="catalog-title" id="foreign">
           <h5 class="ft-5 b">Foreign <i class="yellow"> Delicacies </i></h5>
+          <a href="category/foreign.php">
+            <button class="btn order more">See More</button>
+          </a>
         </div>
         <div class="card-section">
           <div class="flex-container">
@@ -149,8 +160,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
           </div>
         </div>
-        <div class="catalog-title">
+        <div class="catalog-title" id="local">
           <h5 class="ft-5 b">Local <i class="yellow"> Delicacies </i></h5>
+          <a href="category/local.php">
+            <button class="btn order more">See More</button>
+          </a>
         </div>
         <div class="card-section">
           <div class="flex-container">
@@ -202,8 +216,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
           </div>
         </div>
-        <div class="catalog-title">
+        <div class="catalog-title" id="drink">
           <h5 class="ft-5 b">Drinks <!--<i class="yellow"> Delicacies </i>--></h5>
+          <a href="category/drinks.php">
+            <button class="btn order more">See More</button>
+          </a>
         </div>
         <div class="card-section">
           <div class="flex-container">
@@ -255,8 +272,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
           </div>
         </div>
-        <div class="catalog-title">
+        <div class="catalog-title" id="snacks">
           <h5 class="ft-5 b">Fast <i class="yellow"> Food </i></h5>
+          <a href="category/snacks.php">
+            <button class="btn order more">See More</button>
+          </a>
         </div>
         <div class="card-section">
           <div class="flex-container">
