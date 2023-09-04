@@ -93,7 +93,7 @@ require('../controller/order.php');
       <div class="menu-section">
         <!-- PHP -->
         <?php
-        $request = $conn->query("SELECT * FROM item_order LIMIT 10");
+        $request = $conn->query("SELECT * FROM item_order");
 
         if (mysqli_num_rows($request) > 0) :
 
