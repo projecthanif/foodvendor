@@ -28,6 +28,7 @@
                             <label for="password">Password :
                                 <input type="password" name="password" id="password" placeholder="Password" autocomplete="none">
                             </label>
+                            <input type="hidden" name="referer" value="<?= $_SERVER['HTTP_REFERER'] ?>">
                             <input type="submit" value="Login" id="submit" class="btn" onsubmit="validate()">
                         </legend>
                         <p class="register">

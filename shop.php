@@ -1,22 +1,6 @@
 <?php
-
-// session_start();
-include('connection/connect.php');
-include('function.php');
-
-$orderId = $_REQUEST['productId'] ?? '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-  echo $orderId;
-
-  // dd($orderId);
-}
-
-
-// dd($_SESSION);
-
-
+require('connection/connect.php');
+require('controller/order.php');
 
 ?>
 <!DOCTYPE html>
@@ -140,9 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="card-foot">
                       <div class="card-price"><del>N</del> <?= $price ?></div>
-                      <?php
 
-                      ?>
                       <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
                         <input type="hidden" name="productId" value="<?= $productId ?>">
                         <button class="cart-img">

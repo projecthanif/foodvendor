@@ -1,5 +1,5 @@
 <?php
-require_once('../connection/connect.php');
+require('../connection/connect.php');
 session_start();
 
 if (!isset($_SESSION['name'])) {
@@ -22,8 +22,12 @@ if (!isset($_SESSION['name'])) {
 
                 $_SESSION['type'] = $out['type'];
                 $_SESSION['name'] = $out['user_fname'];
+                $_SESSION['id'] = $out['userid'];
 
-                header('Location: ../index.html');
+                $referer = $_POST['referer'];
+                
+                
+                header("Location: $referer");
             } else {
                 echo "failed";
                 // header('Location: user_login.php');

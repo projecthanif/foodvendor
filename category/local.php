@@ -1,22 +1,6 @@
 <?php
-
-// session_start();
-include('../connection/connect.php');
-include('../function.php');
-
-$orderId = $_REQUEST['productId'] ?? '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-  echo $orderId;
-
-  // dd($orderId);
-}
-
-
-// dd($_SESSION);
-
-
+require('../connection/connect.php');
+require('../controller/order.php');
 
 ?>
 <!DOCTYPE html>
@@ -136,9 +120,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="card-foot">
                   <div class="card-price">$<?= $price ?></div>
-                  <div class="cart-img">
-                    <i class="fa fa-bag-shopping"></i>
-                  </div>
+                  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+                    <input type="hidden" name="productId" value="<?= $productId ?>">
+                    <button class="cart-img">
+                      <i class="fa fa-bag-shopping"></i>
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -223,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <a href="https://github.com/projecthanif/" target="_blank">projecthanif</a>
     </h6>
   </section>
-  <script src="assets/js/app.js"></script>
+  <script src="../assets/js/app.js"></script>
 </body>
 
 </html>
