@@ -15,7 +15,6 @@ if (!isset($_SESSION['name'])) {
         while (mysqli_num_rows($result) === 1) {
             $out = $result->fetch_assoc();
 
-
             $hash = $out['user_password'];
             $verify = password_verify($password, $hash);
 
@@ -23,6 +22,7 @@ if (!isset($_SESSION['name'])) {
 
                 $_SESSION['type'] = $out['type'];
                 $_SESSION['name'] = $out['user_fname'];
+
                 header('Location: ../index.html');
             } else {
                 echo "failed";
