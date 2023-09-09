@@ -24,10 +24,10 @@ if (!isset($_SESSION['name'])) {
                 $_SESSION['name'] = $out['user_fname'];
                 $_SESSION['id'] = $out['userid'];
 
-                $referer = $_POST['referer'];
+                // $referer = $_POST['referer'];
                 
                 
-                header("Location: $referer");
+                header("Location: ../index.html");
             } else {
                 echo "failed";
                 // header('Location: user_login.php');

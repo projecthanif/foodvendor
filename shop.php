@@ -1,7 +1,7 @@
 <?php
 require('connection/connect.php');
 require('controller/order.php');
-
+require('function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +40,7 @@ require('controller/order.php');
     </ul>
     <ul class="navbar list">
       <li class="nav-item">
-        <a href="client/users.php" class="nav-link">
+        <a href="customer/users.php" class="nav-link">
           <i class="fa-regular fa-user fa-2x"></i>
         </a>
       </li>
