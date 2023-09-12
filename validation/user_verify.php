@@ -12,12 +12,12 @@ if (!isset($_SESSION['name'])) {
 
         $result = $conn->query("SELECT * FROM users WHERE user_email='$email'");
 
-        while (mysqli_num_rows($result) === 1) {
+        if (mysqli_num_rows($result) === 1) {
             $out = $result->fetch_assoc();
 
             $hash = $out['user_password'];
             $verify = password_verify($password, $hash);
-
+            // dd($hash);
             if ($verify) {
 
                 $_SESSION['type'] = $out['type'];
