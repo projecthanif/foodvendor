@@ -3,7 +3,7 @@
   margin: 0;
 }
 body {
-  height: 2000px;
+  /* height: 2000px; */
   background-color: whitesmoke;
 }
 
@@ -12,6 +12,7 @@ body {
   background-color: rgb(225, 222, 222);
   color: black;
 }
+
 .links {
   display: flex;
   flex-direction: row;
@@ -21,7 +22,7 @@ body {
 .aside {
   background-color: white;
   display: block;
-  width: 18%;
+  width: 30%;
   height: 100vh;
   position: sticky;
   top: 0;
@@ -48,7 +49,8 @@ body {
   flex-direction: row;
 }
 
-.user_info {
+.user_info,
+.order.section {
   margin-left: 50px;
   padding: 30px;
   background-color: white;
@@ -79,7 +81,42 @@ h1.img {
   font-size: 20px;
 }
 
+.usercategory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .user.item {
-    margin-top: 30px;
-    margin-left: 30px;
+  margin-top: 30px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item.name {
+  margin-top: 15px;
+  margin-left: -10px;
+}
+
+.section.body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.order.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+  border-bottom: 2px solid rgb(224, 221, 221);
+}
+
+.title {
+  font-size: 20px;
+}
+
+.order-link {
+  font-size: 2vh;
+  color: black;
 }

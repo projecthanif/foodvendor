@@ -46,5 +46,3 @@ function dd($value)
     echo "</pre>";
     exit;
 }
-
-?>

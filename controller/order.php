@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
     if ($orderRequest->execute())
     {
-      http_response_code(404);
+      
     }
     else 
     {

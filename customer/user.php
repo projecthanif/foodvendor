@@ -4,69 +4,70 @@ session_start();
 require('../connection/connect.php');
 require('../function.php');
 
+if (isset($_SESSION['name'])) :
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/cstyles.css">
-    <link rel="shortcut icon" href="../assets/img/bowl.png" type="image/x-icon" />
-    <title>Food Vendor</title>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/cstyles.css">
+        <link rel="shortcut icon" href="../assets/img/bowl.png" type="image/x-icon" />
+        <title>Food Vendor</title>
+    </head>
 
-<body>
-    <nav id="nav" class="navbar-large">
-        <a href="../index.html">
-            <img src="../assets/img/bowl.png" alt="" class="nav-brand" />
-        </a>
-        <button class="btn-nav" id="navToggle" onclick="showNav()">
-            <i class="fa fa-bars fa-2x"></i>
-        </button>
-        <ul class="navbar" id="navbar">
-            <li class="nav-item">
-                <form action="#" class="form">
-                    <label for="search">
-                        <input type="text" class="form-input" placeholder="Search" name="search" />
-                        <button class="btn-form">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </label>
-                </form>
-            </li>
-            <button class="btn-nav" id="close" onclick="closeNav()">
-                <i class="fa-solid fa-xmark"></i>
+    <body>
+        <nav id="nav" class="navbar-large">
+            <a href="../index.html">
+                <img src="../assets/img/bowl.png" alt="" class="nav-brand" />
+            </a>
+            <button class="btn-nav" id="navToggle" onclick="showNav()">
+                <i class="fa fa-bars fa-2x"></i>
             </button>
-        </ul>
-        <ul class="navbar list">
-            <li class="nav-item" title="<?= $_SESSION['name'] ?>">
-                <a href="user.php" class="nav-link">
-                    <i class="fa-regular fa-user fa-2x"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fa-regular fa-heart fa-2x"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="cart.php" class="nav-link">
-                    <i class="fa fa-bag-shopping fa-2x"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <?php
-    if (isset($_SESSION['name'])) :
-    ?>
-
+            <ul class="navbar" id="navbar">
+                <li class="nav-item">
+                    <form action="#" class="form">
+                        <label for="search">
+                            <input type="text" class="form-input" placeholder="Search" name="search" />
+                            <button class="btn-form">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </label>
+                    </form>
+                </li>
+                <button class="btn-nav" id="close" onclick="closeNav()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </ul>
+            <ul class="navbar list">
+                <li class="nav-item">
+                    <a href="user.php" class="nav-link">
+                        <i class="fa-regular fa-user fa-2x"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-regular fa-heart fa-2x"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="cart.php" class="nav-link">
+                        <i class="fa fa-bag-shopping fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
         <main>
             <section class="link">
-                <h4 class="links"><a href="../index.html" class="nav-link"> Home </a> > <a href="user.php" class="nav-link"> Account</a></h4>
+                <h4 class="links">
+                    <a href="../index.html" class="nav-link"> Home </a>
+                    <p> > </p>
+                    <a href="user.php" class="nav-link"> Account</a>
+                </h4>
             </section>
             <section class="body">
                 <aside class="aside">
@@ -78,25 +79,30 @@ require('../function.php');
                     <a href="#" class="nav-link">Settings</a>
                     <a href="#" class="nav-link">Shipping Address</a>
                 </aside>
-                <article class="user_info">
-                    <div class="user">
-                        <h1 class="img">M</h1>
-                        <h3 class="user_name"> <?= $_SESSION['name'] ?></h3>
-                    </div>
-                    <div class="user item">
-                        <i class="fa-regular fa-heart fa-2x"></i>
-                        <h3>Wish List</h3>
-                    </div>
-                </article>
+                <section class="section body">
+                    <article class="user_info">
+                        <div class="user">
+                            <h1 class="img">M</h1>
+                            <h3 class="user_name"> <?= $_SESSION['name'] ?></h3>
+                        </div>
+                    </article>
+                    <article class="order section">
+                        <div class="order title">
+                            <h4 class="title">My Orders</h4>
+                            <a href="#" class="order-link">View All > </a>
+                        </div>
+                        
+                    </article>
+                </section>
             </section>
         </main>
 
-    <?php else : ?>
-        <main>
+        <script src="../assets/js/app.js"></script>
+    </body>
 
-        </main>
-    <?php endif;  ?>
-
-</body>
-
-</html>
+    </html>
+<?php
+else :
+    header(("Location: ../validation/user_login.php"));
+endif;
+?>
