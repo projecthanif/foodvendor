@@ -27,7 +27,7 @@ if (!isset($_SESSION['name'])) {
                 // $referer = $_POST['referer'];
                 
                 
-                header("Location: ../index.html");
+                header("Location: ../index.php");
             } else {
                 echo "failed";
                 // header('Location: user_login.php');
@@ -37,7 +37,7 @@ if (!isset($_SESSION['name'])) {
         header('Location: user_login.php');
     }
 } else {
-    header('Location: ../index.html');
+    header('Location: ../index.php');
 }
 function dd($value)
 {

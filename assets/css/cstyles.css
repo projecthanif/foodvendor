@@ -50,7 +50,8 @@ body {
 }
 
 .user_info,
-.order.section {
+.order.section,
+.cart-title {
   margin-left: 50px;
   padding: 30px;
   background-color: white;

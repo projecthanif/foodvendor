@@ -17,7 +17,7 @@ require('function.php');
 
 <body>
   <nav id="nav" class="navbar-large">
-    <a href="index.html">
+    <a href="index.php">
       <img src="assets/img/bowl.png" alt="" class="nav-brand" />
     </a>
     <button class="btn-nav" id="navToggle" onclick="showNav()">

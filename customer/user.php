@@ -22,7 +22,7 @@ if (isset($_SESSION['name'])) :
 
     <body>
         <nav id="nav" class="navbar-large">
-            <a href="../index.html">
+            <a href="../index.php">
                 <img src="../assets/img/bowl.png" alt="" class="nav-brand" />
             </a>
             <button class="btn-nav" id="navToggle" onclick="showNav()">
@@ -64,7 +64,7 @@ if (isset($_SESSION['name'])) :
         <main>
             <section class="link">
                 <h4 class="links">
-                    <a href="../index.html" class="nav-link"> Home </a>
+                    <a href="../index.php" class="nav-link"> Home </a>
                     <p> > </p>
                     <a href="user.php" class="nav-link"> Account</a>
                 </h4>
@@ -90,8 +90,7 @@ if (isset($_SESSION['name'])) :
                         <div class="order title">
                             <h4 class="title">My Orders</h4>
                             <a href="#" class="order-link">View All > </a>
-                        </div>
-                        
+                        </div>                        
                     </article>
                 </section>
             </section>
