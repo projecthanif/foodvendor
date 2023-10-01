@@ -1,0 +1,161 @@
+* {
+  padding: 0%;
+  margin: 0%;
+}
+
+body {
+  font-family: monospace;
+  background-color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: whitesmoke;
+  /* height: 50px; */
+}
+
+.navbar-large {
+  padding: 10px;
+}
+
+.form-input {
+  width: 50vh;
+  height: 5vh;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.btn-form {
+  width: 5vh;
+  height: 5vh;
+  position: relative;
+  left: -50px;
+  top: -4px;
+  /* border: none; */
+}
+
+.nav-brand {
+  width: fit-content;
+  height: fit-content;
+}
+.btn-nav {
+  display: none;
+  width: 56px;
+  height: 40px;
+  background-color: hsl(39, 100%, 50%);
+  border-radius: 6px;
+  border: 1px solid grey;
+  margin-top: 10px;
+}
+ul {
+  list-style-type: none;
+}
+
+li a {
+  padding: 20px;
+}
+
+a.nav-link {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+a {
+  text-decoration: none;
+}
+
+li {
+  float: left;
+}
+
+.fa {
+  color: black;
+}
+.nav-item {
+  font-weight: bold;
+}
+
+.btn.order.nav {
+  width: 30px;
+  color: black;
+  margin-top: -0.1px;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+    position: fixed;
+    left: 0px;
+    background-color: white;
+    width: 100%;
+  }
+
+  li a:hover {
+    background-color: grey;
+  }
+  li {
+    display: block;
+    float: none;
+  }
+  .btn-nav {
+    display: inline;
+  }
+  #close {
+    position: fixed;
+    top: 0%;
+    left: 80%;
+  }
+}
+
+.aside {
+  background-color: rgb(215, 208, 208);
+  display: block;
+  width: 15%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+.asidelist {
+  display: flex;
+  flex-direction: column;
+}
+
+.asideItem {
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.asideItem > a {
+  color: black;
+}
+
+.asideItem:hover {
+  background-color: rgb(154, 155, 155);
+}
+
+.body {
+    margin-left: 20%;
+    margin-top: -48%;
+}
+
+.table {
+    width: 80%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: start;
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+thead {
+    
+}

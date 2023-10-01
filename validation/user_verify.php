@@ -17,15 +17,14 @@ if (!isset($_SESSION['name'])) {
 
             $hash = $out['user_password'];
             $verify = password_verify($password, $hash);
-            // dd($hash);
+            // dd($verify);
             if ($verify) {
 
                 $_SESSION['type'] = $out['type'];
-                $_SESSION['name'] = $out['user_fname'];
+                $_SESSION['name'] = $out['username'];
                 $_SESSION['id'] = $out['userid'];
 
                 // $referer = $_POST['referer'];
-                
                 
                 header("Location: ../index.php");
             } else {
