@@ -73,7 +73,7 @@ $query = $conn->query('SELECT * FROM user_order');
           <thead>
             <th>Customer Id</th>
             <th>Product Id</th>
-            <!-- <th>Time of Purchase</th> -->
+            <th>Time of Purchase</th>
             <th>Quantity</th>
           </thead>
           <?php
@@ -83,7 +83,7 @@ $query = $conn->query('SELECT * FROM user_order');
               <tbody>
                 <td><?= $orderInfo['userid'] ?></td>
                 <td><?= $orderInfo['productid'] ?></td>
-                <!-- <td><?= $orderInfo['timeofpurchase'] ?></td> -->
+                <td><?= $orderInfo['timeofpurchase'] ?></td>
                 <td><?= $orderInfo['quantity'] ?></td>
               </tbody>
           <?php
