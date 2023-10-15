@@ -20,7 +20,7 @@
     </button>
     <ul class="navbar" id="navbar">
       <li class="nav-item">
-        <form action="#" class="form">
+        <form action="" class="form">
           <label for="search">
             <input type="text" class="form-input" placeholder="Search" />
             <button class="btn-form">
