@@ -28,8 +28,8 @@ if (!isset($_SESSION['name'])) {
                 
                 header("Location: ../index.php");
             } else {
-                echo "failed";
-                // header('Location: user_login.php');
+                sleep(3);
+                header('Location: user_login.php');
             }
         }
     } else {
