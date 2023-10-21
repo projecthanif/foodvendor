@@ -1,0 +1,159 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+/** NAVIGATION */
+
+nav {
+  height: 60px;
+  width: 100%;
+  background-color: rgb(226, 226, 226);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  height: 60px;
+  /* border-bottom: 2px solid red; */
+}
+
+li a {
+  display: block;
+}
+
+li {
+  float: left;
+}
+
+.form {
+  padding: 5px;
+}
+
+.form-input {
+  width: 60vh;
+  height: 5vh;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(218, 217, 217);
+}
+
+.btn-form {
+  width: 5vh;
+  height: 5vh;
+  position: relative;
+  left: -50px;
+  top: -4px;
+}
+
+.nav-left {
+  padding: 10px;
+}
+
+a.nav-item {
+  padding: 10px;
+}
+
+.avatar.sm {
+  width: 30px;
+  border: 50%;
+  height: 1/2;
+}
+
+aside.aside {
+  padding: 10px;
+  width: 15%;
+  background-color: rgb(217, 217, 224);
+  color: rgb(24, 25, 25);
+  height: 100%;
+  position: fixed;
+}
+
+.side-nav-item {
+  color: rgb(54, 53, 53);
+}
+
+.top {
+  margin-top: 30px;
+}
+li .side-nav-item {
+  display: block;
+  padding: 15px;
+  width: 100%;
+}
+
+li .side-nav-item:hover {
+  background-color: rgb(126, 125, 125);
+  width: 150px;
+}
+
+main {
+  margin-left: 20%;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgb(230, 232, 234);
+  margin-top: 10px;
+  width: 97%;
+}
+.title-page {
+  color: red;
+}
+
+
+
+.table-row {
+  margin-top:20px;
+}
+
+table {
+  padding: 10px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  height: 50px;
+  text-align: start;
+}
+th {
+  text-align: start;
+  padding: 10px;
+}
+
+tbody {
+  text-align: start;
+}
+
+td {
+  height: 40px;
+  padding: 5px;
+  background-color: aliceblue;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.pill {
+  border-radius: 2px solid green;
+  background-color: green;
+  width: 70%;
+  padding: 2px;
+  border-radius: 20px;
+  text-align: center;
+}

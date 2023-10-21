@@ -10,19 +10,19 @@ if (!isset($_SESSION['name'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-        $result = $conn->query("SELECT * FROM users WHERE user_email='$email'");
+        $result = $conn->query("SELECT * FROM users WHERE userMail='$email'");
 
         if (mysqli_num_rows($result) === 1) {
             $out = $result->fetch_assoc();
 
-            $hash = $out['user_password'];
+            $hash = $out['userPassword'];
             $verify = password_verify($password, $hash);
             // dd($verify);
             if ($verify) {
 
-                $_SESSION['type'] = $out['type'];
-                $_SESSION['name'] = $out['username'];
-                $_SESSION['id'] = $out['userid'];
+                $_SESSION['type'] = $out['UserType'];
+                $_SESSION['name'] = $out['userName'];
+                $_SESSION['id'] = $out['userId'];
 
                 // $referer = $_POST['referer'];
                 

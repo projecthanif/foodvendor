@@ -62,9 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $lower = strtolower(end($nameid));
         $userid = rand(10000, 20000) . $lower;
 
-        $result = $conn->prepare("INSERT INTO users(userid,username,user_email,user_password,user_number)
+        $result = $conn->prepare("INSERT INTO users(userId,userName,userMail,userNumber,userPassword)
         VALUE(?,?,?,?,?);");
-        $result->bind_param('sssss', $userid, $name, $email, $hash, $number);
+        $result->bind_param('sssss', $userid, $name, $email, $number, $hash);
 
         if ($result->execute()) {
             header("Location:user_login.php");
@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
 }
-
 
 ?>
 
