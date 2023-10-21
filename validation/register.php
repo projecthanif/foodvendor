@@ -2,6 +2,7 @@
 
 require 'User.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $name = $_POST['name'] ?? '';
@@ -10,15 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $password = $_POST['password'] ?? '';
     $submit = $_POST['submit'] ?? '';
 
-    $user = new User($name, $email, $number, $password);
 
-    $user->validateString();
-    $user->validateEmail();
-    $user->validateInt();
-    $user->hash();
-
-    $user->userRegister();
+    $user = new User();
+    $user->userRegister($name, $email, $number, $password);
 }
+
 
 ?>
 
@@ -63,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <input type="submit" value="Register" id="submit" class="btn" onsubmit="validate()">
                         </legend>
                         <p class="register">
-                            You have an account no worries you can login <a href="user_login.php">here</a>
+                            You have an account no worries you can login <a href="login.php">here</a>
                         </p>
                     </div>
                 </div>

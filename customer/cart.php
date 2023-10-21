@@ -76,6 +76,6 @@ if (isset($_SESSION['name'])) :
 
 
 <?php
-else :  header('Location: ../validation/user_login.php');
+else :  header('Location: ../validation/login.php');
 endif;
 ?>

@@ -102,6 +102,6 @@ if (isset($_SESSION['name'])) :
     </html>
 <?php
 else :
-    header(("Location: ../validation/user_login.php"));
+    header(("Location: ../validation/login.php"));
 endif;
 ?>

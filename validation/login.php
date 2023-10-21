@@ -1,3 +1,28 @@
+<?php
+declare(strict_types=1);
+
+clearstatcache();
+require 'User.php';
+session_start();
+
+if (!isset($_SESSION['name'])) {
+
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $user = new User();
+        $user->verifyUser(email: $email, password: $password);
+
+    }
+} else {
+    header('Location: ../index.php');
+}
+
+
+?>
+
 <html lang="en">
 
 <head>
@@ -12,7 +37,7 @@
 
     <main>
         <div class="container-form">
-            <form action="user_verify.php" method="post" name="myForm">
+            <form action="#" method="post" name="myForm">
                 <div class="card">
                     <div class="card-head">
                         <h1 class="card-text" id="title">
@@ -28,11 +53,10 @@
                             <label for="password">Password :
                                 <input type="password" name="password" id="password" placeholder="Password" autocomplete="none">
                             </label>
-                            <input type="hidden" name="referer" value="<?= $_SERVER['HTTP_REFERER'] ?>">
                             <input type="submit" value="Login" id="submit" class="btn" onsubmit="validate()">
                         </legend>
                         <p class="register">
-                            You don't have an account we got you covered register <a href="user_Register.php">here</a>
+                            You don't have an account we got you covered register <a href="register.php">here</a>
                         </p>
                     </div>
                 </div>
