@@ -5,7 +5,7 @@ require APP_PATH . 'Database.php';
 
 $orders = new Database();
 
-$lists = $orders->getList('SELECT * FROM item_order');
+$lists = $orders->getList('SELECT * FROM orders');
 
 $users = new Database();
 
@@ -110,26 +110,29 @@ $usersList = $orders->getList('SELECT * FROM users');
         </thead>
         <tbody>
           <?php
-          foreach ($lists as $list) :
+          if (!empty($lists)) :
+            foreach ($lists as $list) :
           ?>
-            <tr>
-              <td><?= $list['item_Name'] ?></td>
-              <td><?= $list['productid'] ?></td>
-              <td><?= $list['item_Name'] ?></td>
-              <td><?= $list['item_Price'] ?></td>
-              <?php if (@$list['item'] === 'paid') : ?>
-                <td>
-                  <p class="pill paid"><?= 'paid' ?></p>
-                </td>
-              <?php else : ?>
-                <td>
-                  <p class="pill pending"><?= 'paid' ?></p>
-                </td>
-              <?php endif ?>
-            </tr>
+              <tr>
+                <td><?= $list['productName'] ?></td>
+                <td><?= $list['productId'] ?></td>
+                <td><?= $list['productName'] ?></td>
+                <td><?= $list['productPrice'] ?></td>
+                <?php if (@$list['item'] === 'paid') : ?>
+                  <td>
+                    <p class="pill paid"><?= 'paid' ?></p>
+                  </td>
+                <?php else : ?>
+                  <td>
+                    <p class="pill pending"><?= 'paid' ?></p>
+                  </td>
+                <?php endif ?>
+              </tr>
           <?php
-          endforeach;
+            endforeach;
+          endif;
           ?>
+
         </tbody>
       </table>
     </section>

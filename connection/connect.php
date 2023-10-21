@@ -1,15 +1,18 @@
 <?php
 
-define('HOST', 'localhost');
-define('HOSTNAME', 'root');
-define('PASSWORD', '');
-define('DataBaseName', 'foodvendor');
+const HOST = 'localhost';
+const HOSTNAME = 'root';
+const PASSWORD = '';
+const DataBaseName = 'foodvendor';
 
+$conn = mysqli_connect(
+    HOST,
+    HOSTNAME,
+    PASSWORD,
+    DataBaseName
+);
 
-$conn = mysqli_connect(HOST, HOSTNAME, PASSWORD, DataBaseName);
-
-if (mysqli_connect_error()) {
+if ($conn->connect_error) {
+    trigger_error('ERROR', E_USER_ERROR);
     die('Connection Error');
 }
-
-?>

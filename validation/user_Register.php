@@ -1,9 +1,6 @@
 <?php
 
-require('../connection/connect.php');
-require('../function.php');
-
-
+require 'User.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -12,65 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $number = $_POST['number'] ?? '';
     $password = $_POST['password'] ?? '';
     $submit = $_POST['submit'] ?? '';
-    $Error = '';
 
-    if (isset($submit)) {
-        if (empty($name)) {
-            $Error = "Name Required";
-        } else {
-            $name = $_POST['name'];
+    $user = new User($name, $email, $number, $password);
 
-            if (!preg_match("/^['a-zA-Z']*$/", $name)) {
-                $Error = "Only Letters and Whitespace allowed";
-            } else {
-            }
-        }
-        if (empty($email)) {
-            $Error = "Email required";
-        } else {
-            $email = $_POST['email'];
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $Error = "Valid Email required";
-            } else {
-            }
-        }
-        if (empty($number)) {
-            $Error = "Phone Number Required";
-        } else {
-            $number = $_POST['number'];
-            if (filter_var($number, FILTER_VALIDATE_INT)) {
-                $Error = "Number required only";
-            } else {
-            }
-        }
-        if (empty($password)) {
-            $Error = "Password Required";
-        } else {
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-        }
-    }
+    $user->validateString();
+    $user->validateEmail();
+    $user->validateInt();
+    $user->hash();
 
-    require_once('../connection/connect.php');
-
-    if (mysqli_connect_error()) {
-        die('Connection Error');
-    }
-
-    if (!empty($name && $email && $password && $number)) {
-
-        $nameid = explode(' ', $name);
-        $lower = strtolower(end($nameid));
-        $userid = rand(10000, 20000) . $lower;
-
-        $result = $conn->prepare("INSERT INTO users(userId,userName,userMail,userNumber,userPassword)
-        VALUE(?,?,?,?,?);");
-        $result->bind_param('sssss', $userid, $name, $email, $number, $hash);
-
-        if ($result->execute()) {
-            header("Location:user_login.php");
-        } else {
-        }
-    }
+    $user->userRegister();
 }
 
 ?>
