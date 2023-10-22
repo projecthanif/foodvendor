@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-
+// if (!@$_SESSION['type'] !== 'admin'){
+//     header('Location: ../../index.php');
+// }
 class Database
 {
     private $conn;
@@ -39,6 +41,7 @@ class Database
 
         return $lists;
     }
+
     public function __destruct()
     {
         $this->conn->close();

@@ -11,6 +11,7 @@ $users = new Database();
 
 $usersList = $orders->getList('SELECT * FROM users');
 
+
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +85,7 @@ $usersList = $orders->getList('SELECT * FROM users');
     </li>
     <li>
       <a href="store.php" class="side-nav-item">
+        Item Management
       </a>
     </li>
   </aside>
@@ -114,17 +116,21 @@ $usersList = $orders->getList('SELECT * FROM users');
             foreach ($lists as $list) :
           ?>
               <tr>
+                <td><?= $list['customer'] ?></td>
+                <td><?= $list['orderId'] ?></td>
                 <td><?= $list['productName'] ?></td>
-                <td><?= $list['productId'] ?></td>
-                <td><?= $list['productName'] ?></td>
-                <td><?= $list['productPrice'] ?></td>
-                <?php if (@$list['item'] === 'paid') : ?>
+                <td><?= $list['price'] ?></td>
+                <?php if ($list['status'] === 'paid') : ?>
                   <td>
-                    <p class="pill paid"><?= 'paid' ?></p>
+                    <p class="pill paid"><?= $list['status'] ?></p>
+                  </td>
+                <?php elseif ($list['status'] === 'pending') : ?>
+                  <td>
+                    <p class="pill pending"><?= $list['status'] ?></p>
                   </td>
                 <?php else : ?>
                   <td>
-                    <p class="pill pending"><?= 'paid' ?></p>
+                    <p class="pill decline"><?= $list['status'] ?></p>
                   </td>
                 <?php endif ?>
               </tr>
@@ -134,6 +140,7 @@ $usersList = $orders->getList('SELECT * FROM users');
           ?>
 
         </tbody>
+
       </table>
     </section>
   </main>

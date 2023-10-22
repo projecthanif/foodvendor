@@ -115,10 +115,8 @@ main {
   color: red;
 }
 
-
-
 .table-row {
-  margin-top:20px;
+  margin-top: 20px;
 }
 
 table {
@@ -138,22 +136,35 @@ th {
 
 tbody {
   text-align: start;
+  margin-bottom: 20px;
 }
 
 td {
   height: 40px;
   padding: 5px;
   background-color: aliceblue;
-  margin-bottom: 10px;
   font-size: 15px;
   font-weight: bold;
 }
 
 .pill {
-  border-radius: 2px solid green;
-  background-color: green;
-  width: 70%;
-  padding: 2px;
+  width: 60%;
+  padding: 4px;
   border-radius: 20px;
   text-align: center;
+}
+
+.paid {
+  border-radius: 2px solid green;
+  background-color: green;
+}
+
+.pending {
+  border-radius: 2px solid orange;
+  background-color: orange;
+}
+
+.decline {
+  border-radius: 2px solid red;
+  background-color: red;
 }
