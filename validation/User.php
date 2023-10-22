@@ -41,10 +41,8 @@ class User
         $this->number = $this->validateInt($number);
         $this->password = $this->hash($password);
 
-        // var_dump($this->number);
-        // exit;
-
         $this->userId = '#' . rand(10000, 200000);
+
         $result = $this->conn->prepare(
             "INSERT INTO users(
             userId, 
