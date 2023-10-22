@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-clearstatcache();
+
 require 'User.php';
 session_start();
 

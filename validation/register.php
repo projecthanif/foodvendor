@@ -2,9 +2,6 @@
 
 require 'User.php';
 
-$conn = mysqli_connect('localhost', 'root', '', 'foodvendor');
-
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     
     $name = $_POST['name'] ?? '';

@@ -7,7 +7,7 @@ class User
     private string $name;
     private string $email;
     private int $number;
-    private int|string $password;
+    private string $password;
     private string $userId;
     private string $hash;
     private $conn;
@@ -34,22 +34,23 @@ class User
         string $name,
         string $email,
         int $number,
-        string|int $password
+        string $password
     ) {
         $this->name = $this->validateString($name);
         $this->email = $this->validateEmail($email);
         $this->number = $this->validateInt($number);
-        $this->password = $this->hash($password);
+        $this->password = $this->hashPassword($password);
 
         $this->userId = '#' . rand(10000, 200000);
 
         $result = $this->conn->prepare(
-            "INSERT INTO users(
+            "INSERT INTO users (
             userId, 
             userName, 
             userMail, 
-            userNumber, 
-            userPassword) VALUE(?,?,?,?,?);"
+            mobile, 
+            userPassword
+            ) VALUES (?,?,?,?,?);"
         );
         $result->bind_param(
             'sssis',
@@ -57,11 +58,12 @@ class User
             $this->name,
             $this->email,
             $this->number,
-            $this->hash
+            $this->password
         );
-
+        
         if ($result->execute()) {
-            header("Location:login.php");
+            header("Location: login.php");
+            exit;
         }
     }
 
@@ -119,7 +121,7 @@ class User
         return $this->number;
     }
 
-    public function hash(string|int $password)
+    public function hashPassword(string|int $password)
     {
         $this->password = $password;
         $this->hash = password_hash($this->password, PASSWORD_BCRYPT);
