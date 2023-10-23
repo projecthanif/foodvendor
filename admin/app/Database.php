@@ -87,6 +87,11 @@ class Database
         }
     }
 
+    public function upload()
+    {
+        
+    }
+
     public function update()
     {
         // $this->conn->prepared_query('', $this->itemId);

@@ -7,6 +7,17 @@ $usersList = new Database();
 
 $users = $usersList->getList('SELECT * FROM items');
 
+if  ($_SERVER['REQUEST_METHOD'] === 'POST')
+{
+  $name = $_POST['name'];
+  $category = $_POST['category'];
+  $price = $_POST['price'];
+  $discount = $_POST['discount'];
+
+  
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +104,13 @@ $users = $usersList->getList('SELECT * FROM items');
       </p>
     </article>
     <article class="addList">
-
+      <form action="" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" id=""><br>
+        <input type="text" name="category" id=""><br>
+        <input type="number" name="price" id="">
+        <input type="number" name="discount" id="">
+        <input type="submit" value="submit">
+      </form>
     </article>
     <section class="table-row">
       <h3>Item Lists</h3>
