@@ -93,7 +93,7 @@ $usersList = $orders->getList('SELECT * FROM users');
     <article class="title">
       <h3 class="title-page">ORDER LIST</h3>
       <p>
-        <i class="red">Home</i> /
+        <i>Home</i> /
         <a href="#" class="link"> Order List </a>
       </p>
     </article>
@@ -122,15 +122,15 @@ $usersList = $orders->getList('SELECT * FROM users');
                 <td><?= $list['price'] ?></td>
                 <?php if ($list['status'] === 'paid') : ?>
                   <td>
-                    <p class="pill paid"><?= $list['status'] ?></p>
+                    <p class="pill green"><?= $list['status'] ?></p>
                   </td>
                 <?php elseif ($list['status'] === 'pending') : ?>
                   <td>
-                    <p class="pill pending"><?= $list['status'] ?></p>
+                    <p class="pill orange"><?= $list['status'] ?></p>
                   </td>
                 <?php else : ?>
                   <td>
-                    <p class="pill decline"><?= $list['status'] ?></p>
+                    <p class="pill red"><?= $list['status'] ?></p>
                   </td>
                 <?php endif ?>
               </tr>

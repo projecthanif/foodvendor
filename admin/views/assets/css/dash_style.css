@@ -154,17 +154,17 @@ td {
   text-align: center;
 }
 
-.paid {
+.green {
   border-radius: 2px solid green;
   background-color: green;
 }
 
-.pending {
+.orange {
   border-radius: 2px solid orange;
   background-color: orange;
 }
 
-.decline {
+.red {
   border-radius: 2px solid red;
   background-color: red;
 }

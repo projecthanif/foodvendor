@@ -88,7 +88,7 @@ $users = $usersList->getList('SELECT * FROM users');
     <article class="title">
       <h3 class="title-page">CUSTOMER LIST</h3>
       <p>
-        <i class="red">Home</i> /
+        <i>Home</i> /
         <a href="#" class="link"> Customer List </a>
       </p>
     </article>

@@ -5,7 +5,7 @@ require APP_PATH . 'Database.php';
 
 $usersList = new Database();
 
-$users = $usersList->getList('SELECT * FROM users');
+$users = $usersList->getList('SELECT * FROM items');
 
 ?>
 
@@ -86,42 +86,51 @@ $users = $usersList->getList('SELECT * FROM users');
   </aside>
   <main>
     <article class="title">
-      <h3 class="title-page">CUSTOMER LIST</h3>
+      <h3 class="title-page">ITEM LIST</h3>
       <p>
-        <i class="red">Home</i> /
-        <a href="#" class="link"> Customer List </a>
+        <i>Home</i> /
+        <a href="#" class="link"> Item List </a>
       </p>
     </article>
-    <!-- <article class="list">
+    <article class="addList">
 
-    </article> -->
+    </article>
     <section class="table-row">
-      <h3>Customer Lists</h3>
+      <h3>Item Lists</h3>
       <table class="table">
         <thead>
-          <th>User ID</th>
-          <th>Customer Name</th>
-          <th>Email</th>
-          <th>Mobile Number</th>
-          <th>Type</th>
+          <th>Item ID</th>
+          <th>Item Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Disount</th>
+          <th>Status</th>
         </thead>
         <tbody>
           <?php
-          if (!empty($users)) :
-            foreach ($users as $user) :
+          if (!empty($items)) :
+            foreach ($items as $item) :
           ?>
               <tr>
-                <td><?= $user['userId'] ?></td>
-                <td><?= $user['userName'] ?></td>
-                <td><?= $user['userMail'] ?></td>
-                <td><?= $user['mobile'] ?></td>
-                <td><?= $user['userType'] ?></td>
+                <td><?= $item['itemId'] ?></td>
+                <td><?= $item['itemName'] ?></td>
+                <td><?= $item['category'] ?></td>
+                <td><?= $item['itemPrice'] ?></td>
+                <td><?= $item['itemDiscount'] ?></td>
+                <?php if ($list['status'] === 'available') : ?>
+                  <td>
+                    <p class="pill green"><?= $item['status'] ?></p>
+                  </td>
+                <?php else : ?>
+                  <td>
+                    <p class="pill red"><?= $item['status'] ?></p>
+                  </td>
+                <?php endif ?>
               </tr>
           <?php
             endforeach;
           endif;
           ?>
-
         </tbody>
       </table>
     </section>
