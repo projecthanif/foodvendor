@@ -7,12 +7,13 @@ declare(strict_types=1);
 // }
 class Database
 {
-    private int $itemId;
-    private string $itemName;
+    private string $id;
+    private string $name;
     private string $category;
-    private int $itemPrice;
-    private int $itemDiscount;
-    private string $itemImg;
+    private int $price;
+    private int $discount;
+    private string $description;
+    private string $img_url;
     private string $status;
     private $conn;
     private const HOST = 'localhost';
@@ -34,6 +35,15 @@ class Database
         }
     }
 
+
+    public function createQuery(string $query): bool
+    {
+        // $query = mysqli_real_escape_string($this->conn, $query);
+        $sent = $this->conn->query($query);
+        return $sent;
+    }
+
+
     public function getList(string $query)
     {
         $result = $this->conn->query($query);
@@ -49,38 +59,42 @@ class Database
         return $lists;
     }
 
-    public function addItem(
-        $itemId,
-        $itemName,
+    public function addFoodItem(
+        $name,
         $category,
-        $itemPrice,
-        $itemDiscount,
-        $itemImg
+        $description,
+        $price,
+        $discount,
+        $img_url
     ) {
-        $this->itemId = $this->validateInt($itemId);
-        $this->itemName = $this->validateString($itemName);
+        $this->id = '#';
+        $this->id .= uniqid();
+        $this->name = $this->validateString($name);
         $this->category = $this->validateString($category);
-        $this->itemPrice = $this->validateInt($itemPrice);
-        $this->itemDiscount = $this->validateInt($itemDiscount);
-        $this->itemImg = $this->validateString($itemImg);
+        $this->description = $this->validateString($description);
+        $this->price = $this->validateInt($price);
+        $this->discount = $this->validateInt($discount);
+        $this->img_url = $img_url;
 
         $insert = $this->conn->prepare(
             'INSERT INTO items(
-            itemId, 
-            itemName, 
-            category, 
-            itemPrice, 
-            itemDiscount, 
-            itemImg) VALUES (?,?,?,?,?,?)'
+            id, 
+            name, 
+            category,
+            description,
+            price,
+            discount, 
+            img_url) VALUES (?,?,?,?,?,?)'
         );
         $insert->bind_param(
-            'issiis',
-            $this->itemId,
-            $this->itemName,
+            'sssssss',
+            $this->id,
+            $this->name,
             $this->category,
-            $this->itemPrice,
-            $this->itemDiscount,
-            $this->itemImg
+            $this->description,
+            $this->price,
+            $this->discount,
+            $this->img_url
         );
         if ($insert->execute()) {
             return true;
@@ -89,7 +103,6 @@ class Database
 
     public function upload()
     {
-        
     }
 
     public function update()

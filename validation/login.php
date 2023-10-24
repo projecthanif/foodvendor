@@ -56,7 +56,7 @@ if (!isset($_SESSION['name'])) {
                             <input type="submit" value="Login" id="submit" class="btn" onsubmit="validate()">
                         </legend>
                         <p class="register">
-                            You don't have an account we got you covered register <a href="register.php">here</a>
+                            You don't have an account we got you covered register <a href="signup.view.php">here</a>
                         </p>
                     </div>
                 </div>

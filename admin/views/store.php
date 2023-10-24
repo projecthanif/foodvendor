@@ -5,7 +5,7 @@ require APP_PATH . 'Database.php';
 
 $usersList = new Database();
 
-$users = $usersList->getList('SELECT * FROM items');
+$users = $usersList->getList('SELECT * FROM food_items');
 
 if  ($_SERVER['REQUEST_METHOD'] === 'POST')
 {

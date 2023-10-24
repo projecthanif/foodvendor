@@ -8,7 +8,8 @@ class User
     private string $email;
     private int $number;
     private string $password;
-    private string $userId;
+    private string $id;
+    private string $token;
     private string $hash;
     private $conn;
     private const HOST = 'localhost';
@@ -41,26 +42,28 @@ class User
         $this->number = $this->validateInt($number);
         $this->password = $this->hashPassword($password);
 
-        $this->userId = '#' . rand(10000, 200000);
-
+        $this->id = uniqid();
+        $this->token = $this->generateToken();
         $result = $this->conn->prepare(
             "INSERT INTO users (
-            userId, 
-            userName, 
-            userMail, 
-            mobile, 
-            userPassword
-            ) VALUES (?,?,?,?,?);"
+            id, 
+            name, 
+            email, 
+            phone,
+            token,
+            user_password
+            ) VALUES (?,?,?,?,?,?);"
         );
         $result->bind_param(
-            'sssis',
-            $this->userId,
+            'ssssss',
+            $this->id,
             $this->name,
             $this->email,
             $this->number,
+            $this->token,
             $this->password
         );
-        
+
         if ($result->execute()) {
             header("Location: login.php");
             exit;
@@ -128,6 +131,16 @@ class User
         return $this->hash;
     }
 
+    private function generateToken()
+    {
+        $token = openssl_random_pseudo_bytes(16);
+
+        //Convert the binary data into hexadecimal representation.
+        $token = bin2hex($token);
+
+        //Print it out for example purposes.
+        return $token;
+    }
     public function passVerify($password, $hash): bool
     {
         $verify = password_verify($password, $hash);

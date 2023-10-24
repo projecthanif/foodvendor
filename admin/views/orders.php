@@ -5,7 +5,7 @@ require APP_PATH . 'Database.php';
 
 $orders = new Database();
 
-$lists = $orders->getList('SELECT * FROM orders');
+$lists = $orders->getList('SELECT * FROM order_item');
 
 $users = new Database();
 
