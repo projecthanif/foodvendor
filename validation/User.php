@@ -6,7 +6,7 @@ class User
 {
     private string $name;
     private string $email;
-    private int $number;
+    private string $number;
     private string $password;
     private string $id;
     private string $token;
@@ -97,6 +97,22 @@ class User
         }
     }
 
+    public function verifyEmail($email, $token)
+    {
+        $query = $this->conn->query("SELECT * FROM users where email = {$email}");
+
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            if (mysqli_num_rows($query) === 1) {
+                $out = $query->fetch_assoc();
+                if ($out['token'] === $token) {
+                    $query = $this->conn->query("UPDATE TABLE users 
+                    SET token = '$token'
+                    WHERE email = '$email'");
+                }
+            }
+        }
+    }
+
     public function validateString(string $name)
     {
         $this->name = $name;
@@ -110,6 +126,9 @@ class User
     {
         $this->email = $email;
         if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            return ("Valid Email required");
+        }
+        if (!filter_var($this->email, FILTER_SANITIZE_EMAIL)) {
             return ("Valid Email required");
         }
         return $this->email;

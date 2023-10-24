@@ -41,7 +41,7 @@ if (!isset($_SESSION['name'])) {
                 <div class="card">
                     <div class="card-head">
                         <h1 class="card-text" id="title">
-                            Login
+                            Login in to your account
                         </h1>
                     </div>
                     <div class="card-body">
@@ -53,10 +53,10 @@ if (!isset($_SESSION['name'])) {
                             <label for="password">Password :
                                 <input type="password" name="password" id="password" placeholder="Password" autocomplete="none">
                             </label>
-                            <input type="submit" value="Login" id="submit" class="btn" onsubmit="validate()">
+                            <input type="submit" value="Log in" id="submit" class="btn" onsubmit="validate()">
                         </legend>
                         <p class="register">
-                            You don't have an account we got you covered register <a href="signup.view.php">here</a>
+                            You don't have an account? <a href="signup.view.php">Create one</a>
                         </p>
                     </div>
                 </div>

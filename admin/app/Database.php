@@ -16,10 +16,11 @@ class Database
     private string $img_url;
     private string $status;
     private $conn;
-    private const HOST = 'localhost';
-    private const HOSTNAME = 'root';
+    private const HOST = "localhost";
+    private const HOSTNAME = "root";
     private const PASSWORD = '';
-    private const DataBaseName = 'foodvendor';
+    private const DataBaseName = "foodvendor";
+
     public function __construct()
     {
         $this->conn = mysqli_connect(
