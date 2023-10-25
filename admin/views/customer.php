@@ -1,5 +1,5 @@
 <?php
-require '../app/path.php';
+require dirname(__DIR__) . '/app/path.php';
 
 require APP_PATH . 'Database.php';
 
@@ -29,17 +29,6 @@ $users = $usersList->getList('SELECT * FROM users');
           <img src="assets/img/bowl.png" alt="" class="img" />
         </a>
       </li>
-      <li>
-        <form action="" class="form">
-          <label for="search">
-            <input type="text" class="form-input" placeholder="Search" />
-            <button class="btn-form">
-              <i class="fa fa-search"></i>
-            </button>
-          </label>
-        </form>
-      </li>
-
       <div class="nav-left">
         <li>
           <a href="#" class="nav-item">

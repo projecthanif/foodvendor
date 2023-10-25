@@ -1,6 +1,6 @@
 <?php
 require('connection/connect.php');
-require('controller/order.php');
+// require('controller/order.php');
 require('function.php');
 ?>
 <!DOCTYPE html>
@@ -96,14 +96,14 @@ require('function.php');
           <div class="menu-section">
             <!-- PHP -->
             <?php
-            $request = $conn->query("SELECT * FROM item_order LIMIT 10");
+            $request = $conn->query("SELECT * FROM food_items LIMIT 10");
 
             if (mysqli_num_rows($request) > 0) :
 
               while ($item = $request->fetch_assoc()) :
-                $name = $item['item_Name'];
-                $price = $item['item_Price'];
-                $productId = $item['productid'];
+                $productId = $item['id'];
+                $name = $item['name'];
+                $price = $item['price'];
 
             ?>
                 <div class="menu-item">

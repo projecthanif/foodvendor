@@ -1,23 +1,5 @@
 <?php
-require '../app/path.php';
-
-require APP_PATH . 'Database.php';
-
-$usersList = new Database();
-
-$users = $usersList->getList('SELECT * FROM food_items');
-
-if  ($_SERVER['REQUEST_METHOD'] === 'POST')
-{
-  $name = $_POST['name'];
-  $category = $_POST['category'];
-  $price = $_POST['price'];
-  $discount = $_POST['discount'];
-
-  
-
-}
-
+require_once("../app/store.php");
 ?>
 
 <!DOCTYPE html>
@@ -40,17 +22,6 @@ if  ($_SERVER['REQUEST_METHOD'] === 'POST')
           <img src="assets/img/bowl.png" alt="" class="img" />
         </a>
       </li>
-      <li>
-        <form action="" class="form">
-          <label for="search">
-            <input type="text" class="form-input" placeholder="Search" />
-            <button class="btn-form">
-              <i class="fa fa-search"></i>
-            </button>
-          </label>
-        </form>
-      </li>
-
       <div class="nav-left">
         <li>
           <a href="#" class="nav-item">
@@ -103,13 +74,37 @@ if  ($_SERVER['REQUEST_METHOD'] === 'POST')
         <a href="#" class="link"> Item List </a>
       </p>
     </article>
-    <article class="addList">
-      <form action="" method="post" enctype="multipart/form-data">
-        <input type="text" name="name" id=""><br>
-        <input type="text" name="category" id=""><br>
-        <input type="number" name="price" id="">
-        <input type="number" name="discount" id="">
-        <input type="submit" value="submit">
+    <h3 class="title">Add New Item</h3>
+    <article class="formTheme">
+      <form action="" method="post" enctype="multipart/form-data" class="form">
+        <div class="form-div">
+          <div>
+            <label for="name">Name</label><br>
+            <input type="text" name="name" id="" class="form-input" />
+          </div>
+          <div>
+            <label for="category">Category</label><br>
+            <select name="category" id="" class="form-input">
+              <option value="..."></option>
+              <option value="Meal">Meal</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-div">
+          <div>
+            <label for="price">Price</label><br>
+            <input type="number" name="price" id="" class="form-input" />
+          </div>
+          <div>
+            <label for="discount">Discount</label><br>
+            <input type="number" name="discount" id="" class="form-input" />
+          </div>
+        </div>
+        <label for="image">Image</label>
+        <input type="file" name="image" id="" class="form-input">
+        <label for="description">Description</label>
+        <textarea name="description" id="" cols="30" rows="10" class="form-textarea"></textarea><br>
+        <button type="submit" name="submit" class="btn">upload</button>
       </form>
     </article>
     <section class="table-row">
@@ -129,18 +124,18 @@ if  ($_SERVER['REQUEST_METHOD'] === 'POST')
             foreach ($items as $item) :
           ?>
               <tr>
-                <td><?= $item['itemId'] ?></td>
-                <td><?= $item['itemName'] ?></td>
+                <td><?= $item['id'] ?></td>
+                <td><?= $item['name'] ?></td>
                 <td><?= $item['category'] ?></td>
-                <td><?= $item['itemPrice'] ?></td>
-                <td><?= $item['itemDiscount'] ?></td>
-                <?php if ($list['status'] === 'available') : ?>
+                <td><?= $item['price'] ?></td>
+                <td><?= $item['discount'] ?></td>
+                <?php if ($item['is_available'] === 'true') : ?>
                   <td>
-                    <p class="pill green"><?= $item['status'] ?></p>
+                    <p class="pill green"><?= $item['is_available'] ?></p>
                   </td>
                 <?php else : ?>
                   <td>
-                    <p class="pill red"><?= $item['status'] ?></p>
+                    <p class="pill red"><?= $item['is_available'] ?></p>
                   </td>
                 <?php endif ?>
               </tr>

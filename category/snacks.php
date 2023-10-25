@@ -94,14 +94,14 @@ require('../controller/order.php');
       <div class="menu-section">
         <!-- PHP -->
         <?php
-        $request = $conn->query("SELECT * FROM item_order");
+        $request = $conn->query("SELECT * FROM food_items");
 
         if (mysqli_num_rows($request) > 0) :
 
           while ($item = $request->fetch_assoc()) :
-            $name = $item['item_Name'];
-            $price = $item['item_Price'];
-            $productId = $item['productid'];
+            $productId = $item['id'];
+            $name = $item['name'];
+            $price = $item['price'];
 
         ?>
             <div class="menu-item">

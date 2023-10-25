@@ -72,28 +72,28 @@ class Database
         $this->name = $this->validateString($name);
         $this->category = $this->validateString($category);
         $this->description = $this->validateString($description);
-        $this->price = $this->validateInt($price);
-        $this->discount = $this->validateInt($discount);
+        $this->price = $this->validateInt((int) $price);
+        // $this->discount = $this->validateInt((int) $discount);
         $this->img_url = $img_url;
 
         $insert = $this->conn->prepare(
-            'INSERT INTO items(
+            'INSERT INTO food_items(
             id, 
             name, 
             category,
             description,
             price,
-            discount, 
-            img_url) VALUES (?,?,?,?,?,?)'
+            -- discount, 
+            image_url) VALUES (?,?,?,?,?,?)'
         );
         $insert->bind_param(
-            'sssssss',
+            'ssssss',
             $this->id,
             $this->name,
             $this->category,
             $this->description,
             $this->price,
-            $this->discount,
+            // $this->discount,
             $this->img_url
         );
         if ($insert->execute()) {
@@ -101,8 +101,31 @@ class Database
         }
     }
 
-    public function upload()
+    public function upload($file): bool|string
     {
+        $file_name = $_FILES['image']['name'];
+        $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
+        $file_size = $_FILES['image']['size'];
+        $file_tmp_file = $_FILES['image']['tmp_name'];
+
+        $ext_type = ['jpg', 'png', 'jpeg'];
+
+        if (in_array($file_ext, $ext_type)) {
+            if ($file_size < 50000) {
+                $file_name = $file_name . '.' . $file_ext;
+
+                $bool = move_uploaded_file($file_tmp_file, '../uploads/' . $file_name);
+                if ($bool === false) {
+                    return false;
+                }
+            } else {
+                return 'file size ' . $file_size;
+            }
+        } else {
+            return 'file type must be either "jpg, jpeg or png" not ' . $file_ext;
+        }
+
+        return $bool;
     }
 
     public function update()
@@ -112,15 +135,18 @@ class Database
 
     public function validateString(string $value)
     {
+        $value = trim($value);
+        $value = stripslashes($value);
+        $value = htmlspecialchars($value);
         if (!preg_match("/^['a-z A-Z']*$/", $value)) {
             return ("Only Letters and Whitespace allowed");
         }
         return $value;
     }
 
-    public function validateInt(int $value)
+    public function validateInt($value)
     {
-        if (!filter_var($value, FILTER_VALIDATE_INT)) {
+        if (!filter_var((int) $value, FILTER_VALIDATE_INT)) {
             return ("Number required only");
         }
         return $value;
