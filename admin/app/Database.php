@@ -68,8 +68,7 @@ class Database
         $discount,
         $img_url
     ) {
-        $this->id = '#';
-        $this->id .= uniqid();
+        $this->id = uniqid("#");
         $this->name = $this->validateString($name);
         $this->category = $this->validateString($category);
         $this->description = $this->validateString($description);

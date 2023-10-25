@@ -6,7 +6,7 @@ class User
 {
     private string $name;
     private string $email;
-    private string $number;
+    private int $number;
     private string $password;
     private string $id;
     private string $token;
@@ -156,8 +156,6 @@ class User
 
         //Convert the binary data into hexadecimal representation.
         $token = bin2hex($token);
-
-        //Print it out for example purposes.
         return $token;
     }
     public function passVerify($password, $hash): bool
