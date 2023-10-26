@@ -19,16 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $file = $_FILES['image'];
   $file_name = $_FILES['image']['name'];
 
-  // echo "<pre>";
-  // var_dump($_POST);
-  // echo "<br />";
 
   if (isset($name) && isset($category) && isset($price) && isset($description) && isset($file_name)) {
 
     if (isset($_POST['submit'])) {
-      $file_upload = $item->upload($file);
+      $file_upload = $item->uploadFile($file);
+      $file_name = $file_upload['1'];
 
-      if ($file_upload) {
+      if ($file_upload[0] === true) {
         $upload = $item->addFoodItem(
           $name,
           $category,

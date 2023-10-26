@@ -37,12 +37,11 @@ class Database
     }
 
 
-    public function createQuery(string $query): bool
-    {
-        // $query = mysqli_real_escape_string($this->conn, $query);
-        $sent = $this->conn->query($query);
-        return $sent;
-    }
+    // public function createQuery(string $query): bool
+    // {
+    //     $sent = $this->conn->query($query);
+    //     return $sent;
+    // }
 
 
     public function getList(string $query)
@@ -101,7 +100,7 @@ class Database
         }
     }
 
-    public function upload($file): bool|string
+    public function uploadFile($file): bool|string|array
     {
         $file_name = $_FILES['image']['name'];
         $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
@@ -111,8 +110,10 @@ class Database
         $ext_type = ['jpg', 'png', 'jpeg'];
 
         if (in_array($file_ext, $ext_type)) {
-            if ($file_size < 50000) {
-                $file_name = $file_name . '.' . $file_ext;
+            if ($file_size < 100000) {
+                $file_name = explode(' ', $file_name);
+                $file_name = explode('.', $file_name[0]);
+                $file_name = $file_name[0] . '.' . $file_ext;
 
                 $bool = move_uploaded_file($file_tmp_file, '../uploads/' . $file_name);
                 if ($bool === false) {
@@ -125,12 +126,11 @@ class Database
             return 'file type must be either "jpg, jpeg or png" not ' . $file_ext;
         }
 
-        return $bool;
+        return [$bool, $file_name];
     }
 
     public function update()
     {
-        // $this->conn->prepared_query('', $this->itemId);
     }
 
     public function validateString(string $value)

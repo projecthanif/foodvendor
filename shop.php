@@ -1,7 +1,13 @@
 <?php
-require('connection/connect.php');
-// require('controller/order.php');
-require('function.php');
+require_once(dirname(__FILE__) . "/controller/get_food.php");
+require_once(dirname(__FILE__) . "/connection/Connection.php");
+require_once(dirname(__FILE__) . "/controller/order.php");
+
+use Database\Connection;
+
+$conn = (new Connection())->getConn();
+$food = get_all_food($conn);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,49 +95,57 @@ require('function.php');
       </div>
       <div class="catalog-item" id="food">
 
-      <!-- CATALOG -->
+        <!-- CATALOG -->
 
         <section class="menu">
           <h5 class="menu-title">Our <i class="yellow">Menu</i></h5>
           <div class="menu-section">
             <!-- PHP -->
             <?php
-            $request = $conn->query("SELECT * FROM food_items LIMIT 10");
+            foreach ($food as $item) :
+              $name = $item['name'];
+              $price = $item['price'];
+              $img_url = $item['image_url'];
 
-            if (mysqli_num_rows($request) > 0) :
-
-              while ($item = $request->fetch_assoc()) :
-                $productId = $item['id'];
-                $name = $item['name'];
-                $price = $item['price'];
-
+              $img_path = '/admin/uploads/' . $img_url;
             ?>
-                <div class="menu-item">
-                  <div class="card">
-                    <div class="card-img">
-                      <img src="assets/img/kimchi.jpg" alt="" class="card-img" />
-                    </div>
-                    <div class="card-body">
-                      <div class="card-body-title"><?= $name ?></div>
-                      <div class="card-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                    </div>
-                    <div class="card-foot">
-                      <div class="card-price">$<?= $price ?></div>
-                      <div class="cart-img">
-                        <i class="fa fa-bag-shopping"></i>
-                      </div>
+              <div class="menu-item">
+                <div class="card">
+                  <div class="card-img">
+                    <!-- <img src="assets/img/kimchi.jpg" alt="" class="card-img" /> -->
+                    <img src="<?= ($img_path) ?>" alt="" class="card-img" />
+                  </div>
+                  <div class="card-body">
+                    <div class="card-body-title"><?= $name ?></div>
+                    <div class="card-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
                     </div>
                   </div>
+                  <!-- <div class="card-foot">
+                    <div class="card-price"><del>N</del><?= $price ?></div>
+                    <div class="cart-img">
+                      <i class="fa fa-bag-shopping"></i>
+                    </div>
+                  </div> -->
+                  <div class="card-foot">
+                    <div class="card-price">$<?= $price ?></div>
+                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+                      <input type="hidden" name="id" value="<?= $id ?>">
+                      <input type="hidden" name="name" value="<?= $name ?>">
+                      <input type="hidden" name="price" value="<?= $price ?>">
+                      <button class="cart-img">
+                        <i class="fa fa-bag-shopping"></i>
+                      </button>
+                    </form>
+                  </div>
                 </div>
+              </div>
             <?php
-              endwhile;
-            endif;
+            endforeach;
             ?>
           </div>
         </section>

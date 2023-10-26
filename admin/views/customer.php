@@ -100,11 +100,11 @@ $users = $usersList->getList('SELECT * FROM users');
             foreach ($users as $user) :
           ?>
               <tr>
-                <td><?= $user['userId'] ?></td>
-                <td><?= $user['userName'] ?></td>
-                <td><?= $user['userMail'] ?></td>
-                <td><?= $user['mobile'] ?></td>
-                <td><?= $user['userType'] ?></td>
+                <td><?= $user['id'] ?></td>
+                <td><?= $user['name'] ?></td>
+                <td><?= $user['email'] ?></td>
+                <td><?= $user['phone'] ?></td>
+                <td><?= $user['type'] ?></td>
               </tr>
           <?php
             endforeach;

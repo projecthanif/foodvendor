@@ -1,6 +1,9 @@
 <?php
-
 declare(strict_types=1);
+
+require_once(dirname(__FILE__) . "/../" . "connection/Connection.php");
+
+use Database\Connection;
 
 class User
 {
@@ -12,23 +15,9 @@ class User
     private string $token;
     private string $hash;
     private $conn;
-    private const HOST = 'localhost';
-    private const HOSTNAME = 'root';
-    private const PASSWORD = '';
-    private const DataBaseName = 'foodvendor';
     public function __construct()
     {
-        $this->conn = mysqli_connect(
-            self::HOST,
-            self::HOSTNAME,
-            self::PASSWORD,
-            self::DataBaseName
-        );
-
-        if ($this->conn->connect_error) {
-            trigger_error('ERROR', E_USER_ERROR);
-            die('Connection Error');
-        }
+        $this->conn = (new Connection())->getConn();
     }
 
     public function userRegister(
@@ -42,7 +31,7 @@ class User
         $this->number = $this->validateInt($number);
         $this->password = $this->hashPassword($password);
 
-        $this->id = uniqid();
+        $this->id = uniqid('#');
         $this->token = $this->generateToken();
         $result = $this->conn->prepare(
             "INSERT INTO users (
@@ -74,20 +63,20 @@ class User
     {
         $this->email = $this->validateEmail($email);
 
-        $result = $this->conn->query("SELECT * FROM users WHERE userMail='$email'");
+        $result = $this->conn->query("SELECT * FROM users WHERE email='$email'");
 
         if (mysqli_num_rows($result) === 1) {
 
             $out = $result->fetch_assoc();
-            $this->hash = $out['userPassword'];
+            $this->hash = $out['user_password'];
 
             $verify = $this->passVerify(password: $password, hash: $this->hash);
-
+            
             if ($verify) {
 
-                $_SESSION['type'] = $out['UserType'];
-                $_SESSION['name'] = $out['userName'];
-                $_SESSION['id'] = $out['userId'];
+                $_SESSION['type'] = $out['type'];
+                $_SESSION['name'] = $out['name'];
+                $_SESSION['id'] = $out['id'];
 
                 header("Location: ../index.php");
             } else {
@@ -160,7 +149,7 @@ class User
     }
     public function passVerify($password, $hash): bool
     {
-        $verify = password_verify($password, $hash);
+        $verify = password_verify(password:$password, hash: $hash);
         return $verify;
     }
     public function __destruct()

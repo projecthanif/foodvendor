@@ -14,7 +14,8 @@ is_active VARCHAR(50) DEFAULT 'false',
 user_address VARCHAR(250)  DEFAULT ' ',
 token VARCHAR(200),
 user_password VARCHAR(50),
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+type DEFAULT 'customer'
 )";
 
 // $return = $create->createQuery($sql);
@@ -51,6 +52,7 @@ date_uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 $createOrderSQL = "CREATE TABLE order_items (
 id VARCHAR(50) NOT NULL,
+product_name VARCHAR(50) NOT NULL,
 name VARCHAR(50) NOT NULL,
 useruniqid VARCHAR(50) NOT NULL,
 -- description VARCHAR(50),

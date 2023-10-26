@@ -2,25 +2,32 @@
 
 session_start();
 
-$orderId = $_REQUEST['productId'] ?? '';
-$quantity = 2;
+use Database\Connection;
+$conn = (new Connection())->getConn();
+
+
+$id = $_REQUEST['id'] ?? '';
+$price = $_REQUEST['price'] ?? '';
+$product_name = $_REQUEST['name'] ?? '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if (isset($_SESSION['id'])) {
-    $sessionId = $_SESSION['id'];
-    $orderRequest = $conn->prepare("INSERT INTO orders(
-      customer, 
-      orderId, 
-      productName, 
-      price) VALUE(?,?,?,?)");
+    $user_uniq_id = $_SESSION['id'];
+    $user_name = $_SESSION['name'];
 
-    $orderRequest->bind_param('sssi', $sessionName, $sessionId, $orderId, $quantity);
+    $orderRequest = $conn->prepare("INSERT INTO order_items(
+      id,
+      product_name,
+      name, 
+      useruniqid, 
+      price) VALUE(?,?,?,?,?)");
+
+    $orderRequest->bind_param('sssss', $id, $user_uniq_id, $product_name, $user_name, $price);
 
     if ($orderRequest->execute()) {
     } else {
-      echo "failed";
-      dd(null);
+      echo "<script> alert('failed') </script>";
     }
   }
 }

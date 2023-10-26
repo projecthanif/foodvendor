@@ -93,9 +93,10 @@ $usersList = $orders->getList('SELECT * FROM users');
       <h3>Order Lists</h3>
       <table class="table">
         <thead>
-          <th>Customer</th>
+          <th>Customer ID</th> 
+          <!-- <th>Customer name</th> -->
           <th>Order ID</th>
-          <th>Product</th>
+          <th>Product name</th>
           <th>Price</th>
           <th>Status</th>
         </thead>
@@ -105,21 +106,22 @@ $usersList = $orders->getList('SELECT * FROM users');
             foreach ($lists as $list) :
           ?>
               <tr>
-                <td><?= $list['customer'] ?></td>
-                <td><?= $list['orderId'] ?></td>
-                <td><?= $list['productName'] ?></td>
+                <td><?= $list['useruniqid']?></td>
+                <!-- <td><?= $list['id'] ?></td> -->
+                <td><?= $list['name'] ?></td>
+                <td><?php //$list['product'] ?></td>
                 <td><?= $list['price'] ?></td>
-                <?php if ($list['status'] === 'paid') : ?>
+                <?php if ($list['payment_status'] === 'paid') : ?>
                   <td>
-                    <p class="pill green"><?= $list['status'] ?></p>
+                    <p class="pill green"><?= $list['payment_status'] ?></p>
                   </td>
-                <?php elseif ($list['status'] === 'pending') : ?>
+                <?php elseif ($list['payment_status'] === 'pending') : ?>
                   <td>
-                    <p class="pill orange"><?= $list['status'] ?></p>
+                    <p class="pill orange"><?= $list['payment_status'] ?></p>
                   </td>
                 <?php else : ?>
                   <td>
-                    <p class="pill red"><?= $list['status'] ?></p>
+                    <p class="pill red"><?= $list['payment_status'] ?></p>
                   </td>
                 <?php endif ?>
               </tr>

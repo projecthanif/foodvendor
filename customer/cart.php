@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require('../connection/connect.php');
+// require('../connection/connect.php');
 require('../function.php');
 
 if (isset($_SESSION['name'])) :
