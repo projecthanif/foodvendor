@@ -85,7 +85,7 @@ $users = $usersList->getList('SELECT * FROM users');
 
     </article> -->
     <section class="table-row">
-      <h3>Customer Lists</h3>
+      <h3 class="title">Customer Lists</h3>
       <table class="table">
         <thead>
           <th>User ID</th>

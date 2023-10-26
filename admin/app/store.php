@@ -35,10 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           (int)$discount,
           $file_name
         );
-        if ($upload === true) echo 'Uploaded';
+        if ($upload === true) echo "<script> alert('Uploaded Successfully') </script>";
+        else echo "<script> alert('Uploaded Failed') </script>";
       }
     }
   }
-
-  exit;
 }

@@ -86,7 +86,10 @@ require_once("../app/store.php");
             <label for="category">Category</label><br>
             <select name="category" id="" class="form-input">
               <option value="..."></option>
-              <option value="Meal">Meal</option>
+              <option value="local">Local Delicacies</option>
+              <option value="foreign">Foreign Delicacies</option>
+              <option value="drinks">Drinks</option>
+              <option value="fast food">Fast food</option>
             </select>
           </div>
         </div>
@@ -108,7 +111,7 @@ require_once("../app/store.php");
       </form>
     </article>
     <section class="table-row">
-      <h3>Item Lists</h3>
+      <h3 class="title">Item Lists</h3>
       <table class="table">
         <thead>
           <th>Item ID</th>

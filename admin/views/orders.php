@@ -90,7 +90,7 @@ $usersList = $orders->getList('SELECT * FROM users');
 
     </article> -->
     <section class="table-row">
-      <h3>Order Lists</h3>
+      <h3 class="title">Order Lists</h3>
       <table class="table">
         <thead>
           <th>Customer ID</th> 
