@@ -16,6 +16,9 @@ body {
 .links {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 8%;
+  font-size: 15px;
   padding: 10px;
 }
 
@@ -121,3 +124,131 @@ h1.img {
   font-size: 2vh;
   color: black;
 }
+
+
+/** CART */
+
+.cart.box {
+  padding: 10px;
+}
+
+.cart.box.title {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.cart.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .cart.container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.cart.table {
+  width: 60%;
+}
+table {
+  border-collapse:collapse;
+  width: 100%;
+}
+
+thead {
+  border-bottom: 1px solid gray;
+}
+
+th {
+  padding: 10px;
+  text-align: start;
+  color: gray;
+}
+
+.th-first {
+  width:50%;
+}
+
+.th-second {
+  width:10%;
+}
+
+.th-third {
+  width:20%;
+}
+
+.th-fourth {
+  width:20%;
+}
+
+td {
+  padding: 10px;
+}
+
+tr:hover {background-color: #cec9c9;}
+
+.cart.summary {
+  /* position: fixed; */
+  /* right: 0%; */
+  width: 35%;
+  height: 350px;
+  background-color: rgb(235, 230, 230);
+  margin-left: 10px;
+  padding: 15px;
+}
+
+.s-title {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.order-price {
+  padding: 10px;
+  margin-top: 40px;
+}
+
+.type-price {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  color: gray;
+}
+
+.type-price.two {
+  margin-top: 20px;
+}
+
+.amount-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.btn-check {
+  width: 90%;
+  margin-top: 20px;
+  margin-left: 15px;
+  border-radius: 5px;
+  border: none;
+  padding: 6px;
+  background-color: rgb(96, 45, 3);
+  color: white;
+}
+
+.btn-check:hover {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 600px) { 
+  .cart.summary {
+    width: 100%;
+  }
+}
+  

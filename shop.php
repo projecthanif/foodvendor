@@ -103,6 +103,7 @@ $food = get_all_food($conn);
             <!-- PHP -->
             <?php
             foreach ($food as $item) :
+              $id = $item["id"];
               $name = $item['name'];
               $price = $item['price'];
               $img_url = $item['image_url'];
@@ -125,12 +126,6 @@ $food = get_all_food($conn);
                       <i class="fa fa-star"></i>
                     </div>
                   </div>
-                  <!-- <div class="card-foot">
-                    <div class="card-price"><del>N</del><?= $price ?></div>
-                    <div class="cart-img">
-                      <i class="fa fa-bag-shopping"></i>
-                    </div>
-                  </div> -->
                   <div class="card-foot">
                     <div class="card-price">$<?= $price ?></div>
                     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">

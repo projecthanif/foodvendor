@@ -94,7 +94,6 @@ $usersList = $orders->getList('SELECT * FROM users');
       <table class="table">
         <thead>
           <th>Customer ID</th> 
-          <!-- <th>Customer name</th> -->
           <th>Order ID</th>
           <th>Product name</th>
           <th>Price</th>
@@ -106,10 +105,9 @@ $usersList = $orders->getList('SELECT * FROM users');
             foreach ($lists as $list) :
           ?>
               <tr>
+                <td><?= $list['id'] ?></td>
                 <td><?= $list['useruniqid']?></td>
-                <!-- <td><?= $list['id'] ?></td> -->
-                <td><?= $list['name'] ?></td>
-                <td><?php //$list['product'] ?></td>
+                <td><?= $list['product_name'] ?></td>
                 <td><?= $list['price'] ?></td>
                 <?php if ($list['payment_status'] === 'paid') : ?>
                   <td>

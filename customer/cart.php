@@ -1,8 +1,5 @@
 <?php
-
-session_start();
-// require('../connection/connect.php');
-require('../function.php');
+require_once('get_list.php');
 
 if (isset($_SESSION['name'])) :
 
@@ -63,12 +60,180 @@ if (isset($_SESSION['name'])) :
             </ul>
         </nav>
         <main>
-            <section class="cart box">
-                <article class="cart-title">
-                    <h3 class="title">Shopping Cart</h3>
-                </article>
+            <section class="link">
+                <h4 class="links">
+                    <a href="../index.php" class="nav-link"> Home </a>
+                    <p> > </p>
+                    <a href="cart.php" class="nav-link"> Cart</a>
+                </h4>
+            </section>
+            <section class="body">
+                <aside class="aside">
+                    <h4 class="nav-title">Account</h4>
+                    <a href="#" class="nav-link" active>Overview</a>
+                    <a href="#" class="nav-link">Orders</a>
+                    <a href="#" class="nav-link">Payment</a>
+                    <a href="#" class="nav-link">Feedback</a>
+                    <a href="#" class="nav-link">Settings</a>
+                    <a href="#" class="nav-link">Shipping Address</a>
+                </aside>
+                <section class="section body">
+                    <section class="cart box">
+                        <h3 class="cart box title">Shopping Cart</h3>
+                        <div class="cart container">
+                            <div class="cart table">
+                                <table>
+                                    <thead>
+                                        <th class="th-first">Items</th>
+                                        <!-- <th class="th-second">Quantity</th> -->
+                                        <th class="th-third">Price</th>
+                                        <th class="th-fourth"></th>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($lists as $list) :
+                                            $name = $list['product_name'];
+                                            $price = $list['price'];
+                                        ?>
+                                            <tr>
+                                                <td><?= $name ?></td>
+                                                <!-- <td>1</td> -->
+                                                <td><del>N</del><?= $price ?></td>
+                                                <td></td>
+                                            </tr>
+                                        <?php
+                                        endforeach
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="cart summary">
+                                <h2 class="s-title">Order Summary</h2>
+                                <hr>
+                                <div class="order-price">
+                                    <div class="type-price">
+                                        <h5 class="name">
+                                            Item (<?= $count ?>)
+                                        </h5>
+                                        <p class="price">
+                                            <del>N</del> <?= $total ?>
+                                        </p>
+                                    </div>
+                                    <div class="type-price">
+                                        <h5 class="name">
+                                            Discount
+                                        </h5>
+                                        <p class="price">
+                                            <del>N</del> 0
+                                        </p>
+                                    </div>
+                                    <div class="type-price">
+                                        <h5 class="name">
+                                            Subtotal
+                                        </h5>
+                                        <p class="price">
+                                            <del>N</del> <?= $total ?>
+                                        </p>
+                                    </div>
+                                    <div class="type-price two">
+                                        <h5 class="name">
+                                            Estimated Delivery
+                                        </h5>
+                                        <p class="price">
+                                            <del>N</del> 0
+                                        </p>
+                                    </div>
+                                    <div class="type-price">
+                                        <h5 class="name">
+                                            Estimated Tax
+                                        </h5>
+                                        <p class="price">
+                                            <del>N</del> 0
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="amount-total">
+                                    <h1 class="title">Order Value</h1>
+                                    <p class="price">
+                                        <del>N</del> <?= $total ?>
+                                    </p>
+                                </div>
+                                <button class="btn-check">Checkout</button>
+                            </div>
+                        </div>
+                    </section>
+                </section>
             </section>
         </main>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-item">
+                    <h5 class="ft-5 yellow ft">Information</h5>
+                    <ul class="foot-item">
+                        <li>
+                            <a href="#">Specials</a>
+                        </li>
+                        <li>
+                            <a href="#">New Products</a>
+                        </li>
+                        <li>
+                            <a href="#">Best Selling</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-item">
+                    <h5 class="ft-5 yellow ft">My Account</h5>
+                    <ul class="foot-item">
+                        <li>
+                            <a href="#">My Orders</a>
+                        </li>
+                        <li>
+                            <a href="#">My Address</a>
+                        </li>
+                        <li>
+                            <a href="#">My Credit Slip</a>
+                        </li>
+                        <li>
+                            <a href="#">My Personal Info</a>
+                        </li>
+                        <li>
+                            <a href="#">My Voucher</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-item">
+                    <h5 class="ft-5 yellow ft">Follow Us</h5>
+                    <ul class="foot-item">
+                        <li>
+                            <a href="https://twitter.com/projecthanif/" target="_blank">
+                                <i class="fa-brands fa-square-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa-brands fa-square-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/mustapha-ibrahim-945204262/" target="_blank">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-item">
+                    <h5 class="ft-5 yellow ft">Store Information</h5>
+                    <h5 class="ft-5 yellow"> CALL US NOW: 09112607445</h5>
+                </div>
+            </div>
+        </footer>
         <script src="../assets/js/app.js"></script>
     </body>
 

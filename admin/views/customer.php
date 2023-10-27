@@ -4,8 +4,7 @@ require dirname(__DIR__) . '/app/path.php';
 require APP_PATH . 'Database.php';
 
 $usersList = new Database();
-
-$users = $usersList->getList('SELECT * FROM users');
+$users = $usersList->getList("SELECT * FROM users WHERE type='customer'");
 
 ?>
 

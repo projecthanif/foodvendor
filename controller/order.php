@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       useruniqid, 
       price) VALUE(?,?,?,?,?)");
 
-    $orderRequest->bind_param('sssss', $id, $user_uniq_id, $product_name, $user_name, $price);
+    $orderRequest->bind_param('sssss', $id, $product_name, $user_name, $user_uniq_id, $price);
 
     if ($orderRequest->execute()) {
     } else {
