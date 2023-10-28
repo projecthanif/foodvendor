@@ -17,7 +17,7 @@ class User
     private $conn;
     public function __construct()
     {
-        $this->conn = (new Connection())->getConn();
+        $this->conn = (new Connection())->getConnection();
     }
 
     public function userRegister(

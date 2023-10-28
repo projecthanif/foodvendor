@@ -1,6 +1,6 @@
 <?php
 
-namespace Database;
+namespace Connection;
 class Connection
 {
     public $conn;
@@ -9,7 +9,7 @@ class Connection
     public $password = '';
     public $database_name = 'foodvendor';
 
-    public function getConn()
+    public function getConnection()
     {
         $this->conn = mysqli_connect(
             $this->hostname,

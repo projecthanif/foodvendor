@@ -1,6 +1,10 @@
 * {
   font-family: monospace;
 }
+
+body {
+  background-color: rgb(145, 144, 144);
+}
 .container-form {
   display: flex;
   justify-content: center;
@@ -14,16 +18,13 @@
   }
 }
 form {
-  /* background-color: antiquewhite; */
   min-width: 30%;
-  /* max-width: 100%; */
 }
 .card {
   border-radius: 10px;
-  background-color: antiquewhite;
+  background-color: rgb(193, 191, 187);
   padding: 30px;
   width: 400px;
-  /* height: 300px; */
   box-shadow: 0px 0px 10px grey;
 }
 @media screen and (max-width: 600px) {
@@ -45,15 +46,12 @@ input {
   border-radius: 5px;
   padding: 15px;
   color: grey;
-  /* text-align: center; */
 }
 input:hover {
   border-color: red;
 }
 .btn {
-  /* width: 100px; */
   height: initial;
-  /* margin-left: 50px; */
   border: none;
   color: white;
   background-color: purple;

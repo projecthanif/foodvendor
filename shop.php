@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . "/controller/order.php");
 
 use Database\Connection;
 
-$conn = (new Connection())->getConn();
+$conn = (new Connection())->getConnection();
 $food = get_all_food($conn);
 
 ?>

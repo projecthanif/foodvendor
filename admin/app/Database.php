@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-// if (!@$_SESSION['type'] !== 'admin'){
-//     header('Location: ../../index.php');
-// }
+require dirname(__FILE__) . "/../../" . "connection/Connection.php";
+
+use Connection\Connection;
+
 class Database
 {
     private string $id;
@@ -16,33 +17,10 @@ class Database
     private string $img_url;
     private string $status;
     private $conn;
-    private const HOST = "localhost";
-    private const HOSTNAME = "root";
-    private const PASSWORD = '';
-    private const DataBaseName = "foodvendor";
-
     public function __construct()
     {
-        $this->conn = mysqli_connect(
-            self::HOST,
-            self::HOSTNAME,
-            self::PASSWORD,
-            self::DataBaseName
-        );
-
-        if ($this->conn->connect_error) {
-            trigger_error('ERROR', E_USER_ERROR);
-            die('Connection Error');
-        }
+        $this->conn = (new Connection())->getConnection();
     }
-
-
-    // public function createQuery(string $query): bool
-    // {
-    //     $sent = $this->conn->query($query);
-    //     return $sent;
-    // }
-
 
     public function getList(string $query)
     {

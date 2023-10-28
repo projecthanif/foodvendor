@@ -2,8 +2,8 @@
 
 session_start();
 
-use Database\Connection;
-$conn = (new Connection())->getConn();
+use Connection\Connection;
+$conn = (new Connection())->getConnection();
 
 
 $item_id = $_REQUEST['id'] ?? '';

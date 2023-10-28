@@ -3,7 +3,7 @@ session_start();
 require dirname(__FILE__) . "/../" . "connection/Connection.php";
 
 
-use Database\Connection as Connection;
+use Connection\Connection;
 function get_list($conn, $uniqid)
 {
 
@@ -20,7 +20,7 @@ function get_list($conn, $uniqid)
 }
 
 
-$conn = (new Connection())->getConn();
+$conn = (new Connection())->getConnection();
 
 $lists = get_list($conn, $_SESSION['id']);
 $amount = get_list($conn, $_SESSION['id']);

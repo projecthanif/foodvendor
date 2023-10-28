@@ -1,9 +1,8 @@
 <?php
 require_once 'path.php';
 
-use Database\Connection;
-
-$conn = (new Connection())->getConn();
+use Connection\Connection;
+$conn = (new Connection())->getConnection();
 
 $food = get_all_food($conn);
 
