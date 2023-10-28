@@ -105,8 +105,8 @@ $usersList = $orders->getList('SELECT * FROM users');
             foreach ($lists as $list) :
           ?>
               <tr>
-                <td><?= $list['id'] ?></td>
                 <td><?= $list['useruniqid']?></td>
+                <td><?= $list['item_id'] ?></td>
                 <td><?= $list['product_name'] ?></td>
                 <td><?= $list['price'] ?></td>
                 <?php if ($list['payment_status'] === 'paid') : ?>

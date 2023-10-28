@@ -6,11 +6,20 @@ use Database\Connection;
 $conn = (new Connection())->getConn();
 
 
-$id = $_REQUEST['id'] ?? '';
-$price = $_REQUEST['price'] ?? '';
-$product_name = $_REQUEST['name'] ?? '';
+$item_id = $_REQUEST['id'] ?? '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  
+  $searchQ = $conn->query("SELECT * FROM food_items WHERE id = '$item_id'");
+
+  if ($searchQ->num_rows > 0) {
+    $result = ($searchQ->fetch_assoc());
+    $price = $result['price'];
+    $product_name = $result['name'];
+  }
+
+  $id = uniqid('#');
+
 
   if (isset($_SESSION['id'])) {
     $user_uniq_id = $_SESSION['id'];
@@ -18,12 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $orderRequest = $conn->prepare("INSERT INTO order_items(
       id,
+      item_id,
       product_name,
       name, 
       useruniqid, 
-      price) VALUE(?,?,?,?,?)");
+      price) VALUE(?,?,?,?,?,?)");
 
-    $orderRequest->bind_param('sssss', $id, $product_name, $user_name, $user_uniq_id, $price);
+    $orderRequest->bind_param('ssssss', $id, $item_id, $product_name, $user_name, $user_uniq_id, $price);
 
     if ($orderRequest->execute()) {
     } else {

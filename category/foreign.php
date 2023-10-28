@@ -125,8 +125,6 @@ $food = get_all_food($conn);
                                 <div class="card-price">$<?= $price ?></div>
                                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
                                     <input type="hidden" name="id" value="<?= $id ?>">
-                                    <input type="hidden" name="name" value="<?= $name ?>">
-                                    <input type="hidden" name="price" value="<?= $price ?>">
                                     <button class="cart-img">
                                         <i class="fa fa-bag-shopping"></i>
                                     </button>
