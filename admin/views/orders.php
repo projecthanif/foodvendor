@@ -1,14 +1,11 @@
 <?php
 require dirname(__DIR__) . '/app/path.php';
-
-require APP_PATH . 'Database.php';
+use App\Database;
 
 $orders = new Database();
-
 $lists = $orders->getList('SELECT * FROM order_items');
 
 $users = new Database();
-
 $usersList = $orders->getList('SELECT * FROM users');
 
 

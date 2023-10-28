@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 require_once(dirname(__FILE__) . "/../" . "connection/Connection.php");
 
-use Database\Connection;
+use Connection\Connection;
 
 class User
 {

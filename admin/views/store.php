@@ -1,5 +1,6 @@
 <?php
-require_once("../app/store.php");
+require_once (dirname(__FILE__) . "/../" . "app/store.php");
+
 ?>
 
 <!DOCTYPE html>

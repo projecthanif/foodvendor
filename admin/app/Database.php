@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+namespace App;
 
 require dirname(__FILE__) . "/../../" . "connection/Connection.php";
 
@@ -88,7 +89,7 @@ class Database
         $ext_type = ['jpg', 'png', 'jpeg'];
 
         if (in_array($file_ext, $ext_type)) {
-            if ($file_size < 100000) {
+            if ($file_size < 500000) {
                 $file_name = explode(' ', $file_name);
                 $file_name = explode('.', $file_name[0]);
                 $file_name = $file_name[0] . '.' . $file_ext;

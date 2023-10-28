@@ -1,7 +1,9 @@
 <?php
-require 'Database.php';
+require dirname(__FILE__) . "/./" . 'path.php';
 
+use App\Database;
 $create = new Database();
+
 
 // sql to create table
 $sql = "CREATE TABLE users (
@@ -19,13 +21,11 @@ type DEFAULT 'customer'
 )";
 
 // $return = $create->createQuery($sql);
-
 // if ($return === true) {
 //     echo "Table Created successfully <br />";
 // } else {
 //     echo "Table failed";
 // }
-
 
 
 $createFoodItemSQL = "CREATE TABLE food_items (

@@ -1,11 +1,10 @@
 <?php
 
-require dirname(__DIR__) . '/app/path.php';
+require dirname(__FILE__) . '/./' . 'path.php';
 
-require APP_PATH . 'Database.php';
+use App\Database;
 
 $item = new Database();
-
 $itemList = $item;
 
 $items = $itemList->getList('SELECT * FROM food_items');
@@ -25,6 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit'])) {
       $file_upload = $item->uploadFile($file);
       $file_name = $file_upload['1'];
+      // echo "<pre>";
+      // var_dump($file_upload);
+      // exit;
 
       if ($file_upload[0] === true) {
         $upload = $item->addFoodItem(
@@ -37,6 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
         if ($upload === true) echo "<script> alert('Uploaded Successfully') </script>";
         else echo "<script> alert('Uploaded Failed') </script>";
+      } else {
+        echo "<script> alert('{$file_upload}') </script>";
       }
     }
   }

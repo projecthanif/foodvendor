@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . "/controller/get_food.php");
 require_once(dirname(__FILE__) . "/connection/Connection.php");
 require_once(dirname(__FILE__) . "/controller/order.php");
 
-use Database\Connection;
+use Connection\Connection;
 
 $conn = (new Connection())->getConnection();
 $food = get_all_food($conn);
