@@ -21,6 +21,7 @@ The Online Food Vendor Website is a platform that enables customers to view your
 ``Not yet implemented the payment gate way you can if possible``
 
 ## Features
+### To be expecting
 
 - Browse and select items from the menu.
 - Customize orders with options and special requests.
@@ -32,7 +33,7 @@ The Online Food Vendor Website is a platform that enables customers to view your
 
 Before you begin, ensure you have met the following requirements:
 
-- PHP (version 8.2.4)
+- PHP (version 8.0.0)
 - MySQL (version 8.2.4)
 - Web server (Apache)
 
@@ -49,7 +50,7 @@ Before you begin, ensure you have met the following requirements:
 3. Configure your database connection by editing the `connection/Connection.php` file:
 
    ```php
-   const 'DB_HOST = 'localhost';
+   const DB_HOST = 'localhost';
    const DB_USERNAME = 'your_database_username';
    const DB_PASSWORD = 'your_database_password';
    const DB_NAME = 'your_database_name';
