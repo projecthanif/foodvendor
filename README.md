@@ -32,8 +32,8 @@ The Online Food Vendor Website is a platform that enables customers to view your
 
 Before you begin, ensure you have met the following requirements:
 
-- PHP (version 8.0)
-- MySQL (version )
+- PHP (version 8.2.4)
+- MySQL (version 8.2.4)
 - Web server (Apache)
 
 ## Installation
