@@ -375,6 +375,7 @@ li {
 
 .yellow.price {
   font-size: 60px;
+  margin-right: 10px;
 }
 
 .special-pic {
@@ -386,8 +387,6 @@ li {
   .s-body {
     display: flex;
     flex-direction: column-reverse;
-    /* margin-top: 50px; */
-    /* padding: 0%; */
   }
 
   .body-s {

@@ -405,7 +405,7 @@ session_start();
             </p>
           </div>
           <div class="special-price">
-            <h4 class="yellow price"><sup>$</sup> 45</h4>
+            <h4 class="yellow price"><del>N</del>1000 </h4>
             <button class="btn order s">Order Now</button>
           </div>
         </div>
