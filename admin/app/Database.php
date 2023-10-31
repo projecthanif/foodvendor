@@ -23,6 +23,10 @@ class Database
         $this->conn = (new Connection())->getConnection();
     }
 
+    public function createTable($query): bool {
+        $return = $this->conn->query($query);
+        return $return;        
+    }
     public function getList(string $query)
     {
         $result = $this->conn->query($query);
@@ -37,6 +41,7 @@ class Database
 
         return $lists;
     }
+
 
     public function addFoodItem(
         $name,

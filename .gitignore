@@ -1,5 +1,5 @@
-simple.php 
-.sh
+config.php
 ~
 .gitignore
 .vscode
+/vendor/

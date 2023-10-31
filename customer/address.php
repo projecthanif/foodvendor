@@ -1,10 +1,11 @@
 <?php
-require_once('get_list.php');
+require_once dirname(__FILE__) . "/get_list.php";
+
+$user = get_user_info($conn, $_SESSION['id']);
 
 if (isset($_SESSION['name'])) :
 
 ?>
-
     <!DOCTYPE html>
     <html lang="en">
 
@@ -13,7 +14,7 @@ if (isset($_SESSION['name'])) :
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="../assets/css/style.css" />
-        <link rel="stylesheet" href="../assets/css/cstyles.css" />
+        <link rel="stylesheet" href="../assets/css/cstyles.css">
         <link rel="shortcut icon" href="../assets/img/bowl.png" type="image/x-icon" />
         <title>Food Vendor</title>
     </head>
@@ -30,7 +31,7 @@ if (isset($_SESSION['name'])) :
                 <li class="nav-item">
                     <form action="#" class="form">
                         <label for="search">
-                            <input type="text" class="form-input" placeholder="Search" />
+                            <input type="text" class="form-input" placeholder="Search" name="search" />
                             <button class="btn-form">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -42,7 +43,7 @@ if (isset($_SESSION['name'])) :
                 </button>
             </ul>
             <ul class="navbar list">
-                <li class="nav-item" title="<?= $_SESSION['name'] ?>">
+                <li class="nav-item">
                     <a href="user.php" class="nav-link">
                         <i class="fa-regular fa-user fa-2x"></i>
                     </a>
@@ -64,105 +65,49 @@ if (isset($_SESSION['name'])) :
                 <h4 class="links">
                     <a href="../index.php" class="nav-link"> Home </a>
                     <p> > </p>
-                    <a href="cart.php" class="nav-link"> Cart</a>
+                    <a href="user.php" class="nav-link"> Address </a>
                 </h4>
             </section>
             <section class="body">
                 <aside class="aside">
                     <h4 class="nav-title">Account</h4>
-                    <a href="user.php" class="nav-link">Overview</a>
-                    <a href="cart.php" class="nav-link" active>Orders</a>
+                    <a href="user.php" class="nav-link" active>Overview</a>
+                    <a href="cart.php" class="nav-link">Orders</a>
                     <a href="#" class="nav-link">Payment</a>
                     <a href="#" class="nav-link">Feedback</a>
                     <a href="#" class="nav-link">Settings</a>
                     <a href="address.php" class="nav-link">Shipping Address</a>
                 </aside>
-                <section class="section body">
-                    <section class="cart box">
-                        <h3 class="cart box title">Shopping Cart</h3>
-                        <div class="cart container">
-                            <div class="cart table">
-                                <table>
-                                    <thead>
-                                        <th class="th-first">Items</th>
-                                        <!-- <th class="th-second">Quantity</th> -->
-                                        <th class="th-third">Price</th>
-                                        <th class="th-fourth"></th>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        foreach ($lists as $list) :
-                                            $name = $list['product_name'];
-                                            $price = $list['price'];
-                                        ?>
-                                            <tr>
-                                                <td><?= $name ?></td>
-                                                <!-- <td>1</td> -->
-                                                <td><del>N</del><?= $price ?></td>
-                                                <td></td>
-                                            </tr>
-                                        <?php
-                                        endforeach
-                                        ?>
-                                    </tbody>
-                                </table>
+                <section class="section body address">
+                    <h1 class="title">Address</h1>
+                    <p class="text">Please enter a valid address</p>
+                    <form action="#" method="post" class="form-d">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" name="name" id="" class="input" placeholder="<?= $user["name"] ?>">
+                        <label for="email address">Email Address</label>
+                        <input type="email" name="email" id="" class="input" placeholder="<?= $user["email"] ?>">
+                        <label for="street address">Street Address</label>
+                        <input type="text" name="street address" id="" class="input">
+                        <div class="z-city">
+                            <div class="z-city-1">
+                                <label for="zip code">Zip code</label><br>
+                                <input type="number" name="zipcode" id="" class="input">
                             </div>
-                            <div class="cart summary">
-                                <h2 class="s-title">Order Summary</h2>
-                                <hr>
-                                <div class="order-price">
-                                    <div class="type-price">
-                                        <h5 class="name">
-                                            Item (<?= $count ?>)
-                                        </h5>
-                                        <p class="price">
-                                            <del>N</del> <?= $total ?>
-                                        </p>
-                                    </div>
-                                    <div class="type-price">
-                                        <h5 class="name">
-                                            Discount
-                                        </h5>
-                                        <p class="price">
-                                            <del>N</del> 0
-                                        </p>
-                                    </div>
-                                    <div class="type-price">
-                                        <h5 class="name">
-                                            Subtotal
-                                        </h5>
-                                        <p class="price">
-                                            <del>N</del> <?= $total ?>
-                                        </p>
-                                    </div>
-                                    <div class="type-price two">
-                                        <h5 class="name">
-                                            Estimated Delivery
-                                        </h5>
-                                        <p class="price">
-                                            <del>N</del> 0
-                                        </p>
-                                    </div>
-                                    <div class="type-price">
-                                        <h5 class="name">
-                                            Estimated Tax
-                                        </h5>
-                                        <p class="price">
-                                            <del>N</del> 0
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="amount-total">
-                                    <h1 class="title">Order Value</h1>
-                                    <p class="price">
-                                        <del>N</del> <?= $total ?>
-                                    </p>
-                                </div>
-                                <button class="btn-check">Checkout</button>
+                            <div class="z-city-1">
+                                <label for="city">City</label><br>
+                                <input type="text" name="city" id="" class="input">
                             </div>
                         </div>
-                    </section>
+                        <label for="country">Country</label>
+                        <select name="country" id="" class="input">
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Niger">Niger</option>
+                        </select>
+                        <label for="number">Phone Number</label>
+                        <input type="number" name="number" id="" class="input" placeholder="<?= $user["phone"] ?>">
+                        <input type="submit" value="Submit" class="form-btn" disabled>
+                    </form>
                 </section>
             </section>
         </main>
@@ -234,13 +179,13 @@ if (isset($_SESSION['name'])) :
                 </div>
             </div>
         </footer>
+
         <script src="../assets/js/app.js"></script>
     </body>
 
     </html>
-
-
 <?php
-else :  header('Location: ../validation/login.php');
+else :
+    header(("Location: ../validation/login.php"));
 endif;
 ?>

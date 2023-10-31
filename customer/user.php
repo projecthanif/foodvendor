@@ -71,12 +71,12 @@ if (isset($_SESSION['name'])) :
             <section class="body">
                 <aside class="aside">
                     <h4 class="nav-title">Account</h4>
-                    <a href="#" class="nav-link" active>Overview</a>
-                    <a href="#" class="nav-link">Orders</a>
+                    <a href="user.php" class="nav-link" active>Overview</a>
+                    <a href="cart.php" class="nav-link">Orders</a>
                     <a href="#" class="nav-link">Payment</a>
                     <a href="#" class="nav-link">Feedback</a>
                     <a href="#" class="nav-link">Settings</a>
-                    <a href="#" class="nav-link">Shipping Address</a>
+                    <a href="address.php" class="nav-link">Shipping Address</a>
                 </aside>
                 <section class="section body">
                     <article class="user_info">

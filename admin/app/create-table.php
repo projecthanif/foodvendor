@@ -20,7 +20,7 @@ reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 type DEFAULT 'customer'
 )";
 
-// $return = $create->createQuery($sql);
+// $return = $create->createTable($sql);
 // if ($return === true) {
 //     echo "Table Created successfully <br />";
 // } else {
@@ -35,13 +35,12 @@ category VARCHAR (200) NOT NULL,
 description VARCHAR(50),
 price VARCHAR(50),
 discount VARCHAR(50),
--- restaurant_token VARCHAR(50),
 is_available VARCHAR(5) DEFAULT 'true',
 image_url VARCHAR(50),
 date_uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
-// $return = $create->createQuery($createFoodItemSQL);
+ // $return = $create->createTable($createFoodItemSQL);
 
 // if ($return === true) {
 //     echo "Table Created successfully <br />";
@@ -63,7 +62,28 @@ payment_status VARCHAR(20) DEFAULT 'pending',
 date_uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
-// $return = $create->createQuery($createOrderSQL);
+// $return = $create->createTable($createOrderSQL);
+
+// if ($return === true) {
+//     echo "Table Created successfully <br />";
+// } else {
+//     echo "Table failed";
+// }
+
+
+$createAddressItemSql = "CREATE TABLE address (
+id VARCHAR(50) NOT NULL,
+name VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL,
+street_address VARCHAR(100) NOT NULL,
+zip_code VARCHAR(20) NOT NULL,
+city VARCHAR(50) NOT NULL,
+country VARCHAR(50) NOT NULL,
+number VARCHAR(20) NOT NULL
+)";
+
+
+// $return = $create->createTable($createAddressItemSql);
 
 // if ($return === true) {
 //     echo "Table Created successfully <br />";

@@ -20,6 +20,15 @@ function get_list($conn, $uniqid)
 }
 
 
+function get_user_info($conn, $sId) {
+    $query = $conn->query("SELECT * FROM users WHERE id = '{$sId}'");
+
+    if (mysqli_num_rows($query) > 0) {
+        $userinfo = mysqli_fetch_assoc($query);
+        return $userinfo;
+    }
+}
+
 $conn = (new Connection())->getConnection();
 
 $lists = get_list($conn, $_SESSION['id']);
