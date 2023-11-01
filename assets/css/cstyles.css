@@ -291,3 +291,8 @@ label {
   border: none;
   border-radius: 10px;
 }
+
+option {
+  padding: 50px;
+  height: 20px;
+}

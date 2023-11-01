@@ -9,7 +9,7 @@ $itemList = $item;
 
 $items = $itemList->getList('SELECT * FROM food_items');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER["REQUEST_METHOD"] === 'POST') {
   $name = $_POST['name'];
   $category = $_POST['category'];
   $price = $_POST['price'];
