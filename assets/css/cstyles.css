@@ -248,6 +248,8 @@ tr:hover {
 @media screen and (max-width: 600px) {
   .cart.summary {
     width: 100%;
+    margin-left: -20px;
+    margin-top: 20px;
   }
 }
 

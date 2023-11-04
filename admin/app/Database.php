@@ -1,6 +1,6 @@
 <?php
-
 declare(strict_types=1);
+
 namespace App;
 
 require dirname(__FILE__) . "/../../" . "connection/Connection.php";
@@ -27,7 +27,7 @@ class Database
         $return = $this->conn->query($query);
         return $return;        
     }
-    public function getList(string $query)
+    public function getList(string $query): array
     {
         $result = $this->conn->query($query);
         $lists = [];
@@ -94,7 +94,7 @@ class Database
         $ext_type = ['jpg', 'png', 'jpeg'];
 
         if (in_array($file_ext, $ext_type)) {
-            if ($file_size < 500000) {
+            if ($file_size < 5000000) {
                 $file_name = explode(' ', $file_name);
                 $file_name = explode('.', $file_name[0]);
                 $file_name = $file_name[0] . '.' . $file_ext;
@@ -104,7 +104,7 @@ class Database
                     return false;
                 }
             } else {
-                return 'file size ' . $file_size;
+                return 'File size should not exceed 5mb ';
             }
         } else {
             return 'file type must be either "jpg, jpeg or png" not ' . $file_ext;
@@ -117,6 +117,12 @@ class Database
     {
     }
 
+    public function delete($id):bool
+    {
+        $query = $this->conn->query("DELETE FROM food_items WHERE id = '$id'");
+
+        return $query;
+    }
     public function validateString(string $value)
     {
         $value = trim($value);

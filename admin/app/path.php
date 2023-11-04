@@ -8,3 +8,10 @@ define('UPLOADS_PATH', $path . 'uploads' . DIRECTORY_SEPARATOR);
 
 require APP_PATH . 'Database.php';
 
+
+function dd($value)
+{
+    echo "<pre>";
+    var_dump($value);
+    exit;
+}

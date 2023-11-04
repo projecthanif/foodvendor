@@ -1,13 +1,6 @@
 <?php
-require dirname(__DIR__) . '/app/path.php';
-use App\Database;
 
-$orders = new Database();
-$lists = $orders->getList('SELECT * FROM order_items');
-
-$users = new Database();
-$usersList = $orders->getList('SELECT * FROM users');
-
+require_once(dirname(__FILE__) . "/../app/orders.php");
 
 ?>
 
@@ -18,7 +11,7 @@ $usersList = $orders->getList('SELECT * FROM users');
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="assets/css/dash_style.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="shortcut icon" href="assets/img/bowl.png" type="image/x-icon" />
   <title>dashboard</title>
 </head>
@@ -54,7 +47,7 @@ $usersList = $orders->getList('SELECT * FROM users');
 
   <aside class="aside">
     <li class="top">
-      <a href="dashboard.html" class="side-nav-item">
+      <a href="dashboard.php" class="side-nav-item">
         Dashboard
       </a>
     </li>

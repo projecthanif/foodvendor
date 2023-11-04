@@ -3,7 +3,7 @@
 namespace Connection;
 class Connection
 {
-    public $conn;
+    private $conn;
     const DB_HOSTNAME = 'localhost';
     const DB_USERNAME = 'root';
     const DB_PASSWORD = '';
