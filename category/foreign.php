@@ -4,7 +4,9 @@ require_once (dirname(__FILE__) . "\path.php");
 use Connection\Connection;
 $conn = (new Connection())->getConnection();
 
-$food = get_all_food($conn);
+// $food = get_all_food($conn);
+
+$food = get_food_by_type(conn: $conn, type: 'foreign');
 
 ?>
 <!DOCTYPE html>
