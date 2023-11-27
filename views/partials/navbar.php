@@ -7,7 +7,7 @@
     </button>
     <ul class="navbar list">
       <li class="nav-item">
-        <a href="user" class="nav-link">
+        <a href="/user" class="nav-link">
           <i class="fa-regular fa-user fa-2x"></i>
         </a>
       </li>
@@ -17,7 +17,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="customer/cart.php" class="nav-link">
+        <a href="/user/cart" class="nav-link">
           <i class="fa fa-bag-shopping fa-2x"></i>
         </a>
       </li>

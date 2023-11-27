@@ -64,8 +64,6 @@ function dd(...$var) {
 }
 
 function ddd(...$var) {
-    echo "<pre>";
-    var_dump($var);
-    echo "</pre>";
+    dd(...$var);
     exit;
 }
