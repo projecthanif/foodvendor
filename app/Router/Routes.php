@@ -32,11 +32,12 @@ class Routes
         $action = $this->router[$route][$requestMethod] ?? null;
 
         if (!$action) {
+            http_response_code(404);
             return throw new RouteNotFoundException;
         }
 
         if (is_callable($action)) {
-            call_user_func($action);
+            return call_user_func($action);
         }
 
         if (is_array($action)) {
@@ -49,7 +50,7 @@ class Routes
                 }
             }
         }
-
+        
         return throw new RouteNotFoundException;
     }
 }
