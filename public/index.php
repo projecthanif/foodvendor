@@ -34,7 +34,10 @@ $route
 
     ->get('/user', [UserController::class, 'view'])
     ->get('/user/address', [UserController::class, 'address'])
+    // ->post('/user/address', [UserController::class, 'setAddress'])
     ->get('/user/cart', [UserController::class, 'cart'])
+    // ->post('/user/cart', [UserController::class, 'checkOut'])
+    // ->get('/user/cart', [UserController::class, 'payment'])
 
     ->get('/auth/login', [LoginAuth::class, 'index'])
     ->post('/auth/login', [LoginAuth::class, 'login'])

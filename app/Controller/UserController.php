@@ -35,4 +35,9 @@ class UserController
         $sumtotal = $subtotal;
         require dirname(__DIR__) . "/../" . 'views/user/cart.php';
     }
+
+    public function payment()
+    {
+        
+    }
 }
