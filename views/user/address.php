@@ -17,29 +17,30 @@
             <p class="text">Please enter a valid address</p>
             <form action="#" method="post" class="form-d">
                 <label for="fullname">Full Name</label>
-                <input type="text" name="name" id="" class="input" placeholder="<?= $user["name"] ?>">
+                <input type="text" name="name" id="" class="input" placeholder="<?= $user["name"]??'' ?>">
                 <label for="email address">Email Address</label>
-                <input type="email" name="email" id="" class="input" placeholder="<?= $user["email"] ?>">
+                <input type="email" name="email" id="" class="input" placeholder="<?= $user["email"]??'' ?>">
                 <label for="street address">Street Address</label>
-                <input type="text" name="street address" id="" class="input">
+                <input type="text" name="street address" id="" class="input" placeholder="<?= $user['street_address']??'' ?>">
                 <div class="z-city">
                     <div class="z-city-1">
                         <label for="zip code">Zip code</label><br>
-                        <input type="number" name="zipcode" id="" class="input">
+                        <input type="number" name="zipcode" id="" class="input" placeholder="<?= $user['zip_code']??'' ?>">
                     </div>
                     <div class="z-city-1">
                         <label for="city">City</label><br>
-                        <input type="text" name="city" id="" class="input">
+                        <input type="text" name="city" id="" class="input" placeholder="<?= $user['city']??'' ?>">
                     </div>
                 </div>
                 <label for="country">Country</label>
                 <select name="country" id="" class="input">
+                    <option><?=$user['country']??''?></option>
                     <option value="Nigeria">Nigeria</option>
                     <option value="Ghana">Ghana</option>
                     <option value="Niger">Niger</option>
                 </select>
                 <label for="number">Phone Number</label>
-                <input type="number" name="number" id="" class="input" placeholder="<?= $user["phone"] ?>">
+                <input type="number" name="number" id="" class="input" placeholder="<?= $user["number"]??'' ?>">
                 <input type="submit" value="Submit" class="form-btn" disabled>
             </form>
         </section>

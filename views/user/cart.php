@@ -24,20 +24,22 @@
                                 <th class="th-fourth"></th>
                             </thead>
                             <tbody>
-                                <!-- <?php
-                                        foreach ($lists as $list) :
-                                            $name = $list['product_name'];
-                                            $price = $list['price'];
-                                        ?>
+                                <?php
+                                if (!empty($lists)) :
+                                    foreach ($lists as $list) :
+                                        $name = $list['product_name'];
+                                        $price = $list['price'];
+                                ?>
                                         <tr>
                                             <td><?= $name ?></td>
                                             <!-- <td>1</td> -->
-                                <td><del>N</del><?= $price ?></td>
-                                <td></td>
-                                </tr>
-                            <?php
-                                        endforeach
-                            ?> -->
+                                            <td><del>N</del><?= $price ?></td>
+                                            <td></td>
+                                        </tr>
+                                <?php
+                                    endforeach;
+                                endif;
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -58,7 +60,7 @@
                                     Discount
                                 </h5>
                                 <p class="price">
-                                    <del>N</del> 0
+                                    <del>N</del> <?= $discount ?? '' ?>
                                 </p>
                             </div>
                             <div class="type-price">
@@ -66,7 +68,7 @@
                                     Subtotal
                                 </h5>
                                 <p class="price">
-                                    <del>N</del> <?= $total ?? '' ?>
+                                    <del>N</del> <?= $subtotal ?? '' ?>
                                 </p>
                             </div>
                             <div class="type-price two">
@@ -90,7 +92,7 @@
                         <div class="amount-total">
                             <h1 class="title">Order Value</h1>
                             <p class="price">
-                                <del>N</del> <?= $total ?? '' ?>
+                                <del>N</del> <?= $sumtotal ?? '' ?>
                             </p>
                         </div>
                         <button class="btn-check">Checkout</button>

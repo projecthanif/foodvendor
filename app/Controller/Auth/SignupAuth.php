@@ -2,9 +2,9 @@
 
 namespace App\Controller\Auth;
 
-use App\Model\User;
+use App\Model\Auth;
 
-class SignupAuth extends User
+class SignupAuth extends Auth
 {
     public function index()
     {

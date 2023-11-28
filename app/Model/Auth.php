@@ -4,7 +4,7 @@ namespace App\Model;
 
 use App\App;
 
-class User
+class Auth
 {
     private string $name;
     private string $email;

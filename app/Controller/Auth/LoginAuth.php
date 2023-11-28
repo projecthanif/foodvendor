@@ -2,9 +2,9 @@
 
 namespace App\Controller\Auth;
 
-use App\Model\User;
+use App\Model\Auth;
 
-class LoginAuth extends User
+class LoginAuth extends Auth
 {
 
     public function index()
