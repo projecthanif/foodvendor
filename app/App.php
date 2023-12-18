@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Exception\RouteNotFoundException;
-use App\Router\Routes;
+use App\Router\Router;
 
 
 class App
@@ -12,7 +12,7 @@ class App
     private static \mysqli|bool $conn;
 
     public function __construct(
-        protected Routes $route,
+        protected Router $route,
         protected array $request,
         protected array $config
     ) {
@@ -35,5 +35,4 @@ class App
     {
         return App::$conn;
     }
-
 }

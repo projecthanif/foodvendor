@@ -19,16 +19,13 @@ class Auth
         $this->conn = App::db();
     }
 
-    public function userRegister(
-        string $name,
-        string $email,
-        int $number,
-        string $password
-    ): bool {
-        $this->name = $this->validateString($name);
-        $this->email = $this->validateEmail($email);
-        $this->number = $this->validateInt($number);
-        $this->password = $this->hashPassword($password);
+    public function userRegister($post): bool
+    {
+
+        $this->name = $this->validateString($post['name']);
+        $this->email = $this->validateEmail($post['email']);
+        $this->number = $this->validateInt($post['number']);
+        $this->password = $this->hashPassword($post['password']);
 
         $this->id = uniqid('user_id_');
         $this->token = $this->generateToken();
@@ -55,9 +52,10 @@ class Auth
         return $result->execute();
     }
 
-    public function verifyUser(string $email, string $password): bool
+    public function verifyUser($post): bool
     {
-        $this->email = $this->validateEmail($email);
+        $this->email = $this->validateEmail($post['email']);
+        $password = $_POST['password'];
 
         $stmt = $this->conn->query("SELECT * FROM users WHERE email='$this->email'");
 
@@ -99,7 +97,7 @@ class Auth
         }
     }
 
-    public function validateString(string $name)
+    private function validateString(string $name)
     {
         $this->name = $name;
         if (!preg_match("/^['a-z A-Z']*$/", $this->name)) {
@@ -108,7 +106,7 @@ class Auth
         return $this->name;
     }
 
-    public function validateEmail(string $email)
+    private function validateEmail(string $email)
     {
         $this->email = $email;
         if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
@@ -120,7 +118,7 @@ class Auth
         return $this->email;
     }
 
-    public function validateInt(int $number)
+    private function validateInt(int $number)
     {
         $this->number = $number;
         if (!filter_var($this->number, FILTER_VALIDATE_INT)) {
@@ -129,7 +127,7 @@ class Auth
         return $this->number;
     }
 
-    public function hashPassword(string|int $password)
+    private function hashPassword(string|int $password)
     {
         $this->password = $password;
         $this->hash = password_hash($this->password, PASSWORD_BCRYPT);
@@ -144,7 +142,7 @@ class Auth
         $token = bin2hex($token);
         return $token;
     }
-    public function passVerify($password, $hash): bool
+    private function passVerify($password, $hash): bool
     {
         $verify = password_verify(password: $password, hash: $hash);
         return $verify;

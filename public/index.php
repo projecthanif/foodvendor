@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 
 use App\App;
-use App\Controller\Admin\DashboardController;
-use App\Router\Routes;
+use App\Controller\Admin\AdminController;
+use App\Router\Router;
 use App\Controller\Shop\Category;
 use App\Controller\UserController;
 use App\Controller\IndexController;
@@ -19,13 +20,13 @@ session_start();
 include_once __DIR__ . "/../" . "/vendor/autoload.php";
 
 
-$route = new Routes();
+$route = new Router();
 
 
 
 $route
     ->get('/', [IndexController::class, 'index'])
-    
+
     ->get('/shop', [ShopController::class, 'index'])
     ->get('/shop/drinks', [Category::class, 'drinks'])
     ->get('/shop/local', [Category::class, 'local'])
@@ -48,9 +49,11 @@ $route
 
     // ADMIN SECTION
 
-    ->get('/admin/dashboard',  [DashboardController::class, 'view'])
-
-    ;
+    ->get('/admin/dashboard',  [AdminController::class, 'view'])
+    ->get('/admin/customer',  [AdminController::class, 'customerView'])
+    ->get('/admin/orders',  [AdminController::class, 'orderView'])
+    ->get('/admin/store',  [AdminController::class, 'storeView'])
+    ->post('/admin/store/create',  [AdminController::class, 'createItem']);
 
 
 clearstatcache();
@@ -70,13 +73,15 @@ clearstatcache();
 ))->run();
 
 
-function dd(...$var) {
+function dd(...$var)
+{
     echo "<pre>";
     var_dump($var);
     echo "</pre>";
 }
 
-function ddd(...$var) {
+function ddd(...$var)
+{
     dd(...$var);
     exit;
 }

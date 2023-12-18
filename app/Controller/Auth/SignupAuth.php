@@ -16,12 +16,7 @@ class SignupAuth extends Auth
 
     public function signup()
     {
-        $response = $this->userRegister(
-            $_POST['name'],
-            $_POST['email'],
-            $_POST['number'],
-            $_POST['password']
-        );
+        $response = $this->userRegister(post: $_POST);
 
         if ($response) {
             header("Location: /auth/login");

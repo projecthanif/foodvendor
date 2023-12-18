@@ -4,7 +4,7 @@ namespace App\Router;
 
 use App\Exception\RouteNotFoundException;
 
-class Routes
+class Router
 {
     private array $router;
 
@@ -12,17 +12,17 @@ class Routes
         string $requestMethod,
         string $route,
         callable|array $action
-    ): Routes {
+    ): Router {
         $this->router[$route][$requestMethod] = $action;
         return $this;
     }
 
-    public function get(string $uri, callable|array $action): Routes
+    public function get(string $uri, callable|array $action): Router
     {
         return $this->register('get', $uri, $action);
     }
 
-    public function post(string $uri, callable|array $action): Routes
+    public function post(string $uri, callable|array $action): Router
     {
         return $this->register('post', $uri, $action);
     }
@@ -46,7 +46,7 @@ class Routes
             if (class_exists($class)) {
                 $class = new $class;
                 if (method_exists($class, $action)) {
-                   return call_user_func_array([$class, $action], []);
+                    return call_user_func_array([$class, $action], []);
                 }
             }
         }

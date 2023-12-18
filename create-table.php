@@ -1,11 +1,7 @@
 <?php
-require dirname(__FILE__) . "/./" . 'path.php';
-
-use App\Database;
-$create = new Database();
 
 
-// sql to create table
+// sql to create user table
 $sql = "CREATE TABLE users (
 id VARCHAR(255) NOT NULL,
 name VARCHAR(30) NOT NULL,
@@ -27,20 +23,22 @@ type DEFAULT 'customer'
 //     echo "Table failed";
 // }
 
-
+// sql to create food_item table
 $createFoodItemSQL = "CREATE TABLE food_items (
-id VARCHAR(50) NOT NULL,
-name VARCHAR(50) NOT NULL,
-category VARCHAR (200) NOT NULL,
-description VARCHAR(50),
-price VARCHAR(50),
-discount VARCHAR(50),
-is_available VARCHAR(5) DEFAULT 'true',
-image_url VARCHAR(50),
-date_uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    id INT(50) NOT NULL AUTO_INCREMENT,
+    food_id VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    category VARCHAR (200) NOT NULL,
+    description VARCHAR(50),
+    price VARCHAR(50),
+    discount VARCHAR(50),
+    is_available VARCHAR(5) DEFAULT 'true',
+    image_url VARCHAR(50),
+    date_uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY(id));
 )";
 
- // $return = $create->createTable($createFoodItemSQL);
+// $return = $create->createTable($createFoodItemSQL);
 
 // if ($return === true) {
 //     echo "Table Created successfully <br />";

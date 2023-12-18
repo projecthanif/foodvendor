@@ -20,7 +20,7 @@ class Address
         $query = "SELECT * FROM address  WHERE user_id = '$id'";
 
         $stmt = $this->conn->query($query);
-        // id	name	email	street_address	zip_code	city	country	number	
+
         if ($stmt->num_rows === 1) {
             $out = $stmt->fetch_assoc();
 
