@@ -9,25 +9,25 @@ class Category extends Shop
 {
     public function drinks()
     {
-        $food = $this->list('drinks');
+        $food = $this->fetchList('drinks');
         require dirname(__DIR__) . "/../../" . 'views/category/drinks.php';
     }
 
     public function foreign()
     {
-        $food = $this->list('foreign');
+        $food = $this->fetchList('foreign');
         require dirname(__DIR__) . "/../../" . 'views/category/foreign.php';
     }
 
     public function local()
     {
-        $food = $this->list('local');
+        $food = $this->fetchList('local');
         require dirname(__DIR__) . "/../../" . 'views/category/local.php';
     }
 
     public function snacks()
     {
-        $food = $this->list('fast food');
+        $food = $this->fetchList('fast food');
         require dirname(__DIR__) . "/../../" . 'views/category/snacks.php';
     }
 }

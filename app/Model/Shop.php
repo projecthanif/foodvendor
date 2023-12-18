@@ -4,18 +4,20 @@ namespace App\Model;
 
 use App\App;
 
-class Shop {
+class Shop
+{
 
     private \mysqli|bool $conn;
 
-    public function list(string $arg = null) {
+    public function fetchList(string $arg = null)
+    {
         $this->conn = App::db();
 
         $items = [];
 
         if ($arg !== null) {
             $query = "SELECT * FROM food_items WHERE category = '$arg'";
-        }else {
+        } else {
             $query = "SELECT * FROM food_items";
         }
 
@@ -28,5 +30,4 @@ class Shop {
         }
         return $items;
     }
-    
 }

@@ -24,7 +24,7 @@
             Fresh Drink
           </button>
         </a>
-        <a href="category/snacks.php">
+        <a href="shop/snacks">
           <button class="btn select">
             <img src="assets/img/kimchi.jpg" alt="" class="btn-img" />
             Fast Food

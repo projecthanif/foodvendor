@@ -1,19 +1,15 @@
-<?php
-
-require_once(dirname(__FILE__) . "/../app/customer.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="shortcut icon" href="assets/img/bowl.png" type="image/x-icon" />
-  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/admin-styles.css" />
+  <link rel="shortcut icon" href="../assets/img/bowl.png" type="image/x-icon" />
+  <title>dashboard</title>
 </head>
 
 <body>
@@ -32,7 +28,7 @@ require_once(dirname(__FILE__) . "/../app/customer.php");
         </a>
         <li>
           <a href="#" class="nav-item">
-            <img src="assets/img/bowl.png" alt="" class="avatar sm">
+            <img src="../assets/img/bowl.png" alt="" class="avatar sm">
           </a>
         </li>
         <li>
@@ -44,14 +40,14 @@ require_once(dirname(__FILE__) . "/../app/customer.php");
 
     </ul>
   </nav>
-
+  
   <aside class="aside">
     <li class="top">
       <a href="dashboard.php" class="side-nav-item">
         Dashboard
       </a>
     </li>
-
+    
     <li>
       <a href="customer.php" class="side-nav-item">
         Customers List
@@ -64,48 +60,45 @@ require_once(dirname(__FILE__) . "/../app/customer.php");
     </li>
     <li>
       <a href="store.php" class="side-nav-item">
+        
+      </a>
+    </li>
+    
+    <li>
+      <a href="store.php" class="side-nav-item">
         Item Management
       </a>
     </li>
   </aside>
   <main>
     <article class="title">
-      <h3 class="title-page">CUSTOMER LIST</h3>
+      <h3 class="title-page">ORDER LIST</h3>
       <p>
         <i>Home</i> /
-        <a href="#" class="link"> Customer List </a>
+        <a href="#" class="link"> Order List </a>
       </p>
     </article>
     <!-- <article class="list">
 
     </article> -->
     <section class="table-row">
-      <h3 class="title">Customer Lists</h3>
+      <h3>Order Lists</h3>
       <table class="table">
         <thead>
-          <th>User ID</th>
-          <th>Customer Name</th>
-          <th>Email</th>
-          <th>Mobile Number</th>
-          <th>Type</th>
+          <th>Customer</th>
+          <th>Order ID</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Status</th>
         </thead>
         <tbody>
-          <?php
-          if (!empty($users)) :
-            foreach ($users as $user) :
-          ?>
-              <tr>
-                <td><?= $user['id'] ?></td>
-                <td><?= $user['name'] ?></td>
-                <td><?= $user['email'] ?></td>
-                <td><?= $user['phone'] ?></td>
-                <td><?= $user['type'] ?></td>
-              </tr>
-          <?php
-            endforeach;
-          endif;
-          ?>
-
+          <tr>
+            <td>Mustapha Ibrahim</td>
+            <td>#102903</td>
+            <td>Fried Rice</td>
+            <td>$10</td>
+            <td>Paid</td>
+          </tr>
         </tbody>
       </table>
     </section>

@@ -6,14 +6,13 @@ use App\App;
 use App\Model\Shop;
 
 
-class ShopController extends Shop {
+class ShopController extends Shop
+{
 
-    
+
     public function index()
     {
-        $food = $this->list();
+        $food = $this->fetchList();
         require dirname(__DIR__) . "/../../" . 'views/shop.php';
     }
-
-    
 }

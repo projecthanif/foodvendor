@@ -8,6 +8,9 @@ class SignupAuth extends Auth
 {
     public function index()
     {
+        if (isset($_SESSION['name'])) {
+            return header('Location: /');
+        }
         return require_once dirname(__DIR__) . '/../../' . '/views/validation/signup.php';
     }
 

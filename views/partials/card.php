@@ -15,9 +15,8 @@
         </div>
         <div class="card-foot">
             <div class="card-price">$<?= $price ?></div>
-            <form action="/shop" method="post">
+            <form action="/shop/cart" method="post">
                 <input type="hidden" name="id" value="<?= $id ?>">
-                <!-- <input type="hidden" name="price" value="<?= $price ?>"> -->
                 <button class="cart-img">
                     <i class="fa fa-bag-shopping"></i>
                 </button>

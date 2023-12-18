@@ -53,7 +53,6 @@ class Auth
         );
 
         return $result->execute();
-
     }
 
     public function verifyUser(string $email, string $password): bool
@@ -72,7 +71,6 @@ class Auth
             $verify = $this->passVerify(password: $password, hash: $this->hash);
 
             if ($verify) {
-
                 $_SESSION['type'] = $out['type'];
                 $_SESSION['name'] = $out['name'];
                 $_SESSION['id'] = $out['id'];

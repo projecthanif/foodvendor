@@ -50,7 +50,6 @@ class Routes
                 }
             }
         }
-        
         return throw new RouteNotFoundException;
     }
 }

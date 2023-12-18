@@ -4,19 +4,22 @@ namespace App\Model;
 
 use App\App;
 
-class Cart {
+class Cart
+{
 
-    // private \mysqli|bool $conn;
+    private \mysqli|bool $conn;
 
-    public function __construct(private \mysqli|bool $conn = App::db()) {
-        // $this->conn = App::db();
+    public function __construct()
+    {
+        $this->conn = App::db();
     }
-    public function getCartItems(): array {
+    public function getCartItems(): array
+    {
         $id = $_SESSION['id'];
         $lists = [];
         $sums = [];
         $discounts = [];
-        $query = "SELECT * FROM order_items WHERE id = '$id'";
+        $query = "SELECT * FROM order_items WHERE useruniqid = '$id'";
 
         $stmt = $this->conn->query($query);
 
@@ -30,19 +33,45 @@ class Cart {
         $total = array_sum($sums);
         $discount = array_sum($discounts);
         return [$lists, $total, $discount];
-
     }
 
-    public function addCartItem(int $id) {
+    public function addCartItem(string $id)
+    {
+
         $user_uniqid = $_SESSION['id'];
-        $query = $this->conn->prepare("SELECT * FROM food_items WHERE item_id = ?");
-        $query->bind_param('s', $id);
-        while ($query->num_rows === 1) {
-            $item = $query->execute();
-        }
+        $query = $this->conn->query("SELECT * FROM food_items WHERE id = '{$id}'");
 
-        $query = $this->conn->prepare("INSERT INTO order_items(item_id, product_name, name, useruniqid, price, discount) VALUE(??????)");
+        $item = $query->fetch_assoc();
+        $item_id = $item['id'];
+        $product_name = $item['name'];
+        $user_uniqid = $_SESSION['id'];
+        $price = $item['price'];
+        $discount = $item['discount'] ?? '';
 
-        // $stmt = $query->bind_param('ssssss', )
+
+        $query = $this->conn->prepare(
+            "INSERT INTO order_items(item_id, 
+            product_name, useruniqid, price, discount) 
+            VALUE(?,?,?,?,?)"
+        );
+
+
+        $stmt = $query->bind_param(
+            'sssss',
+            $item_id,
+            $product_name,
+            $user_uniqid,
+            $price,
+            $discount
+        );
+
+        $stmt = $query->execute();
+        if ($stmt) return true;
+        else return false;
+    }
+
+    public function deleteCartItem()
+    {
+        
     }
 }
