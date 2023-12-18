@@ -3,8 +3,10 @@
 namespace App\Controller\Shop;
 
 use App\App;
+use App\Model\Shop;
 
-class Category extends Shop {
+class Category extends Shop
+{
     public function drinks()
     {
         $food = $this->list('drinks');
@@ -28,9 +30,4 @@ class Category extends Shop {
         $food = $this->list('fast food');
         require dirname(__DIR__) . "/../../" . 'views/category/snacks.php';
     }
-
-    
 }
-
-
-

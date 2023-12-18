@@ -15,8 +15,9 @@ class Address
     }
     public function getAddress(): array
     {
+
         $id = $_SESSION['id'];
-        $query = "SELECT * FROM address  WHERE id = '$id'";
+        $query = "SELECT * FROM address  WHERE user_id = '$id'";
 
         $stmt = $this->conn->query($query);
         // id	name	email	street_address	zip_code	city	country	number	

@@ -3,6 +3,7 @@
 namespace App\Controller\Shop;
 
 use App\App;
+use App\Model\Shop;
 
 
 class ShopController extends Shop {

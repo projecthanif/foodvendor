@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Controller\Shop;
+namespace App\Model;
 
 use App\App;
 
 class Shop {
 
     private \mysqli|bool $conn;
+
     public function list(string $arg = null) {
         $this->conn = App::db();
 

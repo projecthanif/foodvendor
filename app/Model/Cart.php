@@ -6,10 +6,10 @@ use App\App;
 
 class Cart {
 
-    private \mysqli|bool $conn;
+    // private \mysqli|bool $conn;
 
-    public function __construct() {
-        $this->conn = App::db();
+    public function __construct(private \mysqli|bool $conn = App::db()) {
+        // $this->conn = App::db();
     }
     public function getCartItems(): array {
         $id = $_SESSION['id'];
@@ -31,5 +31,18 @@ class Cart {
         $discount = array_sum($discounts);
         return [$lists, $total, $discount];
 
+    }
+
+    public function addCartItem(int $id) {
+        $user_uniqid = $_SESSION['id'];
+        $query = $this->conn->prepare("SELECT * FROM food_items WHERE item_id = ?");
+        $query->bind_param('s', $id);
+        while ($query->num_rows === 1) {
+            $item = $query->execute();
+        }
+
+        $query = $this->conn->prepare("INSERT INTO order_items(item_id, product_name, name, useruniqid, price, discount) VALUE(??????)");
+
+        // $stmt = $query->bind_param('ssssss', )
     }
 }

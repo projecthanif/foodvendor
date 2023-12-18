@@ -44,37 +44,10 @@
               $id = $item["id"];
               $name = $item['name'];
               $price = $item['price'];
-              $img_url = $item['image_url'];
+              $img_url = "uploads/" . $item['image_url'];
 
-              $img_path = '/admin/uploads/' . $img_url;
             ?>
-              <div class="menu-item">
-                <div class="card">
-                  <div class="card-img">
-                    <!-- <img src="assets/img/kimchi.jpg" alt="" class="card-img" /> -->
-                    <img src="<?= ($img_path) ?>" alt="" class="card-img" />
-                  </div>
-                  <div class="card-body">
-                    <div class="card-body-title"><?= $name ?></div>
-                    <div class="card-rating">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                    </div>
-                  </div>
-                  <div class="card-foot">
-                    <div class="card-price">$<?= $price ?></div>
-                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-                      <input type="hidden" name="id" value="<?= $id ?>">
-                      <button class="cart-img">
-                        <i class="fa fa-bag-shopping"></i>
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+              <?php require(dirname(__DIR__) . '/' . 'views/partials/card.php') ?>
             <?php
             endforeach;
             ?>

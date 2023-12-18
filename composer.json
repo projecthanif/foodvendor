@@ -1,10 +1,10 @@
 {
-    "name": "mustapha/online-food-vendor-web",
-    "description": "This is a online food vendor web application that is used to order food in the web",
+    "name": "mustapha/foodvendor",
+    "description": "food vendor project",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Mustapha\\OnlineFoodVendorWeb\\": "src/"
+            "App\\" : "app/"
         }
     },
     "authors": [
@@ -13,7 +13,6 @@
             "email": "iamustapha213@gmail.com"
         }
     ],
-    "require": {
-        "phpmailer/phpmailer": "^6.8"
-    }
+    "minimum-stability": "stable",
+    "require": {}
 }

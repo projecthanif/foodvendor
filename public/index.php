@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+
 use App\App;
 use App\Router\Routes;
 use App\Controller\Shop\Category;
@@ -9,14 +10,11 @@ use App\Controller\IndexController;
 use App\Controller\Shop\ShopController;
 use App\Controller\Auth\LoginAuth;
 use App\Controller\Auth\SignupAuth;
+use App\Controller\Shop\Cart;
 
 session_start();
 
-
-spl_autoload_register(function ($class) {
-    $path = str_replace("\\", "/", dirname(__DIR__) . '/' . lcfirst($class)) . ".php";
-    require $path;
-});
+include_once __DIR__ . "/../" . "/vendor/autoload.php";
 
 
 $route = new Routes();
@@ -32,6 +30,8 @@ $route
     ->get('/shop/foreign', [Category::class, 'foreign'])
     ->get('/shop/snacks', [Category::class, 'snacks'])
 
+    ->post('/shop', [Cart::class, 'cart'])
+
     ->get('/user', [UserController::class, 'view'])
     ->get('/user/address', [UserController::class, 'address'])
     // ->post('/user/address', [UserController::class, 'setAddress'])
@@ -44,6 +44,8 @@ $route
     ->get('/auth/signup', [SignupAuth::class, 'index'])
     ->post('/auth/signup', [SignupAuth::class, 'signup']);
 
+
+clearstatcache();
 
 (new App(
     $route,
