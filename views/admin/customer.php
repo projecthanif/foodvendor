@@ -2,16 +2,8 @@
 <?php require_once dirname(__DIR__) . "/admin/partials/nav.php" ?>
 <?php require_once dirname(__DIR__) . "/admin/partials/aside.php" ?>
   <main>
-    <article class="title">
-      <h3 class="title-page">CUSTOMER LIST</h3>
-      <p>
-        <i>Home</i> /
-        <a href="#" class="link"> Customer List </a>
-      </p>
-    </article>
-    <!-- <article class="list">
+  <?php require_once dirname(__DIR__) . "/admin/partials/nav2.php" ?>
 
-    </article> -->
     <section class="table-row">
       <h3 class="title">Customer Lists</h3>
       <table class="table">

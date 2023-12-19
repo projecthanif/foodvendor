@@ -2,13 +2,8 @@
 <?php require_once dirname(__DIR__) . "/admin/partials/nav.php" ?>
 <?php require_once dirname(__DIR__) . "/admin/partials/aside.php" ?>
 <main>
-  <article class="title">
-    <h3 class="title-page">ITEM LIST</h3>
-    <p>
-      <i>Home</i> /
-      <a href="#" class="link"> Item List </a>
-    </p>
-  </article>
+<?php require_once dirname(__DIR__) . "/admin/partials/nav2.php" ?>
+
   <h3 class="title">Add New Item</h3>
   <article class="formTheme">
     <form action="/admin/store/create" method="post" enctype="multipart/form-data" class="form">

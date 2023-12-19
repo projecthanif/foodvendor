@@ -140,4 +140,11 @@ class Admin
         $token = bin2hex($token);
         return '#' . $token;
     }
+
+    public function getNumbers() {
+        $customer = count(self::getCustomerList());
+        $item = count(self::getItemList());
+        $order = count(self::getOrderList());
+        return ["customer" => $customer, "item" => $item, "order" => $order];
+    }
 }
