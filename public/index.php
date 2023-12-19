@@ -58,7 +58,6 @@ $route
 
 clearstatcache();
 
-
 (new App(
     $route,
     [

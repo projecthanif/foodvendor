@@ -31,7 +31,7 @@
                             <!-- <p class="forgot">
                                 <a href="forgot.php">Forgot password?</a>
                             </p> -->
-                            <input type="submit" value="Log in" id="submit" class="btn" onsubmit="validate()">
+                            <input type="submit" value="Log in your account" id="submit" class="btn" onsubmit="validate()">
                         </legend>
                         <p class="register">
                             You don't have an account? <a href="/auth/signup">Create one</a>

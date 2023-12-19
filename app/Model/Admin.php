@@ -141,7 +141,8 @@ class Admin
         return '#' . $token;
     }
 
-    public function getNumbers() {
+    public function getNumbers()
+    {
         $customer = count(self::getCustomerList());
         $item = count(self::getItemList());
         $order = count(self::getOrderList());
