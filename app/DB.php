@@ -11,7 +11,7 @@ class DB
     public function __construct(protected array $config)
     {
         try {
-            $this->conn = mysqli_connect(
+            $this->conn = new mysqli(
                 $config['hostname'],
                 $config['username'],
                 $config['password'],

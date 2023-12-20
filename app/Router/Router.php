@@ -46,10 +46,12 @@ class Router
             if (class_exists($class)) {
                 $class = new $class;
                 if (method_exists($class, $action)) {
+                    http_response_code(200);
                     return call_user_func_array([$class, $action], []);
                 }
             }
         }
+        http_response_code(404);
         return throw new RouteNotFoundException;
     }
 }

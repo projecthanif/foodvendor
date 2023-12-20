@@ -26,12 +26,14 @@ class Auth
         $this->email = $this->validateEmail($post['email']);
         $this->number = $this->validateInt($post['number']);
         $this->password = $this->hashPassword($post['password']);
+        // $this->password = $post['password'];
+
 
         $this->id = uniqid('user_id_');
         $this->token = $this->generateToken();
         $result = $this->conn->prepare(
             "INSERT INTO users (
-            id, 
+            user_id, 
             name, 
             email, 
             phone,
@@ -52,26 +54,27 @@ class Auth
         return $result->execute();
     }
 
-    public function verifyUser($post): bool
+    public function verifyUser(array $post): bool
     {
         $this->email = $this->validateEmail($post['email']);
         $password = $_POST['password'];
 
         $stmt = $this->conn->query("SELECT * FROM users WHERE email='$this->email'");
 
-        // ddd($result);
-
+        dd($password);
         if (mysqli_num_rows($stmt) === 1) {
 
             $out = $stmt->fetch_assoc();
             $this->hash = $out['user_password'];
+            // dd($this->hash);
 
             $verify = $this->passVerify(password: $password, hash: $this->hash);
+            // ddd($verify);
 
             if ($verify) {
                 $_SESSION['type'] = $out['type'];
                 $_SESSION['name'] = $out['name'];
-                $_SESSION['id'] = $out['id'];
+                $_SESSION['id'] = $out['user_id'];
                 return $verify;
             } else {
                 sleep(3);

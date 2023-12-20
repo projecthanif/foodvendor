@@ -42,7 +42,7 @@ class Cart
         $query = $this->conn->query("SELECT * FROM food_items WHERE id = '{$id}'");
 
         $item = $query->fetch_assoc();
-        $item_id = $item['id'];
+        $item_id = $item['food_id'];
         $product_name = $item['name'];
         $user_uniqid = $_SESSION['id'];
         $price = $item['price'];

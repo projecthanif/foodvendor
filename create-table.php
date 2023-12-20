@@ -3,18 +3,18 @@
 
 // sql to create user table
 $sql = "CREATE TABLE users (
-id VARCHAR(255) NOT NULL,
-name VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-phone VARCHAR(50),
-is_verified VARCHAR(5) DEFAULT 'false',
-is_active VARCHAR(50) DEFAULT 'false',
-user_address VARCHAR(250)  DEFAULT ' ',
-token VARCHAR(200),
-user_password VARCHAR(50),
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-type DEFAULT 'customer'
-)";
+    id VARCHAR(255) NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    email VARCHAR(50),
+    phone VARCHAR(50),
+    is_verified VARCHAR(5) DEFAULT 'false',
+    is_active VARCHAR(50) DEFAULT 'false',
+    user_address VARCHAR(250)  DEFAULT ' ',
+    token VARCHAR(200),
+    user_password VARCHAR(200),
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    type VARCHAR(10) DEFAULT 'customer'
+    )";
 
 // $return = $create->createTable($sql);
 // if ($return === true) {
@@ -48,17 +48,17 @@ $createFoodItemSQL = "CREATE TABLE food_items (
 
 
 $createOrderSQL = "CREATE TABLE order_items (
-id VARCHAR(50) NOT NULL,
-item_id VARCHAR(50) NOT NULL,
-product_name VARCHAR(50) NOT NULL,
-name VARCHAR(50) NOT NULL,
-useruniqid VARCHAR(50) NOT NULL,
--- description VARCHAR(50),
-price VARCHAR(50),
-discount VARCHAR(50),
-payment_status VARCHAR(20) DEFAULT 'pending',
-date_uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
+    id INT(100) NOT NULL AUTO_INCREMENT,
+    item_id VARCHAR(50) NOT NULL,
+    product_name VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    useruniqid VARCHAR(50) NOT NULL,
+    price VARCHAR(50),
+    discount VARCHAR(50),
+    payment_status VARCHAR(20) DEFAULT 'pending',
+    date_uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+    )";
 
 // $return = $create->createTable($createOrderSQL);
 
