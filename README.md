@@ -47,31 +47,23 @@ Before you begin, ensure you have met the following requirements:
 
 2. Set up your web server to point to the project folder.
 
-3. Configure your database connection by editing the `connection/Connection.php` file:
+3. Install the dependencies in composer.json file
 
-   ```php
-   const DB_HOST = 'localhost';
-   const DB_USERNAME = 'your_database_username';
-   const DB_PASSWORD = 'your_database_password';
-   const DB_NAME = 'your_database_name';
-   ```
+4. Configure your database connection by creating your own `.env` file use the `.env.example` as reference 
 
-4. Create the necessary MySQL database tables. Refer to [Database Setup](#database-setup) for instructions.
+5. Create the necessary MySQL database tables. Refer to [Database Setup](#database-setup) for instructions.
 
-5. Visit your website URL in a web browser to start using the Online Food Vendor Website.
+6. Visit your website URL in a web browser to start using the Online Food Vendor Website.
 
 ## Usage
 
 1. Customers can visit your website, browse the menu, and place orders.
-2. Admins can log in to the admin panel (`admin/app/Database.php`) to manage orders and menu items.
+
 
 ## Database Setup
 
 To set up the necessary database tables, use the provided SQL script. You can import it using a MySQL client or the command line. Replace `[your_database_name]` with your actual database name.
 
-```sql
-mysql -u [your_username] -p [your_database_name] < database.sql
-```
 Or you can just run the file `admin/app/create-table.php` after you have created your database
 
 ## Contributing

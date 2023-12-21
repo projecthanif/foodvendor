@@ -12,10 +12,10 @@ class DB
     {
         try {
             $this->conn = new mysqli(
-                $config['hostname'],
-                $config['username'],
-                $config['password'],
-                $config['dbname']
+                $config['DB_HOST'],
+                $config['DB_USER'],
+                $config['DB_PASS'],
+                $config['DB_NAME']
             );
         } catch (\mysqli_sql_exception $e) {
             echo $e->getMessage();

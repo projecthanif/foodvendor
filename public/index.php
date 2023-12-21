@@ -18,7 +18,8 @@ use App\Controller\Shop\CartController;
 session_start();
 
 include_once __DIR__ . "/../" . "/vendor/autoload.php";
-
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
+$dotenv->load();
 
 $route = new Router();
 
@@ -58,19 +59,13 @@ $route
 
 clearstatcache();
 
-
 (new App(
     $route,
     [
         'uri' => $_SERVER['REQUEST_URI'],
         'method' => $_SERVER['REQUEST_METHOD']
     ],
-    [
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'dbname' => 'foodvendor'
-    ]
+    $_ENV
 ))->run();
 
 
