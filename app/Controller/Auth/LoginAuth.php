@@ -18,7 +18,7 @@ class LoginAuth extends Auth
     public function login()
     {
         $response = $this->verifyUser(post: $_POST);
-
+        
         if ($response) {
             header('Location: /');
         } else {

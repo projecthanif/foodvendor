@@ -21,13 +21,16 @@ class Auth
 
     public function userRegister($post): bool
     {
-
+        if (empty($post['name'] || $post['email'] || $post['number'] || $post['password']))
+        {
+            header('Location: /auth/signup');
+            return false;
+        }
+        ddd($post);
         $this->name = $this->validateString($post['name']);
         $this->email = $this->validateEmail($post['email']);
         $this->number = $this->validateInt($post['number']);
         $this->password = $this->hashPassword($post['password']);
-        // $this->password = $post['password'];
-
 
         $this->id = uniqid('user_id_');
         $this->token = $this->generateToken();
@@ -56,6 +59,9 @@ class Auth
 
     public function verifyUser(array $post): bool
     {
+        if (empty($post['email'] || $post['password'])) {
+            header('Location: /auth/login');
+        }
         $this->email = $this->validateEmail($post['email']);
         $password = $_POST['password'];
 

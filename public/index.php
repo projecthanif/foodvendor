@@ -18,6 +18,7 @@ use App\Controller\Shop\CartController;
 session_start();
 
 include_once __DIR__ . "/../" . "/vendor/autoload.php";
+include_once '../helper.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
 $dotenv->load();
 
@@ -56,7 +57,8 @@ $route
     ->get('/admin/store',  [AdminController::class, 'storeView'])
     ->post('/admin/store/create',  [AdminController::class, 'createItem']);
 
-// session_destroy();
+session_destroy();
+
 
 (new App(
     $route,
@@ -66,17 +68,3 @@ $route
     ],
     $_ENV
 ))->run();
-
-
-function dd(...$var)
-{
-    echo "<pre>";
-    var_dump($var);
-    echo "</pre>";
-}
-
-function ddd(...$var)
-{
-    dd(...$var);
-    exit;
-}
