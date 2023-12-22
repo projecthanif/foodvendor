@@ -8,11 +8,6 @@
         <div class="nav-left">
             <li>
                 <a href="#" class="nav-item">
-                    <i class="fa fa-bell"></i>
-            </li>
-            </a>
-            <li>
-                <a href="#" class="nav-item">
                     <img src="../assets/img/bowl.png" alt="" class="avatar sm">
                 </a>
             </li>

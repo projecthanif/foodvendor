@@ -56,8 +56,7 @@ $route
     ->get('/admin/store',  [AdminController::class, 'storeView'])
     ->post('/admin/store/create',  [AdminController::class, 'createItem']);
 
-
-clearstatcache();
+// session_destroy();
 
 (new App(
     $route,

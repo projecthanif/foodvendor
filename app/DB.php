@@ -21,7 +21,7 @@ class DB
             echo $e->getMessage();
         }
     }
-    public function conn()
+    public function conn(): mysqli|bool
     {
         return $this->conn;
     }

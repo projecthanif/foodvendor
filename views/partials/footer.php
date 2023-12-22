@@ -71,7 +71,7 @@
       <a href="https://github.com/projecthanif/" target="_blank">projecthanif</a>
     </h6>
   </section>
-  <script src="assets/js/app.js"></script>
+  <script src="/assets/js/app.js"></script>
 </body>
 
 </html>

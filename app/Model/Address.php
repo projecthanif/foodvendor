@@ -26,7 +26,7 @@ class Address
         if ($stmt) {
             if ($stmt->num_rows === 1) {
                 $out = $stmt->fetch_assoc();
-    
+
                 $user_id = $out['id'];
                 $name = $out['name'];
                 $email = $out['email'];
@@ -36,7 +36,7 @@ class Address
                 $country = $out['country'];
                 $number = $out['number'];
                 if (empty($user_id)) return [];
-    
+
                 return [
                     'user_id' => $user_id,
                     'name' => $name,

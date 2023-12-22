@@ -15,6 +15,7 @@ class Admin
         }
         $this->conn = App::db();
     }
+    
     public function getCustomerList(): array
     {
         $query = "SELECT * FROM users";

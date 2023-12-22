@@ -11,11 +11,17 @@
                 <i class="fa-regular fa-user fa-2x"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="fa-regular fa-heart fa-2x"></i>
-            </a>
-        </li>
+        <?php
+        if (@$_SESSION['type'] === 'admin') :
+        ?>
+            <li class="nav-item">
+                <a href="/admin/dashboard" class="nav-link">
+                    <i class="fa-regular fa-heart fa-2x"></i>
+                </a>
+            </li>
+        <?php
+        endif;
+        ?>
         <li class="nav-item">
             <a href="/user/cart" class="nav-link">
                 <i class="fa fa-bag-shopping fa-2x"></i>
