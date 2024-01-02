@@ -3,9 +3,9 @@
 
 // sql to create user table
 $sql = "CREATE TABLE users (
-    id VARCHAR(255) NOT NULL,
+    user_id VARCHAR(255) NOT NULL UNIQUE,
     name VARCHAR(30) NOT NULL,
-    email VARCHAR(50),
+    email VARCHAR(50) UNIQUE,
     phone VARCHAR(50),
     is_verified VARCHAR(5) DEFAULT 'false',
     is_active VARCHAR(50) DEFAULT 'false',
@@ -70,7 +70,7 @@ $createOrderSQL = "CREATE TABLE order_items (
 
 
 $createAddressItemSql = "CREATE TABLE address (
-id VARCHAR(50) NOT NULL,
+user_id VARCHAR(50) NOT NULL,
 name VARCHAR(50) NOT NULL,
 email VARCHAR(50) NOT NULL,
 street_address VARCHAR(100) NOT NULL,

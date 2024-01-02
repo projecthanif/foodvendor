@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+define('VIEW_PATH', __DIR__ . '/../views');
 
 use App\App;
 use App\Controller\Admin\AdminController;
@@ -24,7 +25,7 @@ $dotenv->load();
 
 $route = new Router();
 
-
+// ddd($_SESSION);
 
 $route
     ->get('/', [IndexController::class, 'index'])
@@ -57,7 +58,7 @@ $route
     ->get('/admin/store',  [AdminController::class, 'storeView'])
     ->post('/admin/store/create',  [AdminController::class, 'createItem']);
 
-session_destroy();
+// session_destroy();
 
 
 (new App(

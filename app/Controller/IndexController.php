@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Controller;
+
+use App\View;
+
 class IndexController {
 
     public function index()
     {
-        require dirname(__DIR__) . "/../" . 'views/index.php';
+        View::view('index');
     }
 }

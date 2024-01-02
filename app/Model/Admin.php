@@ -11,7 +11,7 @@ class Admin
     public function __construct()
     {
         if ($_SESSION['type'] !== 'admin') {
-            // header("Location: /");
+            header("Location: /");
         }
         $this->conn = App::db();
     }
@@ -61,7 +61,7 @@ class Admin
         return $itemArray;
     }
 
-    public function createItem($file = [], $post = [])
+    public function createItem(array $file = [], array $post = [])
     {
         //$_FILES
         $result = self::files($file);

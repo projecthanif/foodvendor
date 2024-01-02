@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\App;
+use App\View;
 
 class Auth
 {
@@ -14,26 +15,17 @@ class Auth
     private string $token;
     private string $hash;
     private \mysqli $conn;
+
+
     public function __construct()
     {
         $this->conn = App::db();
     }
 
-    public function userRegister($post): bool
+    public function userRegister($post)
     {
-        if (empty($post['name'] || $post['email'] || $post['number'] || $post['password']))
-        {
-            header('Location: /auth/signup');
-            return false;
-        }
-        ddd($post);
-        $this->name = $this->validateString($post['name']);
-        $this->email = $this->validateEmail($post['email']);
-        $this->number = $this->validateInt($post['number']);
-        $this->password = $this->hashPassword($post['password']);
+        $this->validation($post);
 
-        $this->id = uniqid('user_id_');
-        $this->token = $this->generateToken();
         $result = $this->conn->prepare(
             "INSERT INTO users (
             user_id, 
@@ -53,8 +45,12 @@ class Auth
             $this->token,
             $this->password
         );
-
-        return $result->execute();
+        $bool = $result->execute();
+        if ($bool) {
+           return header("Location: /auth/login");
+        } else {
+            return header("Location: /auth/signup");
+        }
     }
 
     public function verifyUser(array $post): bool
@@ -62,32 +58,46 @@ class Auth
         if (empty($post['email'] || $post['password'])) {
             header('Location: /auth/login');
         }
+
         $this->email = $this->validateEmail($post['email']);
         $password = $_POST['password'];
 
         $stmt = $this->conn->query("SELECT * FROM users WHERE email='$this->email'");
 
-        dd($password);
         if (mysqli_num_rows($stmt) === 1) {
-
             $out = $stmt->fetch_assoc();
-            $this->hash = $out['user_password'];
-            // dd($this->hash);
 
+            $this->hash = $out['user_password'];
             $verify = $this->passVerify(password: $password, hash: $this->hash);
-            // ddd($verify);
 
             if ($verify) {
-                $_SESSION['type'] = $out['type'];
-                $_SESSION['name'] = $out['name'];
-                $_SESSION['id'] = $out['user_id'];
-                return $verify;
+                $this->setSession($out);
+                header('Location: /');
             } else {
                 sleep(3);
-                return $verify;
+                header('Location: /auth/login');
             }
         }
+
         return (bool) $stmt;
+    }
+
+    private function validation(array $post): bool
+    {
+        if (empty($post['name'] || $post['email']
+            || $post['number'] || $post['password'])) {
+            header('Location: /auth/signup');
+            return false;
+        }
+
+        $this->name = $this->validateString($post['name']);
+        $this->email = $this->validateEmail($post['email']);
+        $this->number = $this->validateInt($post['number']);
+        $this->password = $this->hashPassword($post['password']);
+        $this->id = uniqid('user_id_');
+        $this->token = $this->generateToken();
+
+        return true;
     }
 
     public function verifyEmail($email, $token)
@@ -136,14 +146,14 @@ class Auth
         return $this->number;
     }
 
-    private function hashPassword(string|int $password)
+    private function hashPassword(string|int $password): string
     {
         $this->password = $password;
         $this->hash = password_hash($this->password, PASSWORD_BCRYPT);
         return $this->hash;
     }
 
-    private function generateToken()
+    private function generateToken(): string
     {
         $token = openssl_random_pseudo_bytes(8);
 
@@ -151,11 +161,20 @@ class Auth
         $token = bin2hex($token);
         return $token;
     }
+
     private function passVerify($password, $hash): bool
     {
         $verify = password_verify(password: $password, hash: $hash);
         return $verify;
     }
+
+    private function setSession(array $sessionCredentail): void
+    {
+        $_SESSION['type'] = $sessionCredentail['type'];
+        $_SESSION['name'] = $sessionCredentail['name'];
+        $_SESSION['id'] = $sessionCredentail['user_id'];
+    }
+
     public function __destruct()
     {
         $this->conn->close();

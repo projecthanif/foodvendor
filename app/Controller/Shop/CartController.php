@@ -5,6 +5,8 @@ namespace App\Controller\Shop;
 use App\Model\Cart;
 
 
+//@TODO change this controller and make it a appropriate MODEL
+
 class CartController
 {
 

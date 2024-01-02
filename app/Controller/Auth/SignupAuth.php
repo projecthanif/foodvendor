@@ -3,6 +3,7 @@
 namespace App\Controller\Auth;
 
 use App\Model\Auth;
+use App\View;
 
 class SignupAuth extends Auth
 {
@@ -11,15 +12,11 @@ class SignupAuth extends Auth
         if (isset($_SESSION['name'])) {
             return header('Location: /');
         }
-        return require_once dirname(__DIR__) . '/../../' . '/views/validation/signup.php';
+        View::view('signup');
     }
 
     public function signup()
     {
-        $response = $this->userRegister(post: $_POST);
-
-        if ($response) {
-            header("Location: /auth/login");
-        }
+        $this->userRegister(post: $_POST);
     }
 }

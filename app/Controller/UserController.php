@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\App;
 use App\Model\Cart;
 use App\Model\Address;
+use App\View;
 
 class UserController
 {
@@ -17,14 +18,13 @@ class UserController
     }
     public function view()
     {
-        require dirname(__DIR__) . "/../" . 'views/user/user.php';
+        View::view('user');
     }
 
     public function address()
     {
         $user = (new Address())->getAddress();
-
-        require dirname(__DIR__) . "/../" . 'views/user/address.php';
+        require_once View::view('user/address');
     }
 
     public function cart()
@@ -36,8 +36,7 @@ class UserController
         $discount = $array[2];
         $subtotal = $total - $discount;
         $sumtotal = $subtotal;
-
-        require dirname(__DIR__) . "/../" . 'views/user/cart.php';
+        require_once View::view('user/cart');
     }
 
     public function payment()
