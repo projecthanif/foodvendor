@@ -9,6 +9,7 @@ use App\Router\Router;
 class App
 {
 
+    
     private static \mysqli|bool $conn;
 
     public function __construct(
