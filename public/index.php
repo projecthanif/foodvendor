@@ -4,6 +4,7 @@ declare(strict_types=1);
 global $route;
 
 use App\Core\App;
+use App\Config\Database;
 
 define('VIEW_PATH', __DIR__ . '\..\views\\');
 

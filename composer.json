@@ -5,7 +5,8 @@
   "autoload": {
     "psr-4": {
       "App\\": "app/",
-      "Route\\": "route/"
+      "Route\\": "route/",
+      "App\\Config\\": "app/config/"
     }
   },
   "authors": [
@@ -17,6 +18,7 @@
   "minimum-stability": "stable",
   "require": {
     "vlucas/phpdotenv": "^5.6",
-    "larapack/dd": "^1.1"
+    "larapack/dd": "^1.1",
+    "cycle/database": "^2.10"
   }
 }
