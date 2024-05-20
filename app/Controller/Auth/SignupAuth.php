@@ -12,7 +12,7 @@ class SignupAuth extends Auth
         if (isset($_SESSION['name'])) {
             return header('Location: /');
         }
-        View::view('signup');
+        return view('validation.signup');
     }
 
     public function signup()

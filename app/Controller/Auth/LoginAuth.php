@@ -12,12 +12,11 @@ class LoginAuth extends Auth
         if (isset($_SESSION['name'])) {
             return header('Location: /');
         }
-        View::view('login');
+        return view('validation.login');
     }
 
     public function login()
     {
         $this->verifyUser(post: $_POST);
     }
-
 }

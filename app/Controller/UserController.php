@@ -18,13 +18,13 @@ class UserController
     }
     public function view()
     {
-        View::view('user');
+        return view('user.user');
     }
 
     public function address()
     {
         $user = (new Address())->getAddress();
-        require_once View::view('user/address');
+        view('user.address');
     }
 
     public function cart()
@@ -36,7 +36,7 @@ class UserController
         $discount = $array[2];
         $subtotal = $total - $discount;
         $sumtotal = $subtotal;
-        require_once View::view('user/cart');
+        return view('user.cart');
     }
 
     public function payment()

@@ -4,15 +4,8 @@ namespace App\Model;
 
 use App\App;
 
-class Address
+class Address extends BaseModel
 {
-
-    private \mysqli | bool $conn;
-
-    public function __construct()
-    {
-        $this->conn = App::db();
-    }
 
     public function getAddress(): array
     {

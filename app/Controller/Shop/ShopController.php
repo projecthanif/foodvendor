@@ -11,7 +11,7 @@ class ShopController extends Shop
 
     public function index()
     {
-        $food = $this->fetchList();
-        require_once View::view('store');
+        // $food = $this->fetchList();
+        return view('shop');
     }
 }

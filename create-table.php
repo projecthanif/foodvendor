@@ -2,6 +2,9 @@
 
 
 // sql to create user table
+
+use App\DB;
+
 $sql = "CREATE TABLE users (
     user_id VARCHAR(255) NOT NULL UNIQUE,
     name VARCHAR(30) NOT NULL,
@@ -16,12 +19,12 @@ $sql = "CREATE TABLE users (
     type VARCHAR(10) DEFAULT 'customer'
     )";
 
-// $return = $create->createTable($sql);
-// if ($return === true) {
-//     echo "Table Created successfully <br />";
-// } else {
-//     echo "Table failed";
-// }
+$return = createTable($sql);
+if ($return === true) {
+    echo "Table Created successfully <br />";
+} else {
+    echo "Table failed";
+}
 
 // sql to create food_item table
 $createFoodItemSQL = "CREATE TABLE food_items (
@@ -38,13 +41,13 @@ $createFoodItemSQL = "CREATE TABLE food_items (
     PRIMARY KEY(id));
 )";
 
-// $return = $create->createTable($createFoodItemSQL);
+$return = createTable($createFoodItemSQL);
 
-// if ($return === true) {
-//     echo "Table Created successfully <br />";
-// } else {
-//     echo "Table failed";
-// }
+if ($return === true) {
+    echo "Table Created successfully <br />";
+} else {
+    echo "Table failed";
+}
 
 
 $createOrderSQL = "CREATE TABLE order_items (
@@ -60,13 +63,13 @@ $createOrderSQL = "CREATE TABLE order_items (
     PRIMARY KEY(id)
     )";
 
-// $return = $create->createTable($createOrderSQL);
+$return = createTable($createOrderSQL);
 
-// if ($return === true) {
-//     echo "Table Created successfully <br />";
-// } else {
-//     echo "Table failed";
-// }
+if ($return === true) {
+    echo "Table Created successfully <br />";
+} else {
+    echo "Table failed";
+}
 
 
 $createAddressItemSql = "CREATE TABLE address (
@@ -81,10 +84,19 @@ number VARCHAR(20) NOT NULL
 )";
 
 
-// $return = $create->createTable($createAddressItemSql);
+$return = createTable($createAddressItemSql);
 
-// if ($return === true) {
-//     echo "Table Created successfully <br />";
-// } else {
-//     echo "Table failed";
-// }
+if ($return === true) {
+    echo "Table Created successfully <br />";
+} else {
+    echo "Table failed";
+}
+
+
+function createTable(string $query)
+{
+    $db = new DB($_ENV);
+    $conn = $db->conn();
+
+    return $conn->query($query);
+}

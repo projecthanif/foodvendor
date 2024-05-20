@@ -4,18 +4,17 @@ namespace App\Model;
 
 use App\App;
 
-class Admin
+class Admin extends BaseModel
 {
-    private \mysqli|bool $conn;
 
     public function __construct()
     {
         if ($_SESSION['type'] !== 'admin') {
             header("Location: /");
         }
-        $this->conn = App::db();
+        parent::__construct();
     }
-    
+
     public function getCustomerList(): array
     {
         $query = "SELECT * FROM users";

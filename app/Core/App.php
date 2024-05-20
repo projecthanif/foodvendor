@@ -1,15 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Core;
 
 use App\Exception\RouteNotFoundException;
 use App\Router\Router;
+use App\Helpers\DB;
 
 
-class App
+final class App
 {
 
-    
     private static \mysqli|bool $conn;
 
     public function __construct(
@@ -17,7 +17,7 @@ class App
         protected array $request,
         protected array $config
     ) {
-        App::$conn = (new DB($config))->conn();
+        self::$conn = (new DB($config))->conn();
     }
 
     public function run()
@@ -34,6 +34,6 @@ class App
 
     public static function db()
     {
-        return App::$conn;
+        return self::$conn;
     }
 }

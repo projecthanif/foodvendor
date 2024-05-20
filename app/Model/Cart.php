@@ -4,15 +4,9 @@ namespace App\Model;
 
 use App\App;
 
-class Cart
+class Cart extends BaseModel
 {
 
-    private \mysqli|bool $conn;
-
-    public function __construct()
-    {
-        $this->conn = App::db();
-    }
     public function getCartItems(): array
     {
         $id = $_SESSION['id'];

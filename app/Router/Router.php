@@ -37,16 +37,20 @@ class Router
         }
 
         if (is_callable($action)) {
-            return call_user_func($action);
+
+            return $action();
         }
 
         if (is_array($action)) {
             [$class, $action] = $action;
 
             if (class_exists($class)) {
+
                 $class = new $class;
+
                 if (method_exists($class, $action)) {
                     http_response_code(200);
+
                     return call_user_func_array([$class, $action], []);
                 }
             }

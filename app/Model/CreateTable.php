@@ -4,15 +4,8 @@ namespace App\Model;
 
 use App\App;
 
-class CreateTable
+class CreateTable extends BaseModel
 {
-    private \mysqli|bool $conn;
-
-    public function __construct()
-    {
-        $this->conn = App::db();
-    }
-
     public function  createTable()
     {
         $createOrderItemSQL = "CREATE TABLE order_items (

@@ -1,15 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Helpers;
 
 use mysqli;
 
-class DB
+final class DB
 {
     private mysqli|bool  $conn;
 
     public function __construct(protected array $config)
     {
+
         try {
             $this->conn = new mysqli(
                 $config['DB_HOST'],
@@ -18,7 +19,7 @@ class DB
                 $config['DB_NAME']
             );
         } catch (\mysqli_sql_exception $e) {
-            echo $e->getMessage();
+            dd($e->getMessage());
         }
     }
     public function conn(): mysqli|bool

@@ -5,7 +5,7 @@ namespace App\Model;
 use App\App;
 use App\View;
 
-class Auth
+class Auth extends BaseModel
 {
     private string $name;
     private string $email;
@@ -14,13 +14,6 @@ class Auth
     private string $id;
     private string $token;
     private string $hash;
-    private \mysqli $conn;
-
-
-    public function __construct()
-    {
-        $this->conn = App::db();
-    }
 
     public function userRegister($post)
     {
@@ -47,7 +40,7 @@ class Auth
         );
         $bool = $result->execute();
         if ($bool) {
-           return header("Location: /auth/login");
+            return header("Location: /auth/login");
         } else {
             return header("Location: /auth/signup");
         }

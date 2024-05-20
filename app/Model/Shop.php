@@ -4,15 +4,12 @@ namespace App\Model;
 
 use App\App;
 
-class Shop
+class Shop extends BaseModel
 {
 
-    private \mysqli|bool $conn;
 
     public function fetchList(string $arg = null)
     {
-        $this->conn = App::db();
-
         $items = [];
 
         if ($arg !== null) {

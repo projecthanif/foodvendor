@@ -4,10 +4,11 @@ namespace App\Controller;
 
 use App\View;
 
-class IndexController {
+class IndexController
+{
 
     public function index()
     {
-        View::view('index');
+        return view('index');
     }
 }

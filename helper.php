@@ -1,14 +1,12 @@
 <?php
 
-function dd(...$var)
+function view(string $viewPath)
 {
-    echo "<pre>";
-    var_dump($var);
-    echo "</pre>";
-}
+    $viewPath = VIEW_PATH . str_replace(".", "/", $viewPath) . ".php";
 
-function ddd(...$var)
-{
-    dd(...$var);
-    exit;
+    if (file_exists($viewPath)) {
+        include_once  $viewPath;
+    } else {
+        dd($viewPath);
+    }
 }
