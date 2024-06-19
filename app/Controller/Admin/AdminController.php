@@ -24,7 +24,7 @@ class AdminController
         $item = $array["item"];
         $order = $array["order"];
 
-        require_once __DIR__ . "/../../../" . "/views/admin/dashboard.php";
+        return view("admin.dashboard");
     }
 
     public function customerView()
@@ -33,7 +33,7 @@ class AdminController
         $link = "Customer List";
 
         $users = $this->admin->getCustomerList();
-        require_once __DIR__ . "/../../../" . "/views/admin/customer.php";
+        return view('admin.customer');
     }
 
     public function orderView()
@@ -42,7 +42,7 @@ class AdminController
         $link = "Order List";
 
         $lists = $this->admin->getOrderList();
-        require_once __DIR__ . "/../../../" . "/views/admin/orders.php";
+        return view('admin.orders');
     }
 
     public function storeView()
@@ -51,7 +51,7 @@ class AdminController
         $link = "Item List";
 
         $items = $this->admin->getItemList();
-        require_once __DIR__ . "/../../../" . "/views/admin/store.php";
+        return view('admin.store');
     }
 
     public function createItem()
