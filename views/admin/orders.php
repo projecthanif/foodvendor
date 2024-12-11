@@ -17,8 +17,8 @@
         <tbody>
           <?php
           if (!empty($lists)) :
-            foreach ($lists as $list) :
-          ?>
+              foreach ($lists as $list) :
+                  ?>
               <tr>
                 <td><?= $list['useruniqid']?></td>
                 <td><?= $list['item_id'] ?></td>
@@ -39,9 +39,9 @@
                 <?php endif ?>
               </tr>
           <?php
-            endforeach;
-          endif;
-          ?>
+              endforeach;
+endif;
+?>
 
         </tbody>
 

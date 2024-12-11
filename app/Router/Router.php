@@ -33,7 +33,7 @@ class Router
 
         if (!$action) {
             http_response_code(404);
-            return throw new RouteNotFoundException;
+            return throw new RouteNotFoundException();
         }
 
         if (is_callable($action)) {
@@ -46,7 +46,7 @@ class Router
 
             if (class_exists($class)) {
 
-                $class = new $class;
+                $class = new $class();
 
                 if (method_exists($class, $action)) {
                     http_response_code(200);
@@ -56,6 +56,6 @@ class Router
             }
         }
         http_response_code(404);
-        return throw new RouteNotFoundException;
+        return throw new RouteNotFoundException();
     }
 }

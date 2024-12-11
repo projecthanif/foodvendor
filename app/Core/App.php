@@ -6,10 +6,8 @@ use App\Exception\RouteNotFoundException;
 use App\Router\Router;
 use App\Helpers\DB;
 
-
 final class App
 {
-
     private static \mysqli|bool $conn;
 
     public function __construct(

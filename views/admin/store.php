@@ -55,8 +55,8 @@
       <tbody>
         <?php
         if (!empty($items)) :
-          foreach ($items as $item) :
-        ?>
+            foreach ($items as $item) :
+                ?>
             <tr>
               <td><?= $item['id'] ?></td>
               <td><?= $item['name'] ?></td>
@@ -80,9 +80,9 @@
               </td>
             </tr>
         <?php
-          endforeach;
-        endif;
-        ?>
+            endforeach;
+endif;
+?>
       </tbody>
     </table>
   </section>

@@ -10,7 +10,6 @@ use App\Controller\Shop\CartController;
 use App\Controller\Shop\ShopController;
 use App\Controller\Admin\AdminController;
 
-
 $route = new Router();
 
 
@@ -40,8 +39,8 @@ $route
 
     // ADMIN SECTION
 
-    ->get('/admin/dashboard',  [AdminController::class, 'view'])
-    ->get('/admin/customer',  [AdminController::class, 'customerView'])
-    ->get('/admin/orders',  [AdminController::class, 'orderView'])
-    ->get('/admin/store',  [AdminController::class, 'storeView'])
-    ->post('/admin/store/create',  [AdminController::class, 'createItem']);
+    ->get('/admin/dashboard', [AdminController::class, 'view'])
+    ->get('/admin/customer', [AdminController::class, 'customerView'])
+    ->get('/admin/orders', [AdminController::class, 'orderView'])
+    ->get('/admin/store', [AdminController::class, 'storeView'])
+    ->post('/admin/store/create', [AdminController::class, 'createItem']);

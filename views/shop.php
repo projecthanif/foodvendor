@@ -41,18 +41,18 @@
           <!-- PHP -->
           <?php
           if (!empty($food)) :
-            foreach ($food as $item) :
-              $id = $item["id"];
-              $name = $item['name'];
-              $price = $item['price'];
-              $img_url = "uploads/" . $item['image_url'];
+              foreach ($food as $item) :
+                  $id = $item["id"];
+                  $name = $item['name'];
+                  $price = $item['price'];
+                  $img_url = "uploads/" . $item['image_url'];
 
-          ?>
+                  ?>
               <?php require(dirname(__DIR__) . '/' . 'views/partials/card.php') ?>
           <?php
-            endforeach;
+              endforeach;
           endif;
-          ?>
+?>
         </div>
       </section>
 </main>

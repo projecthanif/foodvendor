@@ -6,7 +6,6 @@ use App\App;
 
 class Cart extends BaseModel
 {
-
     public function getCartItems(): array
     {
         $id = $_SESSION['id'];
@@ -60,12 +59,15 @@ class Cart extends BaseModel
         );
 
         $stmt = $query->execute();
-        if ($stmt) return true;
-        else return false;
+        if ($stmt) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function deleteCartItem()
     {
-        
+
     }
 }

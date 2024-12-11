@@ -17,8 +17,8 @@
         <tbody>
           <?php
           if (!empty($users)) :
-            foreach ($users as $user) :
-          ?>
+              foreach ($users as $user) :
+                  ?>
               <tr>
                 <td><?= $user['user_id'] ?></td>
                 <td><?= $user['name'] ?></td>
@@ -27,9 +27,9 @@
                 <td><?= $user['type'] ?></td>
               </tr>
           <?php
-            endforeach;
+              endforeach;
           endif;
-          ?>
+?>
 
         </tbody>
       </table>

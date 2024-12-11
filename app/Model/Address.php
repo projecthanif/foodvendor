@@ -6,7 +6,6 @@ use App\App;
 
 class Address extends BaseModel
 {
-
     public function getAddress(): array
     {
 
@@ -28,7 +27,9 @@ class Address extends BaseModel
                 $city = $out['city'];
                 $country = $out['country'];
                 $number = $out['number'];
-                if (empty($user_id)) return [];
+                if (empty($user_id)) {
+                    return [];
+                }
 
                 return [
                     'user_id' => $user_id,

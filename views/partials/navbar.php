@@ -13,7 +13,7 @@
     </li>
     <?php
     if (@$_SESSION['type'] === 'admin') :
-    ?>
+        ?>
       <li class="nav-item">
         <a href="/admin/dashboard" class="nav-link">
           <i class="fa-regular fa-heart fa-2x"></i>
