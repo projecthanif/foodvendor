@@ -6,7 +6,6 @@ use App\App;
 
 class Admin extends BaseModel
 {
-
     public function __construct()
     {
         if ($_SESSION['type'] !== 'admin') {

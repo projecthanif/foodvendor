@@ -6,8 +6,6 @@ use App\App;
 
 class Shop extends BaseModel
 {
-
-
     public function fetchList(string $arg = null)
     {
         $items = [];

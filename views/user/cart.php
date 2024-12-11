@@ -29,7 +29,7 @@
                                     foreach ($lists as $list) :
                                         $name = $list['product_name'];
                                         $price = $list['price'];
-                                ?>
+                                        ?>
                                         <tr>
                                             <td><?= $name ?></td>
                                             <!-- <td>1</td> -->
@@ -39,7 +39,7 @@
                                 <?php
                                     endforeach;
                                 endif;
-                                ?>
+?>
                             </tbody>
                         </table>
                     </div>

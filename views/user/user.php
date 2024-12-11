@@ -14,8 +14,8 @@
         <section class="section body">
             <article class="user_info">
                 <div class="user">
-                    <h1 class="img"><?= strtoupper($_SESSION['name'][0])??'' ?></h1>
-                    <h3 class="user_name"> <?= $_SESSION['name']??'' ?> </h3>
+                    <h1 class="img"><?= strtoupper($_SESSION['name'][0]) ?? '' ?></h1>
+                    <h3 class="user_name"> <?= $_SESSION['name'] ?? '' ?> </h3>
                 </div>
             </article>
             <article class="order section">

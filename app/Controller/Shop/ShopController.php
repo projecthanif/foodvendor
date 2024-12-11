@@ -7,8 +7,6 @@ use App\View;
 
 class ShopController extends Shop
 {
-
-
     public function index()
     {
         // $food = $this->fetchList();

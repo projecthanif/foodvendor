@@ -1,9 +1,11 @@
 <?php
+
 session_start();
 require dirname(__FILE__) . "/../" . "connection/Connection.php";
 
 
 use Connection\Connection;
+
 function get_list($conn, $uniqid)
 {
 
@@ -20,7 +22,8 @@ function get_list($conn, $uniqid)
 }
 
 
-function get_user_info($conn, $sId) {
+function get_user_info($conn, $sId)
+{
     $query = $conn->query("SELECT * FROM users WHERE id = '{$sId}'");
 
     if (mysqli_num_rows($query) > 0) {

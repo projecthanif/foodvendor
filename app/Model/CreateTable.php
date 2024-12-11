@@ -6,7 +6,7 @@ use App\App;
 
 class CreateTable extends BaseModel
 {
-    public function  createTable()
+    public function createTable()
     {
         $createOrderItemSQL = "CREATE TABLE order_items (
             id VARCHAR(50) NOT NULL AUTO_INCREMENT,
